@@ -1,6 +1,6 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM AS builder
+FROM $BUILD_FROM AS builder-base
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
@@ -69,19 +69,22 @@ RUN apk update && apk add --no-cache \
 
 # Copy data for add-on
 
+COPY --from=builder-base /etc/services.d/sbfspot/run /
+COPY --from=builder-base /etc/services.d/sbfspot/finish /
+
 WORKDIR /usr/bin/sbfspot
 
-COPY --from=builder /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
-COPY --from=builder /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
-COPY --from=builder /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
-COPY --from=builder /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
+COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
+COPY --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
+COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 #RUN cp /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot \
 # && cp /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot \
 # && cp /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot \
 # && cp /tmp/SBFspot/TagList* /usr/bin/sbfspot
 
-RUN chmod a+x /etc/services.d/sbfspot/run /etc/services.d/sbfspot/finish /usr/bin/sbfspot/taillog.sh /usr/bin/sbfspot/generateConfig.sh /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/genEthernetConfig.sh /usr/bin/sbfspot/SBFspot /usr/bin/sbfspot/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspot.default.cfg /usr/bin/sbfspot/SBFspotUpload.default.cfg
+#RUN chmod a+x /etc/services.d/sbfspot/run /etc/services.d/sbfspot/finish /usr/bin/sbfspot/taillog.sh /usr/bin/sbfspot/generateConfig.sh /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/genEthernetConfig.sh /usr/bin/sbfspot/SBFspot /usr/bin/sbfspot/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspot.default.cfg /usr/bin/sbfspot/SBFspotUpload.default.cfg
  
 # --- install cron ---
 # set shell
