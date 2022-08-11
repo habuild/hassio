@@ -119,5 +119,3 @@ jobs:
           prettier_options: --write **/*.{json,js,md,yaml}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
- 
