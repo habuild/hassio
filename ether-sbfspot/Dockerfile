@@ -65,7 +65,7 @@ RUN apk update && apk add --no-cache \
     #tzdata=2022a-r0 
     #boost-date_time1.78 
 
-COPY rootfs /
+
 
 # Copy data for add-on
 
@@ -96,6 +96,8 @@ RUN echo '55 05 * * *       /usr/bin/sbfspot/SBFspot -v -sp0 -ad0 -am1 -ae1 -fin
 #RUN echo '@reboot sleep 60 && /usr/bin/sbfspot/SBFspotUploadDaemon -c /usr/bin/sbfspot/SBFspotUpload.cfg' >> /etc/crontabs/root
 # Log SBFspotUpload to HA logging window
 RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh > /dev/stdout' >> /etc/crontabs/root
+
+COPY rootfs /
 
 # Labels
 LABEL \
