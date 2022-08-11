@@ -68,11 +68,6 @@ RUN apk update && apk add --no-cache \
 
 
 # Copy data for add-on
-
-COPY --from=builder-base /etc/services.d/sbfspot/run /etc/services.d/sbfspot/run
-COPY --from=builder-base /etc/services.d/sbfspot/finish /etc/services.d/sbfspot/finish
-
-
 WORKDIR /usr/bin/sbfspot
 
 COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
@@ -82,13 +77,14 @@ COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 COPY --from=builder-base /usr/bin/sbfspot/*.* /
 
 
-
 #RUN cp /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot \
 # && cp /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot \
 # && cp /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot \
 # && cp /tmp/SBFspot/TagList* /usr/bin/sbfspot
 
-#RUN chmod a+x /etc/services.d/sbfspot/run /etc/services.d/sbfspot/finish /usr/bin/sbfspot/taillog.sh /usr/bin/sbfspot/generateConfig.sh /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/genEthernetConfig.sh /usr/bin/sbfspot/SBFspot /usr/bin/sbfspot/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspot.default.cfg /usr/bin/sbfspot/SBFspotUpload.default.cfg
+COPY rootfs /
+
+RUN chmod a+x /etc/services.d/sbfspot/run /etc/services.d/sbfspot/finish /usr/bin/sbfspot/taillog.sh /usr/bin/sbfspot/generateConfig.sh /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/genEthernetConfig.sh /usr/bin/sbfspot/SBFspot /usr/bin/sbfspot/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspot.default.cfg /usr/bin/sbfspot/SBFspotUpload.default.cfg
  
 # --- install cron ---
 # set shell
@@ -104,7 +100,7 @@ RUN echo '55 05 * * *       /usr/bin/sbfspot/SBFspot -v -sp0 -ad0 -am1 -ae1 -fin
 # Log SBFspotUpload to HA logging window
 RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh > /dev/stdout' >> /etc/crontabs/root
 
-COPY rootfs /
+
 
 # Labels
 LABEL \
