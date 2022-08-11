@@ -71,17 +71,17 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /usr/bin/sbfspot
 
-COPY --from=builder /tmp/SBFspot/mariadb/bin/SBFspot /tmp/SBFspot/mariadb/bin/SBFspot
-COPY --from=builder /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon
-COPY --from=builder /tmp/SBFspot/date_time_zonespec.csv /tmp/SBFspot/date_time_zonespec.csv
-COPY --from=builder /tmp/SBFspot/TagList* /tmp/SBFspot/
+COPY --from=builder /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
+COPY --from=builder /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
+COPY --from=builder /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
+COPY --from=builder /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
-RUN cp /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot \
- && cp /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot \
- && cp /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot \
- && cp /tmp/SBFspot/TagList* /usr/bin/sbfspot
+#RUN cp /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot \
+# && cp /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot \
+# && cp /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot \
+# && cp /tmp/SBFspot/TagList* /usr/bin/sbfspot
 
-RUN chmod a+x /etc/services.d/sbfspot/run /etc/services.d/sbfspot/finish /usr/bin/sbfspot/taillog.sh /usr/bin/sbfspot/generateConfig.sh /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/genEthernetConfig.sh /usr/bin/sbfspot/SBFspot /usr/bin/sbfspot/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspot.default.cfg /usr/bin/sbfspot/SBFspotUpload.default.cfg
+#RUN chmod a+x /etc/services.d/sbfspot/run /etc/services.d/sbfspot/finish /usr/bin/sbfspot/taillog.sh /usr/bin/sbfspot/generateConfig.sh /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/genEthernetConfig.sh /usr/bin/sbfspot/SBFspot /usr/bin/sbfspot/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspot.default.cfg /usr/bin/sbfspot/SBFspotUpload.default.cfg
  
 # --- install cron ---
 # set shell
