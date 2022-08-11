@@ -8,10 +8,15 @@
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2022.svg
 
-This [home assistant](https://www.home-assistant.io/getting-started/) add-on provides the installation, configuration, and integration for the **Bluetooth** version of [sbfspot 3.9.5](https://github.com/SBFspot/SBFspot/releases/latest). This version is for the OS installation method of Home assistant.
+This [home assistant](https://www.home-assistant.io/getting-started/) add-on provides a wrapper for the **Bluetooth** version of [SBFspot 3.9.5](https://github.com/SBFspot/SBFspot/releases/latest).
 
-This add-on installs a cron service for SPFspot uploader at 5 minutely daytime interval, [PVoutput](https://pvoutput.org/) account and API are required, it also requires an SQL database like Mariadb.
-It also sends a MQTT message to home assistant, therefore a MQTT broker is required.
+This add-on runs a crontab service for SBFspot and SPFspotUploader at 5 minutely daytime interval.
+
+[PVoutput](https://pvoutput.org/) account and API are required to use the upload feature.
+
+[Mariadb addon](https://github.com/home-assistant/addons/tree/master/mariadb) or similiar SQL database, is needed to store the data for upload to PVOutput.
+
+[MQTT broker](https://github.com/home-assistant/addons/tree/master/mosquitto) is needed to send MQTT messages to home Assistant.
 
 ## Installation
 
