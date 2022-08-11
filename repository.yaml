@@ -1,0 +1,5 @@
+---
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: SBFspot for HA
+url: "https://github.com/habuild/sbfspot_addon"
+maintainer: HasQT <https://community.home-assistant.io/u/hasqt>
