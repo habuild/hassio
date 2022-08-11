@@ -69,8 +69,9 @@ RUN apk update && apk add --no-cache \
 
 # Copy data for add-on
 
-COPY --from=builder-base /etc/services.d/sbfspot/run /
-COPY --from=builder-base /etc/services.d/sbfspot/finish /
+COPY --from=builder-base /etc/services.d/sbfspot/run /etc/services.d/sbfspot/run
+COPY --from=builder-base /etc/services.d/sbfspot/finish /etc/services.d/sbfspot/finish
+
 
 WORKDIR /usr/bin/sbfspot
 
@@ -78,6 +79,9 @@ COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFsp
 COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
 COPY --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
 COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+COPY --from=builder-base /usr/bin/sbfspot/*.* /
+
+
 
 #RUN cp /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot \
 # && cp /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot \
