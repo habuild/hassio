@@ -9,6 +9,7 @@ RUN \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
 ENV LANG C.UTF-8
+ENV CSV_Export 0
 #ENV MQTT_ENABLE 1
 
 # Copy root filesystem
