@@ -18,37 +18,55 @@ services:
   - mysql:need
   - mqtt:want
 options:
-  Connection_Type: "Bluetooth"
-  BTAddress: "00:00:00:00:00:00"
-  Password: "0000"
-  LocalBTAddress: "00:00:00:00:00:00"
-  IP_Address: "255:255:255:255"
+  BTAddress: 'null'
+  Password: '0000'
+  LocalBTAddress: '00:00:00:00:00:00'
+  IP_Address: '255.255.255.255'
+  MIS_Enabled: 0
   Plantname: MyPlant
-  Latitude: "null"
-  Longitude: "null"
-  Timezone: "Europe/Brussels"
-  DateTimeFormat: "%d/%m/%Y %H:%M:%S"
-  DateFormat: "%d/%m/%Y"
-  DecimalPoint: "comma"
-  TimeFormat: "%H:%M:%S"
-  Locale: "en-US"
-  SQL_Database: "null"
-  SQL_Hostname: "core-mariadb"
-  SQL_Port: "3306"
-  SQL_Username: "null"
-  SQL_Password: "null"
-  MQTT_Host: "core-mosquitto"
-  MQTT_Port: "1883"
-  MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
+  OutputPath: /data/sbfspot/%Y
+  OutputPathEvents: /data/sbfspot/%Y/events
+  Latitude: 'null'
+  Longitude: 'null'
+  CalculateMissingSpotValues: 1
+  DateTimeFormat: '%d/%m/%Y %H:%M:%S'
+  DateFormat: '%d/%m/%Y'
+  DecimalPoint: comma
+  TimeFormat: '%H:%M:%S'
+  SynchTime: 0
+  SynchTimeLow: 1
+  SynchTimeHigh: 3600
+  SunRSOffset: 900
+  Locale: en-US
+  Timezone: Europe/Brussels
+  BTConnectRetries: 10
+  CSV_Export: 0
+  CSV_ExtendedHeader: 1
+  CSV_Header: 1
+  CSV_SaveZeroPower: 1
+  CSV_Delimiter: semicolon
+  CSV_Spot_TimeSource: Inverter
+  CSV_Spot_WebboxHeader: 0
+  SQL_Database: 'null'
+  SQL_Hostname: core-mariadb
+  SQL_Port: '3306'
+  SQL_Username: 'null'
+  SQL_Password: null
+  MQTT_Publisher: /usr/bin/mosquitto_pub
+  MQTT_Host: core-mosquitto
+  MQTT_Port: 'null'
+  MQTT_Topic: 'homeassistant/sbfspot_{plantname}/sbfspot_{serial}'
   MQTT_ItemFormat: '"{key}": {value}'
-  MQTT_ItemDelimiter: "comma"
-  # yamllint disable-line rule:line-length
-  MQTT_PublisherArgs: -h {host} -u MQTT_Username -P MQTT_Pass -t {topic} -m "{{message}}" -d
-  # yamllint disable-line rule:line-length
-  MQTT_Data: Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
-  PVoutput_SID: "yourSID0123456789:12345"
-  PVoutput_Key: "fake9364fkae4545fake834fake"
-  LogLevel: "info"
+  MQTT_ItemDelimiter: comma
+  MQTT_PublisherArgs: >-
+    -h {host} -u {MQTT_Username} -P {MQTT_Password} -t {topic} -m "{{message}}"
+    -d
+  MQTT_Data: >-
+    Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
+  LogDir: /data/sbfspot/log/
+  LogLevel: info
+  PVoutput_SID: 0123456789:12345'
+  PVoutput_Key: null
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   BTAddress: "str"
