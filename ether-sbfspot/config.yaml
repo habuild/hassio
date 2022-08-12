@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-101
+version: dev-102
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -23,7 +23,6 @@ options:
   LocalBTAddress: "00:00:00:00:00:00"
   IP_Address: "255:255:255:255"
   Plantname: MyPlant
-  MIS_Enabled: "0"
   Latitude: "null"
   Longitude: "null"
   Timezone: "Europe/Brussels"
@@ -31,19 +30,12 @@ options:
   DateFormat: "%d/%m/%Y"
   DecimalPoint: "comma"
   TimeFormat: "%H:%M:%S"
-  SynchTime: "0"
-  SynchTimeLow: "1"
-  SynchTimeHigh: "3600"
-  SunRSOffset: "900"
   Locale: "en-US"
-  CalculateMissingSpotValues: "1"
-  BTConnectRetries: "10"
   SQL_Database: "null"
   SQL_Hostname: "core-mariadb"
   SQL_Port: "3306"
   SQL_Username: "null"
   SQL_Password: "null"
-  MQTT_Publisher: "/usr/bin/mosquitto_pub"
   MQTT_Host: "core-mosquitto"
   MQTT_Port: "1883"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
@@ -55,7 +47,6 @@ options:
   MQTT_Data: Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
   PVoutput_SID: "yourSID0123456789:12345"
   PVoutput_Key: "fake9364fkae4545fake834fake"
-  LogDir: "/data/sbfspot/log/"
   LogLevel: "info"
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
@@ -64,7 +55,7 @@ schema:
   LocalBTAddress: "str"
   IP_Address: "str"
   Plantname: "str"
-  MIS_Enabled: "int"
+  MIS_Enabled: "int?"
   OutputPath: "str?"
   OutputPathEvents: "str?"
   Latitude: "float"
@@ -74,13 +65,13 @@ schema:
   DateFormat: "str"
   DecimalPoint: "str"
   TimeFormat: "str"
-  SynchTime: "int"
-  SynchTimeLow: "int"
-  SynchTimeHigh: "int"
-  SunRSOffset: "int"
+  SynchTime: "int?"
+  SynchTimeLow: "int?"
+  SynchTimeHigh: "int?"
+  SunRSOffset: "int?"
   Locale: "str"
-  CalculateMissingSpotValues: "int"
-  BTConnectRetries: "int"
+  CalculateMissingSpotValues: "int?"
+  BTConnectRetries: "int?"
   CSV_Export: "int?"
   CSV_ExtendedHeader: "int?"
   CSV_Header: "int?"
@@ -93,7 +84,7 @@ schema:
   SQL_Port: "str?"
   SQL_Username: "str?"
   SQL_Password: "str?"
-  MQTT_Publisher: "str"
+  MQTT_Publisher: "str?"
   MQTT_Host: "str"
   MQTT_Port: "str"
   MQTT_Topic: "str"
