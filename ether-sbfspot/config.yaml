@@ -89,7 +89,7 @@ schema:
   Path:
     - OutputPath: "str?"
     - OutputPathEvents: "str?"
-  Location_&_Time:  
+  Location_&_Time:
     - Latitude: "float"
     - Longitude: "float"
     - Timezone: "str"
