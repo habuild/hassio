@@ -19,14 +19,18 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
+  [
   BTAddress: "00:00:00:00:00:00"
   Password: "0000"
   LocalBTAddress: "00:00:00:00:00:00"
   IP_Address: "255:255:255:255"
   Plantname: MyPlant
+  ],
   MIS_Enabled: "0"
+  [
   OutputPath: "/data/sbfspot/%Y"
   OutputPathEvents: "/data/sbfspot/%Y/events"
+  ],
   Latitude: "null"
   Longitude: "null"
   Timezone: "Europe/Brussels"
@@ -70,14 +74,18 @@ options:
   LogLevel: "info"
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
-  BTAddress: "str?"
-  Password: "str?"
-  LocalBTAddress: "str?"
-  IP_Address: "str?"
+  [
+  BTAddress: "str"
+  Password: "str"
+  LocalBTAddress: "str"
+  IP_Address: "str"
   Plantname: "str"
-  MIS_Enabled: "int?"
-  OutputPath: "str?"
-  OutputPathEvents: "str?"
+  ],
+  MIS_Enabled: "int"
+  [
+  OutputPath: "str"
+  OutputPathEvents: "str"
+  ],
   Latitude: "float"
   Longitude: "float"
   Timezone: "str"
