@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-109
+version: dev-100
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -62,7 +62,6 @@ options:
   MQTT_PublisherArgs: -h {host} -u MQTT_Username -P MQTT_Pass -t {topic} -m "{{message}}" -d
   # yamllint disable-line rule:line-length
   MQTT_Data: Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
-  MQTT_ENABLE: "1"
   PVoutput_SID: "yourSID0123456789:12345"
   PVoutput_Key: "fake9364fkae4545fake834fake"
   LogDir: "/data/sbfspot/log/"
@@ -111,11 +110,10 @@ schema:
   MQTT_ItemDelimiter: str
   MQTT_PublisherArgs: str
   MQTT_Data: "str"
-  MQTT_ENABLE: "int"
   PVoutput_SID: "str"
   PVoutput_Key: "str"
   LogDir: "str?"
-  LogLevel: list(debug|info|warning|error)
+  LogLevel: "str"
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
