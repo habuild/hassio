@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-106
+version: dev-108
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -13,7 +13,6 @@ arch:
 init: false
 homeassistant_api: true
 panel_icon: mdi:solar-power-variant
-
 services:
   - mysql:need
   - mqtt:want
@@ -116,7 +115,7 @@ schema:
   PVoutput_SID: "str"
   PVoutput_Key: "str"
   LogDir: "str?"
-  LogLevel: "str?"
+  LogLevel: list(debug|info|warning|error)?
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
