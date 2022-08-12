@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-100
+version: dev-101
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -24,8 +24,6 @@ options:
   IP_Address: "255:255:255:255"
   Plantname: MyPlant
   MIS_Enabled: "0"
-  OutputPath: "/data/sbfspot/%Y"
-  OutputPathEvents: "/data/sbfspot/%Y/events"
   Latitude: "null"
   Longitude: "null"
   Timezone: "Europe/Brussels"
@@ -40,7 +38,6 @@ options:
   Locale: "en-US"
   CalculateMissingSpotValues: "1"
   BTConnectRetries: "10"
-
   SQL_Database: "null"
   SQL_Hostname: "core-mariadb"
   SQL_Port: "3306"
@@ -68,8 +65,8 @@ schema:
   IP_Address: "str"
   Plantname: "str"
   MIS_Enabled: "int"
-  OutputPath: "str"
-  OutputPathEvents: "str"
+  OutputPath: "str?"
+  OutputPathEvents: "str?"
   Latitude: "float"
   Longitude: "float"
   Timezone: "str"
