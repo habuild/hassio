@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-103
+version: dev-105
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -19,14 +19,18 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
+  
   BTAddress: "00:00:00:00:00:00"
   Password: "0000"
   LocalBTAddress: "00:00:00:00:00:00"
   IP_Address: "255:255:255:255"
   Plantname: MyPlant
+  
   MIS_Enabled: "0"
+  
   OutputPath: "/data/sbfspot/%Y"
   OutputPathEvents: "/data/sbfspot/%Y/events"
+  
   Latitude: "null"
   Longitude: "null"
   Timezone: "Europe/Brussels"
@@ -34,13 +38,16 @@ options:
   DateFormat: "%d/%m/%Y"
   DecimalPoint: "comma"
   TimeFormat: "%H:%M:%S"
+  
   SynchTime: "0"
   SynchTimeLow: "1"
   SynchTimeHigh: "3600"
   SunRSOffset: "900"
   Locale: "en-US"
   CalculateMissingSpotValues: "1"
+  
   BTConnectRetries: "10"
+  
   CSV_Export: "0"
   CSV_ExtendedHeader: "1"
   CSV_Header: "1"
@@ -70,14 +77,18 @@ options:
   LogLevel: "info"
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
+  
   BTAddress: "str"
   Password: "str"
   LocalBTAddress: "str"
   IP_Address: "str"
   Plantname: "str"
+  
   MIS_Enabled: "int"
+  
   OutputPath: "str"
   OutputPathEvents: "str"
+  
   Latitude: "float"
   Longitude: "float"
   Timezone: "str"
@@ -85,13 +96,16 @@ schema:
   DateFormat: "str"
   DecimalPoint: "str"
   TimeFormat: "str"
+  
   SynchTime: "int"
   SynchTimeLow: "int"
   SynchTimeHigh: "int"
   SunRSOffset: "int"
   Locale: "str"
   CalculateMissingSpotValues: "int"
+  
   BTConnectRetries: "int"
+  
   CSV_Export: "int?"
   CSV_ExtendedHeader: "int?"
   CSV_Header: "int?"
