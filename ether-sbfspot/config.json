@@ -5,19 +5,11 @@
   "description": "Manage SBFspot with a simple interface",
   "url": "https://github.com/habuild/hassio/tree/main/ether-sbfspot",
   "stage": "experimental",
-  "arch": [
-    "armhf",
-    "armv7",
-    "aarch64",
-    "amd64"
-  ],
+  "arch": ["armhf", "armv7", "aarch64", "amd64"],
   "init": false,
   "homeassistant_api": true,
   "panel_icon": "mdi:solar-power-variant",
-  "services": [
-    "mysql:need",
-    "mqtt:want"
-  ],
+  "services": ["mysql:need", "mqtt:want"],
   "options": {
     "Connection_Type": "Bluetooth",
     "Connection": [
