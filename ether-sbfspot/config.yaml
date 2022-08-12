@@ -66,9 +66,9 @@ options:
       MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
       MQTT_ItemFormat: '"{key}": {value}'
       MQTT_ItemDelimiter: "comma"
-    # yamllint disable-line rule:line-length
+      # yamllint disable-line rule:line-length
       MQTT_PublisherArgs: -h {host} -u MQTT_Username -P MQTT_Pass -t {topic} -m "{{message}}" -d
-    # yamllint disable-line rule:line-length
+      # yamllint disable-line rule:line-length
       MQTT_Data: Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
       MQTT_ENABLE: "1"
   PVOutput:
@@ -89,7 +89,7 @@ schema:
   Path:
     - OutputPath: "str?"
       OutputPathEvents: "str?"
-  Location_&_Time:  
+  Location_&_Time:
     - Latitude: "float"
       Longitude: "float"
       Timezone: "str"
