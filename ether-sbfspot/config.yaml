@@ -20,12 +20,12 @@ services:
 options:
   Connection_Type: "Bluetooth"
   Connection:
-    BTAddress: "00:00:00:00:00:00"
-    Password: "0000"
-    LocalBTAddress: "00:00:00:00:00:00"
-    IP_Address: "255:255:255:255"
-    Plantname: MyPlant
-    BTConnectRetries: "10"
+    BTAddress: "00:00:00:00:00:00";
+    Password: "0000";
+    LocalBTAddress: "00:00:00:00:00:00";
+    IP_Address: "255:255:255:255";
+    Plantname: MyPlant;
+    BTConnectRetries: "10";
   MIS_Enabled: "0"
   Path:
     OutputPath: "/data/sbfspot/%Y"
@@ -79,13 +79,13 @@ options:
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   Connection:
-    BTAddress: "str?"
-    Password: "str?"
-    LocalBTAddress: "str?"
-    IP_Address: "str?"
-    Plantname: "str"
-    BTConnectRetries: "int"
-  MIS_Enabled: "int?"
+    BTAddress: "str?";
+    Password: "str?";
+    LocalBTAddress: "str?";
+    IP_Address: "str?";
+    Plantname: "str";
+    BTConnectRetries: "int";
+  MIS_Enabled: "int?";
   Path:
     OutputPath: "str?"
     OutputPathEvents: "str?"
