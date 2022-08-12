@@ -8,22 +8,6 @@ RUN \
     curl -sSLf -o /usr/bin/tempio \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
-#set default values for options that shouldn't really be changed
-ENV LANG C.UTF-8
-ENV MIS_Enabled 0
-ENV CalculateMissingSpotValues 1
-ENV OutputPath /data/sbfspot/%Y
-ENV OutputPathEvents /data/sbfspot/%Y/events
-ENV SynchTime 0
-ENV SynchTimeLow 1
-ENV SynchTimeHigh 3600
-ENV SunRSOffset 900
-ENV BTConnectRetries 10
-ENV CSV_Export 0 
-ENV MQTT_Publisher /usr/bin/mosquitto_pub
-ENV LogDir /data/sbfspot/log/
-#ENV MQTT_ENABLE 1
-
 # Copy root filesystem
 COPY rootfs /
 # Set shell
@@ -62,6 +46,22 @@ RUN \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+#set default values for options that shouldn't really be changed
+ENV LANG C.UTF-8
+ENV MIS_Enabled 0
+ENV CalculateMissingSpotValues 1
+ENV OutputPath /data/sbfspot/%Y
+ENV OutputPathEvents /data/sbfspot/%Y/events
+ENV SynchTime 0
+ENV SynchTimeLow 1
+ENV SynchTimeHigh 3600
+ENV SunRSOffset 900
+ENV BTConnectRetries 10
+ENV CSV_Export 0 
+ENV MQTT_Publisher /usr/bin/mosquitto_pub
+ENV LogDir /data/sbfspot/log/
+#ENV MQTT_ENABLE 1
 
 RUN apk update && apk add --no-cache \
     bluez=5.65-r0 \
