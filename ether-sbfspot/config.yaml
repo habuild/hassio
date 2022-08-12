@@ -13,7 +13,6 @@ arch:
 init: false
 homeassistant_api: true
 panel_icon: mdi:solar-power-variant
-ingress: false
 services:
   - mysql:need
   - mqtt:want
