@@ -1,25 +1,45 @@
 {
   "name": "ETHER-SBFspot",
-  "version": "dev-105",
+  "version": "dev-106",
   "slug": "ether-sbfspot",
   "description": "Manage SBFspot with a simple interface",
   "url": "https://github.com/habuild/hassio/tree/main/ether-sbfspot",
   "stage": "experimental",
-  "arch": ["armhf", "armv7", "aarch64", "amd64"],
+  "arch": [
+    "armhf",
+    "armv7",
+    "aarch64",
+    "amd64"
+  ],
   "init": false,
   "homeassistant_api": true,
   "panel_icon": "mdi:solar-power-variant",
-  "services": ["mysql:need", "mqtt:want"],
+  "services": [
+    "mysql:need",
+    "mqtt:want"
+  ],
   "options": {
     "Connection_Type": "Bluetooth",
-    "Connection": {
-      "BTAddress": "00:00:00:00:00:00",
-      "Password": "0000",
-      "LocalBTAddress": "00:00:00:00:00:00",
-      "IP_Address": "255:255:255:255",
-      "Plantname": "MyPlant",
-      "BTConnectRetries": "10"
-    },
+    "Connection": [
+      {
+        "BTAddress": "00:00:00:00:00:00"
+      },
+      {
+        "Password": "0000"
+      },
+      {
+        "LocalBTAddress": "00:00:00:00:00:00"
+      },
+      {
+        "IP_Address": "255:255:255:255"
+      },
+      {
+        "Plantname": "MyPlant"
+      },
+      {
+        "BTConnectRetries": "10"
+      }
+    ],
     "MIS_Enabled": "0",
     "Path": {
       "OutputPath": "/data/sbfspot/%Y",
@@ -78,14 +98,26 @@
   },
   "schema": {
     "Connection_Type": "list(Bluetooth|Ethernet)?",
-    "Connection": {
-      "BTAddress": "str?",
-      "Password": "str?",
-      "LocalBTAddress": "str?",
-      "IP_Address": "str?",
-      "Plantname": "str",
-      "BTConnectRetries": "int"
-    },
+    "Connection": [
+      {
+        "BTAddress": "str?"
+      },
+      {
+        "Password": "str?"
+      },
+      {
+        "LocalBTAddress": "str?"
+      },
+      {
+        "IP_Address": "str?"
+      },
+      {
+        "Plantname": "str"
+      },
+      {
+        "BTConnectRetries": "int"
+      }
+    ],
     "MIS_Enabled": "int?",
     "Path": {
       "OutputPath": "str?",
