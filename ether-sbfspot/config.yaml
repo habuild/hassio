@@ -1,14 +1,11 @@
 ---
 name: ETHER-SBFspot
-version: dev-106
+version: dev-107
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
 stage: experimental
 arch:
-  - armhf
-  - armv7
-  - aarch64
   - amd64
 init: false
 homeassistant_api: true
