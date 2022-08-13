@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-104
+version: dev-105
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -18,7 +18,7 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
-  BTAddress: "null"
+  BTAddress: ""
   Password: "0000"
   LocalBTAddress: "00:00:00:00:00:00"
   IP_Address: "255.255.255.255"
@@ -51,15 +51,15 @@ options:
   SQL_Hostname: core-mariadb
   SQL_Port: "3306"
   SQL_Username: "sbfspot"
-  SQL_Password: null
+  SQL_Password: 
   MQTT_Publisher: /usr/bin/mosquitto_pub
   MQTT_Host: core-mosquitto
-  MQTT_Port: "null"
+  MQTT_Port: "1883"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
   MQTT_ItemFormat: '"{key}": {value}'
   MQTT_ItemDelimiter: comma
   MQTT_PublisherArgs: >-
-    -h {host} -u {MQTT_Username} -P {MQTT_Password} -t {topic} -m "{{message}}" -d
+    -h {host} -u MQTT_Username -P MQTT_Password -t {topic} -m "{{message}}" -d
   MQTT_Data: >-
     Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
   PVoutput_SID: "0123456789:12345"
