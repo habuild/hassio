@@ -51,7 +51,7 @@ options:
   SQL_Hostname: core-mariadb
   SQL_Port: "3306"
   SQL_Username: "sbfspot"
-  SQL_Password:
+  SQL_Password: ""
   MQTT_Publisher: /usr/bin/mosquitto_pub
   MQTT_Host: core-mosquitto
   MQTT_Port: "1883"
