@@ -95,7 +95,7 @@ cat > "$CFG_PATH" <<EOL
 IP_Address=$CONFIG_IP_ADDRESS
 
 # User password (default 0000)
-# Password=$CONFIG_PASSWORD
+Password=$CONFIG_PASSWORD
 
 # MIS_Enabled (Multi Inverter Support: Default=0 Disabled)
 # +------------+-------+-------------+
