@@ -29,7 +29,7 @@ bashio::log.info ${__BASHIO_COLORS_BLUE} "${message:="Hello World..."}"
 bashio::log.info
 
 #set -x
-value=="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
+value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
 if  bashio::var.equals "${value}" "Bluetooth"; then
     /usr/bin/sbfspot/genBluetoothConfig.sh /usr/bin/sbfspot/SBFspot.cfg /usr/bin/sbfspot/SBFspotUpload.cfg
     bashio::log.info
