@@ -11,7 +11,7 @@ init: false
 homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 services:
-  - mysql:need
+  - mysql:want
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
