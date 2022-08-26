@@ -64,7 +64,7 @@ mosquitto_sub -h $MQTT_Host -u $MQTT_User -P $MQTT_Pass -v -t /"$(bashio::addon.
 #  /usr/bin/mosquitto_pub -h core-mosquitto -u "$MQTT_User" -P "$MQTT_pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_2100443252"$value"/config -m '{ "name": "SMA Inverter Nom", "state_topic": "homeassistant/sbfspot_HasSMA5000TL-20/sbfspot_2100443252", "value_template": "{{ value_json.InvName }}", "unique_id": "2100443252_{$value}", "device": { "identifiers": ["sbfspot_HasSMA5000TL-20/sbfspot_2100443252/"], "name": "SMA ", "model": "SMA5000", "manufacturer": "SMA", "sw_version": "1.X" } }' -d
 
 if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
-   value=InvName
+   value=$InvName
    /usr/bin/mosquitto_pub -h core-mosquitto -u "$MQTT_User" -P "$MQTT_pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m '{ "name": "SMA Inverter Nom", "state_topic": "homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"", "value_template": "{{ value_json.InvName }}", "unique_id": ""$InvSerial"_{$value}", "icon":"mdi:flash", "device": { "identifiers": ["sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"/"], "name": "HAOS-SBFspot", "model": "$InvType", "manufacturer": "SMA", "sw_version": "InvSwVer" } }' -d
 fi
 
