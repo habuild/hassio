@@ -20,4 +20,4 @@ echo 'MQTT_Topic`
 
 #  InvName delete
 #  -h {host} -u {MQTT_User} -P {MQTT_Pass} -t {topic} -m
-/usr/bin/mosquitto_pub '(-h {host} -u {MQTT_User} -P {MQTT_Pass} -t homeassistant/sensor/sbfspot_HasSMA5000TL-20/sbfspot_2100443252InvName/config -m "" -d)'
+/usr/bin/mosquitto_pub '-h {$MQTT_Host} -u {$MQTT_User} -P {$MQTT_Pass} -t homeassistant/sensor/sbfspot_HasSMA5000TL-20/sbfspot_2100443252InvName/config -m "" -d'
