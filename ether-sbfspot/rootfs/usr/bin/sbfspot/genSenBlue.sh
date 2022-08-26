@@ -1,10 +1,9 @@
 #!/usr/bin/with-contenv bashio
 
-# export CFG_PATH
-# export CFG_PATH_UPLOAD
-CFG_PATH=$1
-
+CFG_PATH=/usr/bin/sbfspot/SetConfig.cfg
 CONFIG_PATH=/data/options.json
+MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
+MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 
 # CONFIG_CONNECTION_TYPE="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
 CONFIG_BTADDRESS="$(jq --raw-output '.BTAddress' $CONFIG_PATH)"
@@ -28,7 +27,7 @@ CONFIG_SUNRSOFFSET="$(jq --raw-output '.SunRSOffset' $CONFIG_PATH)"
 CONFIG_LOCALE="$(jq --raw-output '.Locale' $CONFIG_PATH)"
 CONFIG_TIMEZONE="$(jq --raw-output '.Timezone' $CONFIG_PATH)"
 CONFIG_BTCONNECTRETRIES="$(jq --raw-output '.BTConnectRetries' $CONFIG_PATH)"
-CONFIG_CSV_EXPORT="$(jq --raw-output '.CSV_Export' $CONFIG_PATH)"
+# CONFIG_CSV_EXPORT="$(jq --raw-output '.CSV_Export' $CONFIG_PATH)"
 CONFIG_CSV_EXTENDEDHEADER="$(jq --raw-output '.CSV_ExtendedHeader' $CONFIG_PATH)"
 CONFIG_CSV_HEADER="$(jq --raw-output '.CSV_Header' $CONFIG_PATH)"
 CONFIG_CSV_SAVEZEROPOWER="$(jq --raw-output '.CSV_SaveZeroPower' $CONFIG_PATH)"
@@ -48,7 +47,6 @@ CONFIG_MQTT_PASS="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMFORMAT="$(jq --raw-output '.MQTT_ItemFormat' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMDELIMITER="$(jq --raw-output '.MQTT_ItemDelimiter' $CONFIG_PATH)"
-CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
 
 
 cat > "$CFG_PATH" <<EOL
@@ -181,7 +179,7 @@ BTConnectRetries=$CONFIG_BTCONNECTRETRIES
 
 # CSV_Export (default 1 = Enabled)
 # Enables or disables the CSV Export functionality
-CSV_Export=$CONFIG_CSV_EXPORT
+CSV_Export=0
 
 # CSV_ExtendedHeader (default 1 = On)
 # Enables or disables the SMA extended header info (8 lines)
@@ -243,9 +241,6 @@ MQTT_Pass=$CONFIG_MQTT_PASS
 MQTT_Topic=$CONFIG_MQTT_TOPIC
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
-MQTT_PublisherArgs=$CONFIG_MQTT_PUBLISHERARGS
+MQTT_PublisherArgs=-h {host} -u "$MQTT_User" -P "$MQTT_Pass" -t {topic} -m "{{message}}" -d
 MQTT_Data=MQTT_Data=InvSerial,InvName,InvClass,InvType,InvSwVer
 EOL
-
-
-
