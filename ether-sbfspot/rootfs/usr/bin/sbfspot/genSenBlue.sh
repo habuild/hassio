@@ -49,7 +49,7 @@ CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMFORMAT="$(jq --raw-output '.MQTT_ItemFormat' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMDELIMITER="$(jq --raw-output '.MQTT_ItemDelimiter' $CONFIG_PATH)"
 CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
-CONFIG_MQTT_DATA="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
+
 
 cat > "$CFG_PATH" <<EOL
 ################################################################################
