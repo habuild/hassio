@@ -12,12 +12,15 @@ CONFIG_MQTT_PASS="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 CONFIG_MQTT_DATA="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
-echo 'MQTT_Data'
+echo "$MQTT_HOST"
+echo "$MQTT_USER
+echo "$MQTT_PASS
+echo "$MQTT_TOPIC"
+echo "$MQTT_DATA"
 
-echo 'MQTT_Topic`
 
-#  topic= insert into existing topic /sensor/ varJson 
+#  topic= insert into existing topic /sensor/ varJson
 
 #  InvName delete
 #  -h {host} -u {MQTT_User} -P {MQTT_Pass} -t {topic} -m
-/usr/bin/mosquitto_pub '-h {$MQTT_Host} -u {$MQTT_User} -P {$MQTT_Pass} -t homeassistant/sensor/sbfspot_HasSMA5000TL-20/sbfspot_2100443252InvName/config -m "" -d'
+/usr/bin/mosquitto_pub -h "$MQTT_HOST" -u "$MQTT_USER" -P "$MQTT_PASS" -t homeassistant/sensor/sbfspot_HasSMA5000TL-20/sbfspot_2100443252InvName/config -m "" -d
