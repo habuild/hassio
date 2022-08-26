@@ -22,8 +22,12 @@ echo "$MQTT_Pass"
 echo "$MQTT_Topic"
 echo "$MQTT_Data"
 
+#  make set config
 
-#  topic= insert into existing topic /sensor/ varJson
+#  Subscribe to set config /haos-sbfspot/  <<<< ---  slug=$(bashio::addon.name )   <<<  -- echo "$slug"
+mosquitto_sub -h $MQTT_Host -u $MQTT_User -P $MQTT_Pass -t /"$(bashio::addon.name)"/ -d -v -E
+#  post set config via SBFspot
+/usr/bin/sbfspot/SBFspot -v -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
 
 #   ALL Values
 #   MQTT_Data=Timestamp,InvTime,SunRise,SunSet,InvSerial,InvName,InvClass,InvType,InvSwVer,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,PDCTot,OperTm,FeedTm,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,GridFreq,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt
