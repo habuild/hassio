@@ -14,11 +14,11 @@ MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
-echo "$MQTT_HOST"
-echo "$MQTT_USER
-echo "$MQTT_PASS
-echo "$MQTT_TOPIC"
-echo "$MQTT_DATA"
+echo "$MQTT_Host"
+echo "$MQTT_User"
+echo "$MQTT_Pass"
+echo "$MQTT_Topic"
+echo "$MQTT_Data"
 
 
 #  topic= insert into existing topic /sensor/ varJson
