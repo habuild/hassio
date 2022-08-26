@@ -52,7 +52,7 @@ fi
 /usr/bin/sbfspot/SBFspot -v -finq -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
 
 #  Subscribe to read SBFspot sensor post
-mosquitto_sub "-h $MQTT_Host -u $MQTT_User -P $MQTT_Pass -v -t /"$(bashio::addon.name)"/device -E"
+mosquitto_sub "-h $MQTT_Host -u $MQTT_User -P $MQTT_Pass -v -t /$(bashio::addon.name)/device -E"
 
 #   ALL Values
 #   MQTT_Data=Timestamp,InvTime,SunRise,SunSet,InvSerial,InvName,InvClass,InvType,InvSwVer,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,PDCTot,OperTm,FeedTm,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,GridFreq,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt
