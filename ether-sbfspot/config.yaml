@@ -52,6 +52,8 @@ options:
   MQTT_Publisher: /usr/bin/mosquitto_pub
   MQTT_Host: core-mosquitto
   MQTT_Port: "1883"
+  MQTT_User: 
+  MQTT_Pass: 
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
   MQTT_ItemFormat: '"{key}": {value}'
   MQTT_ItemDelimiter: comma
@@ -102,6 +104,8 @@ schema:
   MQTT_Publisher: "str?"
   MQTT_Host: "str"
   MQTT_Port: "str"
+  MQTT_User: "str"
+  MQTT_Pass: "password"
   MQTT_Topic: "str"
   MQTT_ItemFormat: "str"
   MQTT_ItemDelimiter: str
