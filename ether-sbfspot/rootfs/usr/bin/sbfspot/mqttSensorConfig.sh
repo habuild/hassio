@@ -2,6 +2,8 @@
 
 #  Publish MQTT sensors for Config discovery.
 
+set -x
+
 CONFIG_PATH=/data/options.json
 
 #  Wait for for first publish to get serial
