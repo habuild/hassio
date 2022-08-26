@@ -24,6 +24,9 @@ echo "$MQTT_Data"
 
 #  make set config
 
+cp /usr/bin/sbfspot/SBFspot.cfg /usr/bin/sbfspot/SetConfig.cfg
+sed -i 's/MQTT_Data / MQTT_Data=InvSerial,InvName,InvClass,InvType,InvSwVer /g' /usr/bin/sbfspot/SetConfig.cfg
+
 /usr/bin/sbfspot/SBFspot -v -finq -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
 
 #  Subscribe to set config /haos-sbfspot/  <<<< ---  slug=$(bashio::addon.name )   <<<  -- echo "$slug"
