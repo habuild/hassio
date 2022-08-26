@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-109
+version: dev-100
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -52,11 +52,13 @@ options:
   MQTT_Publisher: /usr/bin/mosquitto_pub
   MQTT_Host: core-mosquitto
   MQTT_Port: "1883"
+  MQTT_User:
+  MQTT_Pass:
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
   MQTT_ItemFormat: '"{key}": {value}'
   MQTT_ItemDelimiter: comma
   MQTT_PublisherArgs: >-
-    -h {host} -u MQTT_Username -P MQTT_Password -t {topic} -m "{{message}}" -d
+    -h {host} -u {MQTT_User} -P {MQTT_Pass} -t {topic} -m "{{message}}" -d
   MQTT_Data: >-
     Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
   PVoutput_SID: "0123456789:12345"
@@ -102,6 +104,8 @@ schema:
   MQTT_Publisher: "str?"
   MQTT_Host: "str"
   MQTT_Port: "str"
+  MQTT_User: "str"
+  MQTT_Pass: "password"
   MQTT_Topic: "str"
   MQTT_ItemFormat: "str"
   MQTT_ItemDelimiter: str
