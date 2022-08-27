@@ -44,7 +44,7 @@ CONFIG_MQTT_HOST="$(jq --raw-output '.MQTT_Host' $CONFIG_PATH)"
 CONFIG_MQTT_PORT="$(jq --raw-output '.MQTT_Port' $CONFIG_PATH)"
 CONFIG_MQTT_USER="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
 CONFIG_MQTT_PASS="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
-CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
+# CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMFORMAT="$(jq --raw-output '.MQTT_ItemFormat' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMDELIMITER="$(jq --raw-output '.MQTT_ItemDelimiter' $CONFIG_PATH)"
 
@@ -238,7 +238,7 @@ MQTT_Host=$CONFIG_MQTT_HOST
 MQTT_Port=$CONFIG_MQTT_PORT
 MQTT_User=$CONFIG_MQTT_USER
 MQTT_Pass=$CONFIG_MQTT_PASS
-MQTT_Topic=$CONFIG_MQTT_TOPIC
+MQTT_Topic=/$(bashio::addon.name)/device/
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
 MQTT_PublisherArgs=-h {host} -u "$MQTT_User" -P "$MQTT_Pass" -t {topic} -m "{{message}}" -d
