@@ -69,7 +69,8 @@ set -x
 
 if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
    value=InvName
-   /usr/bin/mosquitto_pub -h core-mosquitto -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"SMA Inverter Nom\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": "\{\{\ value_json.$value\ }\}\", \"unique_id\": "\"$InvSerial"_\"$value\", \"icon\": \"mdi:flash\", \"device\": \{ \"identifiers\": \[\"$(bashio::addon.name)""-Sensors\"\], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" \}\} -d
+   describe='SMA Inverter Nom'
+   /usr/bin/mosquitto_pub -h core-mosquitto -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"\{\{ value_json.$value \}\}\", \"unique_id\": \"$InvSerial_$value\", \"icon\": \"mdi:flash\", \"device\": \{ \"identifiers\": \[\"$(bashio::addon.name)""-Sensors\"\], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" \}\}" -d
 fi
 
 if bashio::var.has_value "${MQTT_Data}" "Timestamp" ; then
