@@ -20,7 +20,7 @@ MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 InvSerial="210043252"    #    <<< ---- Dummy serial need to get from mqtt
 InvSwVer="0192.21.2"
 InvType=Fakverterr
-InvClass=Fakeplant
+#  InvClass=Fakeplant
 
 echo "$MQTT_Host"
 echo "$MQTT_User"
@@ -35,8 +35,7 @@ if  bashio::var.equals "${value}" "Bluetooth"; then
     /usr/bin/sbfspot/genSenBlue.sh
     bashio::log.info
     bashio::log.info
-    message=$(echo "||    Generating HA Sensors    ||")
-    bashio::log.info '${__BASHIO_COLORS_BLUE}' "${message:=""}"
+    bashio::log.info "${__BASHIO_COLORS_BLUE}' "$(echo "||    Generating HA Sensors    ||")"
     bashio::log.info
 elif bashio::var.equals "${value}" "Ethernet"; then
     /usr/bin/sbfspot/genSenEth.sh
@@ -68,7 +67,7 @@ mosquitto_sub "-h $MQTT_Host -u $MQTT_User -P $MQTT_Pass -v -t /$(bashio::addon.
 
 if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
    value=InvName
-   /usr/bin/mosquitto_pub -h core-mosquitto -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m { "name": "SMA Inverter Nom", "state_topic": "homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"", "value_template": "{{ value_json.InvName }}", "unique_id": ""$InvSerial"_{$value}", "icon":"mdi:flash", "device": { "identifiers": ["sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"/"], "name": "HAOS-SBFspot", "model": "$InvType", "manufacturer": "SMA", "sw_version": "InvSwVer" } } -d
+   /usr/bin/mosquitto_pub -h core-mosquitto -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m { "name": "SMA Inverter Nom", "state_topic": "homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"", "value_template": "{{ value_json.InvName }}", "unique_id": ""$InvSerial"_{$value}", "icon":"mdi:flash", "device": { "identifiers": ["sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"/"], "name": "HAOS-SBFspot", "model": "$InvType", "manufacturer": "SMA", "sw_version": "$InvSwVer" } } -d
 fi
 
 if bashio::var.has_value "${MQTT_Data}" "Timestamp" ; then
