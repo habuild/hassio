@@ -35,7 +35,7 @@ if  bashio::var.equals "${value}" "Bluetooth"; then
     /usr/bin/sbfspot/genSenBlue.sh
     bashio::log.info
     bashio::log.info
-    bashio::log.info "${__BASHIO_COLORS_BLUE}" "$(echo "||    Generating HA Sensors    ||")"
+    bashio::log.info "${__BASHIO_COLORS_BLUE}" "||    Generating HA Sensors    ||"
     bashio::log.info
 elif bashio::var.equals "${value}" "Ethernet"; then
     /usr/bin/sbfspot/genSenEth.sh
