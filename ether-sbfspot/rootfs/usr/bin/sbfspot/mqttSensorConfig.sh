@@ -6,25 +6,16 @@
 
 CONFIG_PATH=/data/options.json
 
-#  Wait for for first publish to get serial
-
 PLANTNAME="$(jq --raw-output '.Plantname' $CONFIG_PATH)"
-
 MQTT_Host="$(jq --raw-output '.MQTT_Host' $CONFIG_PATH)"
 MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
 MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
-
-InvSerial="2100443252"    #    <<< ---- Dummy serial need to get from mqtt
-InvSwVer="0192.21.2"
-InvType=Fakverterr
-#  InvClass=Fakeplant
-
 echo "$MQTT_Host"
 echo "$MQTT_User"
-echo "$MQTT_Pass"
+#  echo "$MQTT_Pass"
 echo "$MQTT_Topic"
 echo "$MQTT_Data"
 
@@ -54,12 +45,19 @@ fi
 /usr/bin/sbfspot/SBFspot -v -finq -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
 
 #  Subscribe to read SBFspot sensor post
-mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -v -t "$(bashio::addon.name)/device" -C 1
+mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -v -t "$(bashio::addon.name)/device" -C 1 >> /usr/bin/sbfspot/device.json
+
+DEVICE_PATH=/usr/bin/sbfspot/device.json
+
+InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"    #    <<< ---- change to Dummy serial if needed to get from mqtt 
+InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
+InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
+#  InvClass=Fakeplant
 
 #   ALL Values
 #   MQTT_Data=Timestamp,InvTime,SunRise,SunSet,InvSerial,InvName,InvClass,InvType,InvSwVer,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,PDCTot,OperTm,FeedTm,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,GridFreq,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt
 #
-#  Known Working and variables
+#  Known Working MQTT msg and variables
 #
 #  value='InvName'               << -- Change to value you need
 #  describe='SMA Inverter Nom'   << -- Short descriptuion for HA Name
