@@ -17,7 +17,7 @@ MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
 
-InvSerial="210043252"    #    <<< ---- Dummy serial need to get from mqtt
+InvSerial="2100443252"    #    <<< ---- Dummy serial need to get from mqtt
 InvSwVer="0192.21.2"
 InvType=Fakverterr
 #  InvClass=Fakeplant
