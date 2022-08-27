@@ -52,7 +52,7 @@ DEVICE_PATH=/usr/bin/sbfspot/device.json
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"    #    <<< ---- change to Dummy serial if needed to get from mqtt 
 InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
-#  InvClass=Fakeplant
+InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 
 #   ALL Values
 #   MQTT_Data=Timestamp,InvTime,SunRise,SunSet,InvSerial,InvName,InvClass,InvType,InvSwVer,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,PDCTot,OperTm,FeedTm,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,GridFreq,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt
