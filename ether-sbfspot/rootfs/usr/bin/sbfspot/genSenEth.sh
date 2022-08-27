@@ -244,5 +244,5 @@ MQTT_Topic=$CONFIG_MQTT_TOPIC
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
 MQTT_PublisherArgs=-h {host} -u "$MQTT_User" -P "$MQTT_Pass" -t {topic} -m "{{message}}" -d
-MQTT_Data=MQTT_Data=InvSerial,InvName,InvClass,InvType,InvSwVer
+MQTT_Data=InvSerial,InvName,InvClass,InvType,InvSwVer
 EOL
