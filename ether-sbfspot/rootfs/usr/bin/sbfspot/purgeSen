@@ -20,7 +20,7 @@ echo "$MQTT_Topic"
 echo "$MQTT_Data"
 
 #  make set config
-mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "\{"SensorsHA": "Purge"\}" -r >> /data/options.json
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"SensorsHA\": \"Purge\"}" -r >> /data/options.json
 
 value="$(jq --raw-output '.SensorsHA' $CONFIG_PATH)"
 if  bashio::var.equals "${value}" "Create"; then
