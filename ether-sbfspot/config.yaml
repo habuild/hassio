@@ -116,7 +116,7 @@ schema:
   PVoutput_Key: "str"
   LogDir: "str?"
   LogLevel: "str"
-  SensorsHA: str?
+  SensorsHA: "str?"
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
