@@ -55,7 +55,7 @@ InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints ba
 InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
 InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
-BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':')"   <<< --- Compress BT MAC to use in Unique ID
+BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )"   <<< --- Compress BT MAC to use in Unique ID
 
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
