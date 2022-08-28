@@ -65,7 +65,6 @@ options:
   PVoutput_Key: "fake9364fake4545fake834fake"
   LogDir: /data/sbfspot/log/
   LogLevel: info
-
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   BTAddress: "str"
