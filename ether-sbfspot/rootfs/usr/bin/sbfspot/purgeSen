@@ -32,7 +32,7 @@ elif bashio::var.equals "${value}" "Purge"; then
     bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
     bashio::log.info "${__BASHIO_COLORS_RED}" '|   "Purge Retained HA Sensors"   |'
     bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
-
+fi
 
 #  Use SetConfig.cfg to post initial mqtt msg for sensors
 #  /usr/bin/sbfspot/SBFspot -v -finq -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
