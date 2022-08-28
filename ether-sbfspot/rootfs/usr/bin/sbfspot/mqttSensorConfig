@@ -1,7 +1,4 @@
-Logger: homeassistant.components.mqtt.discovery
-Source: components/mqtt/discovery.py:123
-Integration: MQTT (documentation, issues)
-First occurred: August 27, 2022 at 4:03:03 AM (78 occurrences)#!/usr/bin/with-contenv bashio
+#!/usr/bin/with-contenv bashio
 # shellcheck shell=bash
 #  Publish MQTT sensors for Config discovery.
 
