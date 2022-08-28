@@ -12,7 +12,7 @@ MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
 MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
-arg="$(jq --raw-output '.MQTT_Data' /data/options.json)" | tr ',' '\n'
+arg="$(jq --raw-output '.MQTT_Data' /data/options.json | tr ',' '\n')"
 
 echo "$MQTT_Host"
 echo "$MQTT_User"
