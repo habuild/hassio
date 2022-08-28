@@ -45,9 +45,9 @@ fi
 /usr/bin/sbfspot/SBFspot -v -finq -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
 
 #  Subscribe to read SBFspot sensor post
-mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -C 1 >> /usr/bin/sbfspot/device.json
+mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -C 1 > /data/SBFdevice.json
 
-DEVICE_PATH=/usr/bin/sbfspot/device.json
+DEVICE_PATH=/data/SBFdevice.json
 
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
 # InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo
@@ -434,5 +434,3 @@ if bashio::var.has_value "${MQTT_Data}" "BatChaStt" ; then
    UoM='Amps'   
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\" \"unit_of_measurement\": \"$UoM\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" -d
 fi
-
-rm ./device.json
