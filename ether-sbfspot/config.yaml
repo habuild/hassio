@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-103
+version: dev-104
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -65,6 +65,7 @@ options:
   PVoutput_Key: "fake9364fake4545fake834fake"
   LogDir: /data/sbfspot/log/
   LogLevel: info
+  SensorsHA:
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   BTAddress: "str"
@@ -115,6 +116,7 @@ schema:
   PVoutput_Key: "str"
   LogDir: "str?"
   LogLevel: "str"
+  SensorsHA: str?
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
