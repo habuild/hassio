@@ -295,4 +295,4 @@ if bashio::var.has_value "${MQTT_Data}" "BatChaStt" ; then
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -d
 fi
-rm ./device.json
+rm /data/device.json
