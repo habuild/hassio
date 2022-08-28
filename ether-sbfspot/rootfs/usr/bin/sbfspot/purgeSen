@@ -42,12 +42,12 @@ fi
 
 DEVICE_PATH=/data/SBFdevice.json
 
-InvSerial="$(bashio::config '.InvSerial')"
-#InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
-#InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo
-#InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
-#InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
-#InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
+#InvSerial="$(bashio::config '.InvSerial')"
+InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
+InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo
+InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
+InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
+InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 
 
 #   ALL Values
