@@ -121,6 +121,16 @@ if bashio::config 'Timestamp' ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" -d -r
 fi
 
+if bashio::config 'InvTime' ; then
+   value='InvTime'
+   describe='SMA Inverter Time'
+   mdi_icon='mdi:clock-digital'
+   devClass=
+   stClass=
+   UoM=
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" -d -r
+fi
+
 if bashio::config 'SunRise' ; then
    value='SunRise'
    describe='SMA Sun Rise'
@@ -161,10 +171,10 @@ if bashio::config 'InvClass' ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" -d -r
 fi
 
-if bashio::var.equals "${MQTT_Data}" "InvType" ; then
+if bashio::config 'InvType' ; then
    value='InvType'
    describe='SMA device'
-   mdi_icon='mdi:card-bulleted-settings'
+   mdi_icon='mdi:cupboard-outline'
    devClass=
    stClass=
    UoM=
