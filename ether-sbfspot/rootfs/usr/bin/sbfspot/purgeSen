@@ -8,7 +8,7 @@
 CONFIG_PATH=/data/options.json
 
 #  make set config
-#  mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"SensorsHA\": \"Purge\"}" -r > /data/options.json
+#  mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"Sensors_HA\": \"Purge\"}" -r > /data/options.json
 
 #  make set config
 if bashio::fs.file_exists '/data/device'; then
