@@ -49,7 +49,7 @@ CONFIG_MQTT_PORT="$(jq --raw-output '.MQTT_Port' $CONFIG_PATH)"
 CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMFORMAT="$(jq --raw-output '.MQTT_ItemFormat' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMDELIMITER="$(jq --raw-output '.MQTT_ItemDelimiter' $CONFIG_PATH)"
-# CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
+CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
 CONFIG_MQTT_DATA="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 CONFIG_LOGDIR="$(jq --raw-output '.LogDir' $CONFIG_PATH)"
 CONFIG_LOGLEVEL="$(jq --raw-output '.LogLevel' $CONFIG_PATH)"
@@ -247,7 +247,7 @@ MQTT_Port=$CONFIG_MQTT_PORT
 MQTT_Topic=$CONFIG_MQTT_TOPIC
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
-MQTT_PublisherArgs=-h {host} -u $MQTT_User -P $MQTT_Pass -t {topic} -m "{{message}}" -d
+MQTT_PublisherArgs=$CONFIG_MQTT_PUBLISHERARGS
 MQTT_Data=$CONFIG_MQTT_DATA
 EOL
 
