@@ -1,8 +1,5 @@
 #!/usr/bin/with-contenv bashio
 
-#export CFG_PATH
-#export CFG_PATH_UPLOAD
-
 CFG_PATH=$1
 CFG_PATH_UPLOAD=$2
 CONFIG_PATH=/data/options.json
@@ -244,12 +241,11 @@ SQL_Password=$CONFIG_SQL_PASSWORD
 MQTT_Publisher=$CONFIG_MQTT_PUBLISHER
 MQTT_Host=$CONFIG_MQTT_HOST
 MQTT_Port=$CONFIG_MQTT_PORT
-MQTT_User=$CONFIG_MQTT_USER
-MQTT_Pass=$CONFIG_MQTT_PASS
+
 MQTT_Topic=$CONFIG_MQTT_TOPIC
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
-MQTT_PublisherArgs=$CONFIG_MQTT_PUBLISHERARGS
+MQTT_PublisherArgs=-h {host} -u "$(bashio::config 'MQTT_User')" -P "$(bashio::config 'MQTT_Pass')" -t {topic} -m "{{message}}" -d
 MQTT_Data=$CONFIG_MQTT_DATA
 EOL
 
