@@ -8,7 +8,9 @@ CONFIG_PATH=/data/options.json
 
 PLANTNAME="$(jq --raw-output '.Plantname' $CONFIG_PATH)"
 MQTT_Host="$(jq --raw-output '.MQTT_Host' $CONFIG_PATH)"
+# shellcheck disable=SC2034
 MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
+# shellcheck disable=SC2034
 MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
