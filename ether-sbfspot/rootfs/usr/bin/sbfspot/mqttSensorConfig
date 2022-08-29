@@ -172,8 +172,8 @@ if bashio::var.equals "${MQTT_Data}" "InvGridRelay" ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value }}\", \"unique_id\": \"$BTmac"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\" \"unit_of_measurement\": \"$UoM\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" -d -r
 fi
 
-if bashio::var.equals "${MQTT_Data}" "InvEToday" ; then
-   value='InvEToday'
+if bashio::var.equals "${MQTT_Data}" "EToday" ; then
+   value='EToday'
    describe='SMA Daily Energy'
    mdi_icon='mdi:flash'
    devClass='energy'
@@ -182,8 +182,8 @@ if bashio::var.equals "${MQTT_Data}" "InvEToday" ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value }}\", \"unique_id\": \"$BTmac"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\" \"unit_of_measurement\": \"$UoM\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" -d -r
 fi
 
-if bashio::var.equals "${MQTT_Data}" "InvETotal" ; then
-   value='InvETotal'
+if bashio::var.equals "${MQTT_Data}" "ETotal" ; then
+   value='ETotal'
    describe='SMA Total Energy'
    mdi_icon='mdi:flash'
    devClass='energy'
