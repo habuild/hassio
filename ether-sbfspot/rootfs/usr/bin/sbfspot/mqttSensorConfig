@@ -123,7 +123,7 @@ fi
 
 if bashio::config 'InvTime' ; then
    value='InvTime'
-   describe='SMA Inverter Time'
+   describe='SMA Time Inverter'
    mdi_icon='mdi:clock-digital'
    devClass=
    stClass=
