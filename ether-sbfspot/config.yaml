@@ -100,7 +100,7 @@ schema:
   SQL_Hostname: "str?"
   SQL_Port: "str?"
   SQL_Username: "str?"
-  SQL_Password: "str?"
+  SQL_Password: "password"
   MQTT_Publisher: "str?"
   MQTT_Host: "str"
   MQTT_Port: "str"
