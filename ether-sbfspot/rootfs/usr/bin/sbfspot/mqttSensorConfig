@@ -163,7 +163,7 @@ fi
 
 if bashio::config 'InvClass' ; then
    value='InvClass'
-   describe='SMA device'
+   describe='SMA device type'
    mdi_icon='mdi:card-bulleted-settings'
    devClass=
    stClass=
@@ -173,7 +173,7 @@ fi
 
 if bashio::config 'InvType' ; then
    value='InvType'
-   describe='SMA device'
+   describe='SMA device Model'
    mdi_icon='mdi:cupboard-outline'
    devClass=
    stClass=
