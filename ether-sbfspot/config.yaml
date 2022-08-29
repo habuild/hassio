@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-109
+version: dev-101
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -15,6 +15,7 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
+  Sensors_HA: 
   BTAddress: ""
   Password: "0000"
   LocalBTAddress: "00:00:00:00:00:00"
@@ -29,7 +30,7 @@ options:
   DateTimeFormat: "%Y-%m-%dT%H:%M:%S%:z"
   DateFormat: "%d/%m/%Y"
   DecimalPoint: comma
-  TimeFormat: "%H:%M:%S"
+  TimeFormat: "%H:%M:%S%:z"
   SynchTime: 0
   SynchTimeLow: 1
   SynchTimeHigh: 3600
@@ -58,17 +59,18 @@ options:
   MQTT_ItemFormat: '"{key}": {value}'
   MQTT_ItemDelimiter: comma
   MQTT_PublisherArgs: >-
-    -h {host} -u $MQTT_User -P $MQTT_Pass -t {topic} -m "{{message}}" -d
+    Option removed to allow Sensor set up. Add MQTT_User and MQTT_Pass to respective options. 
   MQTT_Data: >-
-    Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2
+    Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvSwVer,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,PDCTot,OperTm,FeedTm,BTsignal
   PVoutput_SID: "0123456789:12345"
   PVoutput_Key: "fake9364fake4545fake834fake"
   LogDir: /data/sbfspot/log/
   LogLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
+  Sensors_HA: list(No|Create|Purge)
   BTAddress: "str"
-  Password: "str"
+  Password: "password"
   LocalBTAddress: "str"
   IP_Address: "str"
   Plantname: "str"
@@ -111,8 +113,8 @@ schema:
   MQTT_ItemDelimiter: str
   MQTT_PublisherArgs: str?
   MQTT_Data: "str"
-  PVoutput_SID: "str"
-  PVoutput_Key: "str"
+  PVoutput_SID: "password"
+  PVoutput_Key: "password"
   LogDir: "str?"
   LogLevel: "str"
   SensorsHA: "str?"
