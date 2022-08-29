@@ -72,7 +72,7 @@ BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )"   #  <<<
 
 #  Publish Device data to default topic
 msg="$(jq --raw-output '.' $DEVICE_PATH)"
-mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial" -m "$msg" -r
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "homeassistant/sbfspot_\"$PLANTNAME\"/sbfspot_\"$InvSerial"\" -m "$msg" -r
 
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
