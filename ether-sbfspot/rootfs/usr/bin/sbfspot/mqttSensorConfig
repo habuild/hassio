@@ -462,7 +462,7 @@ if bashio::config 'BatVol' ; then
 fi
 
 if bashio::config 'BatAmp' ; then
-   value='BatVol'
+   value='BatAmp'
    describe='SMA Battery Current'
    mdi_icon='mdi:battery-charging-medium'
    devClass='current'
