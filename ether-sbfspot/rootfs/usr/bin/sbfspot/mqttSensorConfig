@@ -55,7 +55,6 @@ if bashio::fs.file_exists '/data/device'; then
             bashio::log.info "${__BASHIO_COLORS_RED}" "Setup failed to create HA Sensors"
             bashio::log.info "${__BASHIO_COLORS_RED}" ===================================
         fi
-   fi
 fi
 
 
