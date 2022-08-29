@@ -21,7 +21,7 @@ echo "$MQTT_Topic"
 echo "$MQTT_Data"
 
 #  make set config
-if bashio::fs.file_exists '/data/device'); then
+if bashio::fs.file_exists '/data/device'; then
    bashio::log.info Using Existing Device info
    else
         value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
@@ -55,7 +55,7 @@ if bashio::fs.file_exists '/data/device'); then
             bashio::log.info "${__BASHIO_COLORS_RED}" "Setup failed to create HA Sensors"
             bashio::log.info "${__BASHIO_COLORS_RED}" ===================================
         fi
-    fi
+   fi
 fi
 
 
