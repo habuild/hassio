@@ -4,7 +4,9 @@ CFG_PATH=$1
 CFG_PATH_UPLOAD=$2
 CONFIG_PATH=/data/options.json
 
+# shellcheck disable=2034
 MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
+# shellcheck disable=2034
 MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 
 # CONFIG_CONNECTION_TYPE="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
