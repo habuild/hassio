@@ -8,7 +8,7 @@
 CONFIG_PATH=/data/options.json
 
 #  make set config
-#  mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"SensorsHA\": \"Purge\"}" -r >> /data/options.json
+#  mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"SensorsHA\": \"Purge\"}" -r > /data/options.json
 
 #  make set config
 if bashio::fs.file_exists '/data/device'; then
@@ -16,7 +16,7 @@ if bashio::fs.file_exists '/data/device'; then
    else
         value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
         if  bashio::var.equals "${value}" "Bluetooth"; then
-            /usr/bin/sbfspot/genSenBlue.sh
+            /usr/bin/sbfspot/genSenBlue
             bashio::log.info
             bashio::log.info
             bashio::log.info "${__BASHIO_COLORS_BLUE}" "||    Generating HA Sensors    ||"
@@ -28,7 +28,7 @@ if bashio::fs.file_exists '/data/device'; then
             mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -C 1 > /data/device            
             
         elif bashio::var.equals "${value}" "Ethernet"; then
-            /usr/bin/sbfspot/genSenEth.sh
+            /usr/bin/sbfspot/genSenEth
             bashio::log.info
             bashio::log.info
             message=$(echo "||    Generating HA Sensors     ||")
