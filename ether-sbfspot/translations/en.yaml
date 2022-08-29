@@ -125,7 +125,7 @@ configuration:
   MQTT_PublisherArgs:
     name: MQTT Publisher args. ADD MQTT user and pass
     description: >-
-      -h {host} -u MQTT_Username -P MQTT_Password -t {topic} -m "{{message}}" -d ADD your MQTT username and password here. -d is for debug.
+      -h {host} -u "$MQTT_User" -P "$MQTT_Pass" -t {topic} -m "{{message}}" -d Leave the "$variables" to use the options or add user & pass. -d is for debug.
   MQTT_Data:
     name: MQTT sensors items.
     description: >-
