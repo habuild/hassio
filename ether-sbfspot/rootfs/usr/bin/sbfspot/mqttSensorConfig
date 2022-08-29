@@ -21,7 +21,7 @@ echo "$MQTT_Topic"
 echo "$MQTT_Data"
 
 #  make set config
-if bashio::fs.file_exists(/data/device); then
+if "$(bashio::fs.file_exists '/data/device')"; then
         value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
         if  bashio::var.equals "${value}" "Bluetooth"; then
             /usr/bin/sbfspot/genSenBlue.sh
