@@ -4,11 +4,6 @@ CFG_PATH=$1
 CFG_PATH_UPLOAD=$2
 CONFIG_PATH=/data/options.json
 
-# shellcheck disable=2034
-MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
-# shellcheck disable=2034
-MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
-
 # CONFIG_CONNECTION_TYPE="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
 CONFIG_BTADDRESS="$(jq --raw-output '.BTAddress' $CONFIG_PATH)"
 CONFIG_LOCALBTADDRESS="$(jq --raw-output '.LocalBTAddress' $CONFIG_PATH)"
@@ -46,12 +41,12 @@ CONFIG_SQL_PASSWORD="$(jq --raw-output '.SQL_Password' $CONFIG_PATH)"
 CONFIG_MQTT_PUBLISHER="$(jq --raw-output '.MQTT_Publisher' $CONFIG_PATH)" 
 CONFIG_MQTT_HOST="$(jq --raw-output '.MQTT_Host' $CONFIG_PATH)"
 CONFIG_MQTT_PORT="$(jq --raw-output '.MQTT_Port' $CONFIG_PATH)"
-# CONFIG_MQTT_USER="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
-# CONFIG_MQTT_PASS="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
+#  CONFIG_MQTT_USER="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
+#  CONFIG_MQTT_PASS="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 CONFIG_MQTT_TOPIC="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMFORMAT="$(jq --raw-output '.MQTT_ItemFormat' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMDELIMITER="$(jq --raw-output '.MQTT_ItemDelimiter' $CONFIG_PATH)"
-CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
+#  CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
 CONFIG_MQTT_DATA="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 CONFIG_LOGDIR="$(jq --raw-output '.LogDir' $CONFIG_PATH)"
 CONFIG_LOGLEVEL="$(jq --raw-output '.LogLevel' $CONFIG_PATH)"
@@ -249,7 +244,7 @@ MQTT_Port=$CONFIG_MQTT_PORT
 MQTT_Topic=$CONFIG_MQTT_TOPIC
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
-MQTT_PublisherArgs=$CONFIG_MQTT_PUBLISHERARGS
+MQTT_PublisherArgs=-h {host} -u "$(bashio::config 'MQTT_User')" -P "$(bashio::config 'MQTT_Pass')" -t {topic} -m "{{message}}" -d
 MQTT_Data=$CONFIG_MQTT_DATA
 EOL
 
