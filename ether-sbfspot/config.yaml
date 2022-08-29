@@ -15,7 +15,7 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
-  Sensors_HA: 
+  Sensors_HA:
   BTAddress: ""
   Password: "0000"
   LocalBTAddress: "00:00:00:00:00:00"
@@ -59,7 +59,7 @@ options:
   MQTT_ItemFormat: '"{key}": {value}'
   MQTT_ItemDelimiter: comma
   MQTT_PublisherArgs: >-
-    Option removed to allow Sensor set up. Add MQTT_User and MQTT_Pass to respective options. 
+    Option removed to allow Sensor set up. Add MQTT_User and MQTT_Pass to respective options.
   MQTT_Data: >-
     Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvSwVer,InvStatus,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,PDCTot,OperTm,FeedTm,BTsignal
   PVoutput_SID: "0123456789:12345"
