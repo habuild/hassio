@@ -174,7 +174,7 @@ fi
 if bashio::config 'InvSwVer' ; then
    value='InvSwVer'
    describe='SMA Firmware Vers'
-   icon=mdi:select-inverse
+   mdi_icon=mdi:select-inverse
    devClass=
    stClass=
    UoM=
