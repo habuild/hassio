@@ -69,6 +69,11 @@ InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
 InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )"   #  <<< --- Compress BT MAC to use in Unique ID
 
+
+#  Publish Device data to default topic
+msg="$(jq --raw-output '.' $DEVICE_PATH)"
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "$msg" -r
+
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSwVer"
