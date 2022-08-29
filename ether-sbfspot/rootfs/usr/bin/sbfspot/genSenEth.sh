@@ -2,8 +2,6 @@
 
 CFG_PATH=/usr/bin/sbfspot/SetConfig.cfg
 CONFIG_PATH=/data/options.json
-MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
-MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
 
 #CONFIG_CONNECTION_TYPE="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
 #CONFIG_BTADDRESS="$(jq --raw-output '.BTAddress' $CONFIG_PATH)"
@@ -242,6 +240,6 @@ MQTT_Port=$CONFIG_MQTT_PORT
 MQTT_Topic=$(bashio::addon.name)/device
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
-MQTT_PublisherArgs=-h {host} -u $MQTT_User -P $MQTT_Pass -t {topic} -m "{{message}}" -d -r
+MQTT_PublisherArgs=-h {host} -u "$(bashio::config 'MQTT_User')" -P "$(bashio::config 'MQTT_Pass')" -t {topic} -m "{{message}}" -d -r
 MQTT_Data=InvSerial,InvName,InvClass,InvType,InvSwVer
 EOL
