@@ -209,8 +209,8 @@ set suspendable
 # set stripecolor ,yellow
 # set scrollercolor cyan
 # set numbercolor cyan
-# set keycolor cyan
-# set functioncolor green
+set keycolor cyan
+set functioncolor green
 
 ## In root's .nanorc you might want to use:
 # set titlecolor bold,lightwhite,magenta
