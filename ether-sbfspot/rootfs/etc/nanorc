@@ -88,7 +88,7 @@ set locking
 ## mouse clicks can be used to place the cursor, set the mark (with a
 ## double click), and execute shortcuts.  The mouse will work in the X
 ## Window System, and on the console when gpm is running.
-set mouse
+# set mouse
 
 ## Switch on multiple file buffers (inserting a file will put it into
 ## a separate buffer).
@@ -233,7 +233,7 @@ include "/usr/share/nano/*.nanorc"
 ## Or you can select just the ones you need.  For example:
 # include "/usr/share/nano/html.nanorc"
 # include "/usr/share/nano/python.nanorc"
-# include "/usr/share/nano/sh.nanorc"
+include "/usr/share/nano/sh.nanorc"
 
 ## In /usr/share/nano/extra/ you can find some syntaxes that are
 ## specific for certain distros or for some less common languages.
