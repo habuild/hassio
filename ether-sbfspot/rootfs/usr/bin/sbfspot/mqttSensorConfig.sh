@@ -287,7 +287,7 @@ if bashio::config 'PACTot' ; then
    mdi_icon='mdi:flash'
    devClass='energy'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
@@ -352,7 +352,7 @@ if bashio::config 'PDC1' ; then
    mdi_icon='mdi:solar-panel-large'
    devClass='power'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
@@ -365,7 +365,7 @@ if bashio::config 'PDC2' ; then
    mdi_icon='mdi:solar-panel'
    devClass='power'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
@@ -378,7 +378,7 @@ if bashio::config 'PDCTot' ; then
    mdi_icon='mdi:solar-panel-large'
    devClass='power'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
@@ -417,7 +417,7 @@ if bashio::config 'PAC1' ; then
    mdi_icon='mdi:transmission-tower'
    devClass='power'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
@@ -430,7 +430,7 @@ if bashio::config 'PAC2' ; then
    mdi_icon='mdi:transmission-tower'
    devClass='power'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
@@ -443,7 +443,7 @@ if bashio::config 'PAC3' ; then
    mdi_icon='mdi:transmission-tower'
    devClass='power'
    stClass='measurement'
-   UoM='W'
+   UoM='kW'
    
    bashio::log.info Setting Up "$value"
    
