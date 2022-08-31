@@ -100,7 +100,7 @@ if bashio::config 'InvName' ; then
 fi
 
 if bashio::config 'Timestamp' ; then
-   value='Timestamp'
+   value='SMA_Tstamp'
    describe='SMA Timestamp'
    mdi_icon='mdi:clock-digital'
    devClass=
