@@ -15,7 +15,7 @@ MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
 #  make set config
-mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"Sensors_HA\": \"Purge\"}" -r >> /data/options.json
+#mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"Sensors_HA\": \"Purge\"}" -r >> /data/options.json
 
 #  make set config
 if bashio::fs.file_exists '/data/device'; then
