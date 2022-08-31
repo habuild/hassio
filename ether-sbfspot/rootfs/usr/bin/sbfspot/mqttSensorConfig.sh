@@ -272,7 +272,7 @@ if bashio::config 'PACTot' ; then
    value='PACTot'
    describe='SMA AC Power'
    mdi_icon='mdi:flash'
-   devClass='energy'
+   devClass='power'
    stClass='measurement'
    UoM='kW'
    
