@@ -271,7 +271,7 @@ fi
 if bashio::config 'PACTot' ; then
    value='PACTot'
    describe='SMA AC Power'
-   mdi_icon='mdi:flash'
+   mdi_icon='mdi:solar-power-variant'
    devClass='power'
    stClass='measurement'
    UoM='kW'
