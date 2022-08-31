@@ -108,7 +108,7 @@ if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
 
 fi
 
-if bashio::var.has_value "${MQTT_Data}" "Timestamp" ; then
+if bashio::config 'Timestamp' ; then
    value='Timestamp'
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
