@@ -7,6 +7,13 @@
 
 CONFIG_PATH=/data/options.json
 
+PLANTNAME="$(jq --raw-output '.Plantname' $CONFIG_PATH)"
+MQTT_Host="$(jq --raw-output '.MQTT_Host' $CONFIG_PATH)"
+MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
+MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
+MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
+MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
+
 #  make set config
 mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"Sensors_HA\": \"Purge\"}" -r > /data/options.json
 
