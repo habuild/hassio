@@ -30,7 +30,7 @@ options:
   DateTimeFormat: "%Y-%m-%dT%H:%M:%S%:z"
   DateFormat: "%d/%m/%Y"
   DecimalPoint: comma
-  TimeFormat: "%H:%M:%S%:z"
+  TimeFormat: "%H:%M:%S%"
   SynchTime: 0
   SynchTimeLow: 1
   SynchTimeHigh: 3600
