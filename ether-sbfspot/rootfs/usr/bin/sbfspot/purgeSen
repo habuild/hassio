@@ -15,7 +15,7 @@ MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
 MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
 #  make set config
-#mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"SensorsHA\": \"Purge\"}" -r >> /data/options.json
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "{\"SensorsHA\": \"Purge\"}" -r >> /data/options.json
 
 #  make set config
 if bashio::fs.file_exists '/data/device'; then
@@ -65,7 +65,10 @@ elif bashio::var.equals "${value}" "Purge"; then
     bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
     bashio::log.info "${__BASHIO_COLORS_RED}" '|   "Purge Retained HA Sensors"   |'
     bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
-    
+else
+    bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
+    bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Purge HA MQTT Sensors"     |'
+    bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
 fi
 
 #  Use SetConfig.cfg to post initial mqtt msg for sensors
