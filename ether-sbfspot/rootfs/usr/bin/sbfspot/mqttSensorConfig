@@ -381,7 +381,7 @@ fi
 if bashio::config 'PDCTot' ; then
    value='PDCTot'
    describe='SMA DC All Strings'
-   mdi_icon='mdi:solar-panel-variant'
+   mdi_icon='mdi:solar-power-variant-outline'
    devClass='power'
    stClass='measurement'
    UoM='kW'
