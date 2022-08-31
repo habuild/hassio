@@ -28,7 +28,7 @@ mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addo
 
 #  make set config
 if bashio::fs.file_exists '/data/device'; then
-       if bashio::config.exists 'InvSerial'; then
+       if bashio::config 'InvSerial' 'InvSerial'; then
           bashio::log.info Using Existing Device info
        else
            value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
