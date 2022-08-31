@@ -69,7 +69,7 @@ BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )"   #  <<<
 
 #  Publish Device data to default topic
 msg="$(jq --raw-output '.' $DEVICE_PATH)"
-mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial"" -m "$msg" -r
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "$msg" -r
 
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvSerial"
 bashio::log.info "${__BASHIO_COLORS_RED}" "$InvName"
@@ -84,7 +84,7 @@ bashio::log.info "${__BASHIO_COLORS_RED}" "$BTmac"
 #  MQTT_Data=$(bashio::config 'MQTT_Data' | tr ',' '\n')    <<<< ---- remove ,comma and add \newline after each entry.
 
 
-debugMQTT='-d'    #  '-d' or '--quiet'
+debugMQTT='--quiet'    #  '-d' or '--quiet'
 
 if bashio::config 'InvName' ; then
    value='InvName'
@@ -102,7 +102,7 @@ fi
 if bashio::config 'Timestamp' ; then
    value='Timestamp'
    describe='SMA Timestamp'
-   mdi_icon='mdi:clock'
+   mdi_icon='mdi:clock-digital'
    devClass=
    stClass=
    UoM=
@@ -115,7 +115,7 @@ fi
 if bashio::config 'InvTime' ; then
    value='InvTime'
    describe='SMA Time Inverter'
-   mdi_icon='mdi:clock-digital'
+   mdi_icon='mdi:clock'
    devClass=
    stClass=
    UoM=
@@ -192,7 +192,7 @@ fi
 
 if bashio::config 'InvSwVer' ; then
    value='InvSwVer'
-   describe='SMA Device Firmware'
+   describe='SMA device Firmware'
    mdi_icon=mdi:select-inverse
    devClass=
    stClass=
@@ -231,7 +231,7 @@ fi
 
 if bashio::config 'InvGridRelay' ; then
    value='InvGridRelay'
-   describe='SMA Device Grid Relay'
+   describe='SMA device Grid Relay'
    mdi_icon='mdi:electric-switch'
    devClass=
    stClass=
@@ -283,7 +283,7 @@ fi
 
 if bashio::config 'UDC1' ; then
    value='UDC1'
-   describe='SMA UDC Array'
+   describe='SMA Array UDC'
    mdi_icon='mdi:solar-panel-large'
    devClass='voltage'
    stClass='measurement'
@@ -296,7 +296,7 @@ fi
 
 if bashio::config 'UDC2' ; then
    value='UDC2'
-   describe='SMA UDC Array2'
+   describe='SMA Array2 UDC'
    mdi_icon='mdi:solar-panel'
    devClass='voltage'
    stClass='measurement'
@@ -309,7 +309,7 @@ fi
 
 if bashio::config 'IDC1' ; then
    value='IDC1'
-   describe='SMA IDC Array'
+   describe='SMA Array IDC'
    mdi_icon='mdi:solar-panel-large'
    devClass='current'
    stClass='measurement'
@@ -322,7 +322,7 @@ fi
 
 if bashio::config 'IDC2' ; then
    value='IDC2'
-   describe='SMA IDC Array2'
+   describe='SMA Array2 IDC'
    mdi_icon='mdi:solar-panel'
    devClass='current'
    stClass='measurement'
@@ -335,7 +335,7 @@ fi
 
 if bashio::config 'PDC1' ; then
    value='PDC1'
-   describe='SMA PDC Array'
+   describe='SMA Array PDC'
    mdi_icon='mdi:solar-panel-large'
    devClass='power'
    stClass='measurement'
@@ -348,7 +348,7 @@ fi
 
 if bashio::config 'PDC2' ; then
    value='PDC2'
-   describe='SMA PDC Array2'
+   describe='SMA Array2 PDC'
    mdi_icon='mdi:solar-panel'
    devClass='power'
    stClass='measurement'
@@ -362,7 +362,7 @@ fi
 if bashio::config 'PDCTot' ; then
    value='PDCTot'
    describe='SMA DC All Strings'
-   mdi_icon='mdi:solar-panel-large'
+   mdi_icon='mdi:solar-panel-variant'
    devClass='power'
    stClass='measurement'
    UoM='kW'
@@ -388,7 +388,7 @@ fi
 if bashio::config 'FeedTm' ; then
    value='FeedTm'
    describe='SMA Total Feed In Time'
-   mdi_icon='mdi:clock'
+   mdi_icon='mdi:clock-digital'
    devClass='duration'
    stClass='total_increasing'
    UoM='h'
@@ -439,7 +439,7 @@ fi
 
 if bashio::config 'UAC1' ; then
    value='UAC1'
-   describe='SMA Grid Voltage Phase 1'
+   describe='SMA Grid Phase 1 Voltage'
    mdi_icon='mdi:transmission-tower'
    devClass='voltage'
    stClass='measurement'
@@ -452,7 +452,7 @@ fi
 
 if bashio::config 'UAC2' ; then
    value='UAC2'
-   describe='SMA Grid Voltage Phase 2'
+   describe='SMA Grid Phase 2 Voltage'
    mdi_icon='mdi:transmission-tower'
    devClass='voltage'
    stClass='measurement'
@@ -465,7 +465,7 @@ fi
 
 if bashio::config 'UAC3' ; then
    value='UAC3'
-   describe='SMA Grid Voltage Phase 3'
+   describe='SMA Grid Phase 3 Voltage'
    mdi_icon='mdi:transmission-tower'
    devClass='voltage'
    stClass='measurement'
@@ -478,7 +478,7 @@ fi
 
 if bashio::config 'IAC1' ; then
    value='IAC1'
-   describe='SMA Grid Current Phase 1'
+   describe='SMA Grid Phase 1 Current'
    mdi_icon='mdi:transmission-tower'
    devClass='current'
    stClass='measurement'
@@ -491,7 +491,7 @@ fi
 
 if bashio::config 'IAC2' ; then
    value='IAC2'
-   describe='SMA Grid Current Phase 2'
+   describe='SMA Grid Phase 2 Current'
    mdi_icon='mdi:transmission-tower'
    devClass='current'
    stClass='measurement'
@@ -504,7 +504,7 @@ fi
 
 if bashio::config 'IAC3' ; then
    value='IAC3'
-   describe='SMA Grid Current Phase 3'
+   describe='SMA Grid Phase 3 Current'
    mdi_icon='mdi:transmission-tower'
    devClass='current'
    stClass='measurement'
