@@ -258,7 +258,7 @@ fi
 if bashio::config 'EToday' ; then
    value='EToday'
    describe='SMA Daily Energy'
-   mdi_icon='mdi:flash'
+   mdi_icon='mdi:solar-power-variant'
    devClass='energy'
    stClass='total_increasing'
    UoM='kWh'
@@ -271,7 +271,7 @@ fi
 if bashio::config 'ETotal' ; then
    value='ETotal'
    describe='SMA Total Energy'
-   mdi_icon='mdi:flash'
+   mdi_icon='mdi:solar-power-variant'
    devClass='energy'
    stClass='total_increasing'
    UoM='kWh'
