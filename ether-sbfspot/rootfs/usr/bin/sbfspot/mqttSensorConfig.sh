@@ -219,7 +219,7 @@ fi
 if bashio::config 'InvStatus' ; then
    value='InvStatus'
    describe='SMA Status'
-   icon=mdi:select-inverse
+   mdi_icon=mdi:select-inverse
    devClass=
    stClass=
    UoM=
