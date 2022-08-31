@@ -95,7 +95,7 @@ bashio::log.info "${__BASHIO_COLORS_RED}" "$BTmac"
 
 #set -x
 
-debugMQTT=' -d'    #  ' -d' or ''
+debugMQTT='.-d'    #  ' -d' or ''
 
 MQTT_Data=$(bashio::config 'MQTT_Data' | tr ',' '\n')
 
