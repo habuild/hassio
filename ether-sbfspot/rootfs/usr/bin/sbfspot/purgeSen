@@ -114,6 +114,12 @@ if bashio::var.has_value "${MQTT_Data}" "Timestamp" ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
 fi
 
+if bashio::var.has_value "${MQTT_Data}" "InvTime" ; then
+   value='InvTime'
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
+fi
+
 if bashio::var.has_value "${MQTT_Data}" "SunRise" ; then
    value='SunRise'
    
@@ -168,14 +174,14 @@ if bashio::var.has_value "${MQTT_Data}" "InvGridRelay" ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
 fi
 
-if bashio::var.has_value "${MQTT_Data}" "InvEToday" ; then
-   value='InvEToday'
+if bashio::var.has_value "${MQTT_Data}" "EToday" ; then
+   value='EToday'
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
 fi
 
-if bashio::var.has_value "${MQTT_Data}" "InvETotal" ; then
-   value='InvETotal'
+if bashio::var.has_value "${MQTT_Data}" "ETotal" ; then
+   value='ETotal'
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
 fi
