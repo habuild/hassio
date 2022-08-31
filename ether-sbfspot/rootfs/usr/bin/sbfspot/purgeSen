@@ -62,6 +62,7 @@ if bashio::fs.file_exists '/data/device'; then
             bashio::log.info "${__BASHIO_COLORS_RED}" '|    "Failed Purge HA Sensors"    |'
             bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
         fi
+     fi
 fi
 
       ####   Why here? should be somewhere else like run    
