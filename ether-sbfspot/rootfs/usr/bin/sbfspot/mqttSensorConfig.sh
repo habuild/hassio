@@ -582,7 +582,7 @@ fi
 
 if bashio::config 'BatChaStt' ; then
     value='BatChaStt'
-   describe='SMA Battery Charging Status'
+   describe='SMA Battery Charging'
    mdi_icon='mdi:battery-clock'
    devClass='battery'
    stClass='total'
