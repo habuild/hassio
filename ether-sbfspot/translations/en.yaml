@@ -19,7 +19,7 @@ configuration:
   LocalBTAddress:
     name: Host BT MAC
     description: >-
-      Your Host Bluetooth MAC. It is shown in the logs. It can be Blank.
+      Your Host Bluetooth MAC. You can find it in this Addons logs. It can be Blank.
   IP_Address:
     name: Ethernet IP address
     description: >-
