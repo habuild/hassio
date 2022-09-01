@@ -21,7 +21,7 @@ options:
   LocalBTAddress: "!secret LocalBTAddress"
   IP_Address: "255.255.255.255"
   MIS_Enabled: 0
-  Plantname: "!secret Timezone"
+  Plantname: "!secret SBFplantname"
   OutputPath: /data/sbfspot/%Y
   OutputPathEvents: /data/sbfspot/%Y/events
   Latitude: "!secret home_lat"
@@ -36,7 +36,7 @@ options:
   SynchTimeHigh: 3600
   SunRSOffset: 900
   Locale: en-US
-  Timezone: "!secret sbfTZ"
+  Timezone: "!secret Timezone"
   BTConnectRetries: 10
   CSV_Export: 0
   CSV_ExtendedHeader: 1
