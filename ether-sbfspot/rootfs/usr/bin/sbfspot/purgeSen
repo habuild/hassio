@@ -20,7 +20,7 @@ MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 
 #  make set config
 if bashio::fs.file_exists '/data/device'; then
-   bashio::log.info Using Existing Device info
+   bashio::log.info "{ Using Existing Device info }"
    else
            value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
         if bashio::var.equals "${value}" "Bluetooth"; then
@@ -96,7 +96,7 @@ fi
 mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -C 1 > /data/device
 
 DEVICE_PATH=/data/device
-bashio::log.info cat "$DEVICE PATH"
+bashio::log.info "$(cat "$DEVICE_PATH")"
 
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
 InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo
