@@ -349,4 +349,6 @@ fi
 
 ###mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "" -r
 
-###  rm /data/device
+bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Boom BOOM BOOOOOOOMMM"     |'
+bashio::log.info "${__BASHIO_COLORS_RED}" '|     "deleting /data/device"     |'
+rm /data/device
