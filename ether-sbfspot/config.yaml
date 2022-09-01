@@ -15,7 +15,7 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
-  Sensors_HA:
+  Sensors_HA: null
   BTAddress: "!secret BTAddress"
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
@@ -79,16 +79,16 @@ schema:
   OutputPathEvents: "str?"
   Latitude: "str?"
   Longitude: "str?"
-  Timezone: "str"
-  DateTimeFormat: "str"
-  DateFormat: "str"
-  DecimalPoint: "str"
-  TimeFormat: "str"
+  Timezone: "str?"
+  DateTimeFormat: "str?"
+  DateFormat: "str?"
+  DecimalPoint: "str?"
+  TimeFormat: "str?"
   SynchTime: "int?"
   SynchTimeLow: "int?"
   SynchTimeHigh: "int?"
   SunRSOffset: "int?"
-  Locale: "str"
+  Locale: "str?"
   CalculateMissingSpotValues: "int?"
   BTConnectRetries: "int?"
   CSV_Export: "int?"
@@ -102,7 +102,7 @@ schema:
   SQL_Hostname: "str?"
   SQL_Port: "str?"
   SQL_Username: "str?"
-  SQL_Password: "password"
+  SQL_Password: "password?"
   MQTT_Publisher: "str?"
   MQTT_Host: "str"
   MQTT_Port: "str"
@@ -113,8 +113,8 @@ schema:
   MQTT_ItemDelimiter: str
   MQTT_PublisherArgs: str?
   MQTT_Data: "str"
-  PVoutput_SID: "password"
-  PVoutput_Key: "password"
+  PVoutput_SID: "password?"
+  PVoutput_Key: "password?"
   LogDir: "str?"
   LogLevel: "str"
   SensorsHA: "str?"
