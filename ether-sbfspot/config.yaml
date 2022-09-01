@@ -68,7 +68,7 @@ options:
   LogLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
-  Sensors_HA: list(|No||Create||Purge|)?
+  Sensors_HA: list(No||Create||Purge)?
   BTAddress: "str"
   Password: "password"
   LocalBTAddress: "str"
