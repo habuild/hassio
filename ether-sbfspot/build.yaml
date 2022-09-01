@@ -13,6 +13,6 @@ labels:
   org.opencontainers.image.licenses: "Apache License 2.0"
 codenotary:
   signer: !secret cassign
-  base_image: notary@home-assistant.io  
+  base_image: notary@home-assistant.io
 args:
   TEMPIO_VERSION: "2021.09.0"
