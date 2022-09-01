@@ -74,6 +74,9 @@ elif bashio::config 'Sensors_HA' == 'Purge'
      bashio::log.red '|     MQTT BROKER RETAINED MSGS   |'
      bashio::log.red '|            STATISTICS           |'
      /usr/bin/sbfspot/purgeSen
+else 
+    bashio::log.cyan '|    No knows how you got here    |'
+    bashio::log.cyan '|   check your option selection   |'
 fi
    
 # ---- RUN ----
