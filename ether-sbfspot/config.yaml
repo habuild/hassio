@@ -24,8 +24,8 @@ options:
   Plantname: MyPlant
   OutputPath: /data/sbfspot/%Y
   OutputPathEvents: /data/sbfspot/%Y/events
-  Latitude: "null"
-  Longitude: "null"
+  Latitude: "!secret home_lat"
+  Longitude: "!secret home_long"
   CalculateMissingSpotValues: 1
   DateTimeFormat: "%d-%m-%Y %H:%M:%S%:z"
   DateFormat: "%d/%m/%Y"
@@ -49,7 +49,7 @@ options:
   SQL_Hostname: core-mariadb
   SQL_Port: "3306"
   SQL_Username: "sbfspot"
-  SQL_Password: ""
+  SQL_Password: "!secret mariadb_pw"
   MQTT_Publisher: /usr/bin/mosquitto_pub
   MQTT_Host: core-mosquitto
   MQTT_Port: "1883"
