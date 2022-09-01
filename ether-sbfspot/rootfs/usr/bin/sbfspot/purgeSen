@@ -23,7 +23,7 @@ if bashio::fs.file_exists '/data/device'; then
    bashio::log.info Using Existing Device info
    else
            value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
-      elif bashio::var.equals "${value}" "Bluetooth"; then
+        if bashio::var.equals "${value}" "Bluetooth"; then
            /usr/bin/sbfspot/genSenBlue
            bashio::log.info
            bashio::log.info
@@ -103,14 +103,13 @@ InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
 InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 
-if bashio::config.exists 'InvSerial'; then
+if bashio::config.exists '$InvSerial'; then
    bashio::log.info "${__BASHIO_COLORS_BLUE}" "||    Generating HA Sensors    ||"
    else
      bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Boom BOOM BOOOOOOOMMM"     |'
      bashio::log.info "${__BASHIO_COLORS_RED}" '|     "NEED TO PUT SetConfig GEN here"     |'
-     
-   fi
 fi
+
 
 if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
    value='InvName'
