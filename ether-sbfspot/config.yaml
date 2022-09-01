@@ -15,7 +15,6 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
-  Sensors_HA:
   BTAddress: ""
   Password: "0000"
   LocalBTAddress: "00:00:00:00:00:00"
