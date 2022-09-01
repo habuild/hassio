@@ -27,7 +27,7 @@ if bashio::fs.file_exists '/data/device'; then
            /usr/bin/sbfspot/genSenBlue
            bashio::log.info
            bashio::log.info
-           bashio::log.info "${__BASHIO_COLORS_BLUE}" "||    Generating HA Sensors    ||"
+           bashio::log.info "${__BASHIO_COLORS_BLUE}" "||    Collecting Inv Serial    ||"
             
            #  Use SetConfig.cfg to post initial mqtt msg for sensors
            /usr/bin/sbfspot/SBFspot -v -finq -mqtt -cfg/usr/bin/sbfspot/SetConfig.cfg
@@ -39,7 +39,7 @@ if bashio::fs.file_exists '/data/device'; then
            /usr/bin/sbfspot/genSenEth
            bashio::log.info
            bashio::log.info
-           message=$(echo "||    Generating HA Sensors     ||")
+           message=$(echo "||    Collecting Inv Serial     ||")
            bashio::log.info "${__BASHIO_COLORS_MAGENTA}" "${message:=""}"
             
            #  Use SetConfig.cfg to post initial mqtt msg for sensors
@@ -96,6 +96,7 @@ fi
 mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -C 1 > /data/device
 
 DEVICE_PATH=/data/device
+bashio::log.info cat "$DEVICE PATH"
 
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
 InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo
@@ -103,11 +104,14 @@ InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
 InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 
-if bashio::config.exists '$InvSerial'; then
-   bashio::log.info "${__BASHIO_COLORS_BLUE}" "||    Generating HA Sensors    ||"
+if bashio::config 'InvSerial' 'InvSerial'; then
+   bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
+   bashio::log.info "${__BASHIO_COLORS_BLUE}" '|     "Purge HA MQTT Sensors"     |'
+   bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
    else
-     bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Boom BOOM BOOOOOOOMMM"     |'
-     bashio::log.info "${__BASHIO_COLORS_RED}" '|     "NEED TO PUT SetConfig GEN here"     |'
+     bashio::log.info "${__BASHIO_COLORS_RED}" '|      "Boom BOOM BOOOOOOOMMM"      |'
+     bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Sending Empty MQTT MSGs"     |'
+     bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Check Removal MQTT Broker"   |'
 fi
 
 
