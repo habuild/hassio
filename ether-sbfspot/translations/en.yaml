@@ -4,7 +4,7 @@ configuration:
     name: Connection Type
     description: >-
       Pick Bluetooth or Ethernet, only the related options are generated in SBFspot.cfg
-  Connection_Type:
+  Sensors_HA:
     name: Create Sensors for MQTT 
     description: >-
       Create or Purge Sensors into the MQTT integration. If you have yaml sensors exist, backup and remove them prior.
