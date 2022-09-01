@@ -107,11 +107,11 @@ if bashio::config 'Timestamp' ; then
    value='Timestamp'
    describe='SMA Timestamp'
    mdi_icon='mdi:clock-digital'
-   devClass=        # 'timestamp' fiddly needs to be correctly formatted with TZ data << null none empty not allowed.  \"device_class\": \"$devClass\",
+   devClass=        # 'timestamp' fiddly needs to be correctly formatted with TZ data << >> null none empty not allowed.  \"device_class\": \"$devClass\",
    stClass=
    UoM=
    EnabDef='true'
-   ent_cat='sensor'          ### diagnostic   sensor    config   https://developers.home-assistant.io/docs/core/entity
+   ent_cat='diagnostic'          ### diagnostic   sensor    config   https://developers.home-assistant.io/docs/core/entity
    
    bashio::log.info Setting Up "$value"
    
