@@ -96,7 +96,7 @@ fi
 mosquitto_sub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -C 1 > /data/device
 
 DEVICE_PATH=/data/device
-bashio::log.info "$(cat "$DEVICE_PATH")"
+bashio::log.info "$(cat "$DEVICE_PATH" | jq -C )"
 
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
 InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo
@@ -122,7 +122,7 @@ if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
 
 fi
 
-if bashio::config 'Timestamp' ; then
+if bashio::var.has_value 'Timestamp' ; then
    value='Timestamp'
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
