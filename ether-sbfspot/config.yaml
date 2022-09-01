@@ -36,7 +36,7 @@ options:
   SynchTimeHigh: 3600
   SunRSOffset: 900
   Locale: en-US
-  Timezone: "!secret Timezone"
+  Timezone: "!secret sbfTZ"
   BTConnectRetries: 10
   CSV_Export: 0
   CSV_ExtendedHeader: 1
