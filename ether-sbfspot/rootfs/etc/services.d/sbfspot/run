@@ -60,14 +60,14 @@ else
 fi
 set +x
 
-if bashio::config 'Sensors_HA' == 'No'
+if bashio::config 'Sensors_HA' == 'No'; then
    bashio::log.yellow '|   SKIPPING MQTT SENSOR CREATION   |'
    
-elif bashio::config 'Sensors_HA' == 'Create'
+elif bashio::config 'Sensors_HA' == 'Create'; then
      bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |' 
      /usr/bin/sbfspot/mqttSensorConfig
      
-elif bashio::config 'Sensors_HA' == 'Purge'
+elif bashio::config 'Sensors_HA' == 'Purge'; then
      bashio::log.red '|    PURGING SENSORS FROM MQTT    |'
      bashio::log.red '|        CONFIRM REMOVAL IN       |'
      bashio::log.red '|        HA MQTT INTEGRATION      |'
