@@ -106,7 +106,7 @@ InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 
 if bashio::config 'InvSerial' 'InvSerial'; then
    bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
-   bashio::log.info "${__BASHIO_COLORS_BLUE}" '|     "Purge HA MQTT Sensors"     |'
+   bashio::log.info "${__BASHIO_COLORS_YELLOW}" '|     "Purge HA MQTT Sensors"     |'
    bashio::log.info "${__BASHIO_COLORS_RED}" '==================================='
    else
      bashio::log.info "${__BASHIO_COLORS_RED}" '|      "Boom BOOM BOOOOOOOMMM"      |'
