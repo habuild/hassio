@@ -27,7 +27,7 @@ options:
   Latitude: "null"
   Longitude: "null"
   CalculateMissingSpotValues: 1
-  DateTimeFormat: "%Y-%m-%dT%H:%M:%S%:z"
+  DateTimeFormat: "%d-%m-%Y %H:%M:%S%:z"
   DateFormat: "%d/%m/%Y"
   DecimalPoint: comma
   TimeFormat: "%H:%M:%S%"
