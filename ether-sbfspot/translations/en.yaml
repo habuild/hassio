@@ -7,7 +7,7 @@ configuration:
   Sensors_HA:
     name: Create Sensors for MQTT
     description: >-
-      Create or Purge Sensors into the MQTT integration. If you have yaml sensors exist, backup and remove them prior.
+      Create or Purge Sensors via the MQTT integration. If you have exisiting yaml sensors, backup and remove them prior.
   BTAddress:
     name: Bluetooth Mac
     description: >-
