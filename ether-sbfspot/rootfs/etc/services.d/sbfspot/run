@@ -30,25 +30,24 @@ bashio::log.info
 
 #set -x
 
- var="$(jq --raw-output '.Sensors_HA' $CONFIG_PATH)"
-65 if bashio::var.equals "${var}" "No"; then
-66    bashio::log.yellow '|   SKIPPING MQTT SENSOR CREATION   |'
-67
-68 elif bashio::var.equals "${var}" "Create"; then
-69      bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |'
-70      /usr/bin/sbfspot/mqttSensorConfig
-71
-72 elif bashio::var.equals "$var" "Purge"; then
-73      bashio::log.red '|    PURGING SENSORS FROM MQTT    |'
-74      bashio::log.red '|        CONFIRM REMOVAL IN       |'
-75      bashio::log.red '|        HA MQTT INTEGRATION      |'
-76      bashio::log.red '|     MQTT BROKER RETAINED MSGS   |'
-77      bashio::log.red '|            STATISTICS           |'
-78      /usr/bin/sbfspot/purgeSen
-79 else
-80     bashio::log.cyan '|    No One knows how you got here    |'
-81     bashio::log.cyan '|     check your option selection     |'
-82 fi
+var="$(jq --raw-output '.Sensors_HA' $CONFIG_PATH)"
+if bashio::var.equals "${var}" "No"; then
+   bashio::log.yellow '|   SKIPPING MQTT SENSOR CREATION   |'
+
+elif bashio::var.equals "${var}" "Create"; then
+     bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |'
+     /usr/bin/sbfspot/mqttSensorConfig
+
+elif bashio::var.equals "$var" "Purge"; then
+      bashio::log.red '|    PURGING SENSORS FROM MQTT    |'
+      bashio::log.red '|        CONFIRM REMOVAL IN       |'
+      bashio::log.red '|        HA MQTT INTEGRATION      |'
+      bashio::log.red '|     MQTT BROKER RETAINED MSGS   |'
+      bashio::log.red '|            STATISTICS           |'
+      /usr/bin/sbfspot/purgeSen
+else
+     bashio::log.cyan '|    No One knows how you got here    |'
+     bashio::log.cyan '|     check your option selection     |'
 
    
 # ---- RUN ----
