@@ -114,14 +114,11 @@ if bashio::config 'InvSerial' 'InvSerial'; then
      bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Check Removal MQTT Broker"   |'
 fi
 
-#  remove device info from default topic
-mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "" -r
 
 if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
    value='InvName'
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
-
 fi
 
 if bashio::var.has_value 'Timestamp' ; then
@@ -352,7 +349,10 @@ if bashio::var.has_value "${MQTT_Data}" "BatChaStt" ; then
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "" -r
 fi
 
-###mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "" -r
+
+#  remove device info from default topic and device topic
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "" -r
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t "$(bashio::addon.name)/device" -m "" -r
 
 bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Boom BOOM BOOOOOOOMMM"     |'
 bashio::log.info "${__BASHIO_COLORS_RED}" '|     "deleting /data/device"     |'
