@@ -60,7 +60,22 @@ else
 fi
 set +x
 
-
+if bashio::config 'Sensors_HA' == 'No'
+   bashio::log.yellow '|   SKIPPING MQTT SENSOR CREATION   |'
+   
+elif bashio::config 'Sensors_HA' == 'Create'
+     bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |' 
+     /usr/bin/sbfspot/mqttSensorConfig
+     
+elif bashio::config 'Sensors_HA' == 'Purge'
+     bashio::log.red '|    PURGING SENSORS FROM MQTT    |'
+     bashio::log.red '|        CONFIRM REMOVAL IN       |'
+     bashio::log.red '|        HA MQTT INTEGRATION      |'
+     bashio::log.red '|     MQTT BROKER RETAINED MSGS   |'
+     bashio::log.red '|            STATISTICS           |'
+     /usr/bin/sbfspot/purgeSen
+fi
+   
 # ---- RUN ----
 message=$(echo "[Starting SBFspotUpload]")
 bashio::log.info ${__BASHIO_COLORS_MAGENTA} "${message:=""}"
