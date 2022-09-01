@@ -105,7 +105,7 @@ if bashio::config 'Timestamp' ; then
    value='Timestamp'
    describe='SMA Timestamp'
    mdi_icon='mdi:clock-digital'
-   devClass='timestamp'
+   devClass=none        # 'timestamp' fiddly needs to be correctly formatted with TZ data
    stClass=
    UoM=
    EnabDef='true'
