@@ -114,6 +114,8 @@ if bashio::config 'InvSerial' 'InvSerial'; then
      bashio::log.info "${__BASHIO_COLORS_RED}" '|     "Check Removal MQTT Broker"   |'
 fi
 
+#  remove device info from default topic
+mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "" -r
 
 if bashio::var.has_value "${MQTT_Data}" "InvName" ; then
    value='InvName'
