@@ -87,7 +87,7 @@ bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 
 
 debugMQTT='--quiet'    #  '-d' or '--quiet'
-RoK='-k'               #  ' -r' or -k    -r retain or - k keep alive  could also use -q QoS 
+RoK='-r'               #  ' -r' or  '-d' I couldn't get k or q to play  -k -r retain or - k keep alive  could also use -q QoS 
 
 if bashio::config 'InvName' ; then
    value='InvName'
