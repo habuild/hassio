@@ -27,7 +27,7 @@ options:
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
   CalculateMissingSpotValues: 1
-  DateTimeFormat: "%d-%m-%Y %H:%M:%S%:z"
+  DateTimeFormat: "%Y-%m-%dT%H:%M:%S%z"
   DateFormat: "%d/%m/%Y"
   DecimalPoint: comma
   TimeFormat: "%H:%M:%S%"
