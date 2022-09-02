@@ -55,7 +55,7 @@ configuration:
   DateTimeFormat:
     name: Date and Time format
     description: >-
-      %Y-%m-%dT%H:%M:%S%:z <-- Proper format DateTimeFormat (looks nice %d/%m/%Y %H:%M:%S) see strftime() function
+      %Y-%m-%dT%H:%M:%S%z <-- Proper format DateTimeFormat (looks nice %d/%m/%Y %H:%M:%S%z) see strftime() function
   SynchTime:
     name: Inverter Sync Time
     description: >-
