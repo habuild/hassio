@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-1007
+version: dev-1
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -117,7 +117,6 @@ schema:
   PVoutput_Key: "password?"
   LogDir: "str?"
   LogLevel: "str"
-  SensorsHA: "str?"
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
