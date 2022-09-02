@@ -48,7 +48,7 @@ elif bashio::var.equals "$var" "Purge"; then
 else
      bashio::log.cyan '|    No One knows how you got here    |'
      bashio::log.cyan '|     check your option selection     |'
-
+fi
    
 # ---- RUN ----
 message=$(echo "[Starting SBFspotUpload]")
