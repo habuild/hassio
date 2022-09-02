@@ -4,7 +4,7 @@
 
 set -e
 CONFIG_PATH=/data/options.json
-cat /data/options.json
+
 PLANTNAME="$(bashio::config 'Plantname')"
 MQTT_Host="$(bashio::config 'MQTT_Host')"
 MQTT_User="$(bashio::config 'MQTT_User')"
