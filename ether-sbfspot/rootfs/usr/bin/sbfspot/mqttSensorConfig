@@ -24,7 +24,7 @@ bashio::log.cyan "${MQTT_Data}"
 if bashio::fs.file_exists '/data/device'; then
    bashio::log.info Using Existing Device info
    else
-        value="$(bashio::config 'connection_type')"
+        value="$(bashio::config 'Connection_Type')"
         if  bashio::var.equals "${value}" "Bluetooth"; then
             /usr/bin/sbfspot/genSenBlue
             bashio::log.info
