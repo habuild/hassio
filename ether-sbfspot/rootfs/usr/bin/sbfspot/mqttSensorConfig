@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bashio
-# shellcheck sh
+# shellcheck shell=bash
 #  Publish MQTT sensors for Config discovery.
 
 #set -x
