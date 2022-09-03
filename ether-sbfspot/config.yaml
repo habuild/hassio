@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-105
+version: dev-106
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -27,7 +27,7 @@ options:
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
   CalculateMissingSpotValues: 1
-  DateTimeFormat: "%H:%M:%S %z%n%Y-%m-%d"
+  #  DateTimeFormat: "%H:%M:%S %z%n%Y-%m-%d" unused to ensure proper Timestamps
   DateFormat: "%d/%m/%Y"
   DecimalPoint: comma
   TimeFormat: "%H:%M:%S%"
