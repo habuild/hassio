@@ -15,7 +15,7 @@ CONFIG_OUTPUTPATHEVENTS="$(jq --raw-output '.OutputPathEvents' $CONFIG_PATH)"
 CONFIG_LATITUDE="$(jq --raw-output '.Latitude' $CONFIG_PATH)"
 CONFIG_LONGITUDE="$(jq --raw-output '.Longitude' $CONFIG_PATH)"
 CONFIG_CALCULATEMISSINGSPOTVALUES="$(jq --raw-output '.CalculateMissingSpotValues' $CONFIG_PATH)"
-CONFIG_DATETIMEFORMAT="$(jq --raw-output '.DateTimeFormat' $CONFIG_PATH)"
+#  CONFIG_DATETIMEFORMAT="$(jq --raw-output '.DateTimeFormat' $CONFIG_PATH)"
 CONFIG_DATEFORMAT="$(jq --raw-output '.DateFormat' $CONFIG_PATH)"
 CONFIG_DECIMALPOINT="$(jq --raw-output '.DecimalPoint' $CONFIG_PATH)"
 CONFIG_TIMEFORMAT="$(jq --raw-output '.TimeFormat' $CONFIG_PATH)"
@@ -134,7 +134,8 @@ CalculateMissingSpotValues=$CONFIG_CALCULATEMISSINGSPOTVALUES
 # DateTimeFormat (default %d/%m/%Y %H:%M:%S)
 # For details see strftime() function
 # http://www.cplusplus.com/reference/clibrary/ctime/strftime/
-DateTimeFormat=$CONFIG_DATETIMEFORMAT
+# DateTimeFormat=$CONFIG_DATETIMEFORMAT
+DateTimeFormat=%Y/%m/%dT%H:%M:%S %Z
 
 # DateFormat (default %d/%m/%Y)
 DateFormat=$CONFIG_DATEFORMAT
