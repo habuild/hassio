@@ -6,9 +6,9 @@
 
 - This is a test version and will change without warning.
 - as above, you have been warned
--
+- .....
 - The real version is over there
-- https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot
+- [HAOS-SBFsopt github](https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot)
 
 ## ![Release][release-shield-2022-7-4]
 
