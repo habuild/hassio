@@ -114,7 +114,7 @@ schema:
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
   LogDir: "str?"
-  LogLevel: list(debug|info|warning|error)?
+  LogLevel: list(debug|info|warning||error)?
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
