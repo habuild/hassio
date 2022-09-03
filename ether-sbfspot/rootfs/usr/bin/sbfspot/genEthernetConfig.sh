@@ -135,7 +135,7 @@ CalculateMissingSpotValues=$CONFIG_CALCULATEMISSINGSPOTVALUES
 # DateTimeFormat (default %d/%m/%Y %H:%M:%S)
 # For details see strftime() function
 # http://www.cplusplus.com/reference/clibrary/ctime/strftime/
-# DateTimeFormat=$CONFIG_DATETIMEFORMAT
+# DateTimeFormat=  ### CONFIG_DATETIMEFORMAT
 DateTimeFormat=%Y-%m-%dT%H:%M:%S%Z
 
 # DateFormat (default %d/%m/%Y)
