@@ -13,7 +13,7 @@ MQTT_Topic="$(bashio::config 'MQTT_Topic')"
 MQTT_Data="$(bashio::config 'MQTT_Data')"
 #  arg="$(jq --raw-output '.MQTT_Data' /data/options.json | tr ',' '\n')"
 
-ts_custom="${bashio:: 'DateTimeFormat'}"
+ts_custom="$(bashio::config 'DateTimeFormat')"
 
 bashio::log.magenta "$PLANTNAME"
 bashio::log.red "${MQTT_Host}"
