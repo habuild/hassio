@@ -6,13 +6,14 @@
 
 - This is a test version and will change without warning.
 - as above, you have been warned
-- 
-- The real version is over there 
+-
+- The real version is over there
 - https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot
 
 ## ![Release][release-shield-2022-7-4]
 
 [release-shield-2022-7-4]: https://img.shields.io/badge/version-2022.7.4-blue.svg
+
 - apparmor is working
 - added hassio:api
 - added services:need for mariadb, mqtt:want
