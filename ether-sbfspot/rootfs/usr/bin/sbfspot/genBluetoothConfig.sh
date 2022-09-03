@@ -311,4 +311,4 @@ EOL
 
 # create folders
 mkdir -p "$CONFIG_OUTPUTPATH"
-mkdir -p "$CONFIG_LOGDIR"
+# mkdir -p  ##### "CONFIG_LOGDIR"
