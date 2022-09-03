@@ -725,7 +725,7 @@ value='BTSignal'
    
    bashio::log.info Setting Up "$value"
    
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | round(1) | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | round(1) | default(0) }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
    else
      bashio::log.yellow Skipping "${value}"
 fi
