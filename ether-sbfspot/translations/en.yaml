@@ -127,7 +127,7 @@ configuration:
     description: >-
       comma is default.
   MQTT_PublisherArgs:
-    name: MQTT Publisher args. ADD MQTT user and pass
+    name: MQTT_PublisherArgs - - Option removed to allow Sensor set up. Add MQTT_User and MQTT_Pass to respective options.
     description: >-
       -h {host} -u "$MQTT_User" -P "$MQTT_Pass" -t {topic} -m "{{message}}" -d Leave the "$variables" to use the options or add user & pass. -d is for debug.
   MQTT_Data:
@@ -143,7 +143,7 @@ configuration:
     description: >-
       Add you PVoutput API key here. Can be fake if you don't want to create an account.
   LogDir:
-    name: PVoutput Upload logs
+    name: PVoutput Upload logs - If left blank logging will go to stdout!!
     description: >-
       /data/sbfspot/log/ is Default. These logs are deleted after 3 days as long as the default path is used.
   LogLevel:
