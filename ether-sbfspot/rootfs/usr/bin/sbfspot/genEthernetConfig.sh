@@ -49,7 +49,7 @@ CONFIG_MQTT_ITEMFORMAT="$(jq --raw-output '.MQTT_ItemFormat' $CONFIG_PATH)"
 CONFIG_MQTT_ITEMDELIMITER="$(jq --raw-output '.MQTT_ItemDelimiter' $CONFIG_PATH)"
 #  CONFIG_MQTT_PUBLISHERARGS="$(jq --raw-output '.MQTT_PublisherArgs' $CONFIG_PATH)"
 CONFIG_MQTT_DATA="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
-CONFIG_LOGDIR="$(jq --raw-output '.LogDir' $CONFIG_PATH)"
+#  CONFIG_LOGDIR="$(jq --raw-output '.LogDir' $CONFIG_PATH)"
 CONFIG_LOGLEVEL="$(jq --raw-output '.LogLevel' $CONFIG_PATH)"
 CONFIG_PVOUTPUT_SID="$(jq --raw-output '.PVoutput_SID' $CONFIG_PATH)"
 CONFIG_PVOUTPUT_KEY="$(jq --raw-output '.PVoutput_Key' $CONFIG_PATH)"
@@ -274,7 +274,7 @@ cat > "$CFG_PATH_UPLOAD" <<EOL
 # Windows: C:\Users\Public\SMAdata\Logs
 # Linux  : /home/pi/smadata/logs
 #LogDir=C:\Users\Public\SMAdata\Logs
-LogDir=$CONFIG_LOGDIR
+# LogDir=  ###  CONFIG_LOGDIR
 
 #LogLevel=debug|info|warning|error (default info)
 LogLevel=$CONFIG_LOGLEVEL
@@ -312,4 +312,4 @@ EOL
 
 # create folders
 mkdir -p "$CONFIG_OUTPUTPATH"
-mkdir -p "$CONFIG_LOGDIR"
+# mkdir -p "$CONFIG_LOGDIR"
