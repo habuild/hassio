@@ -113,7 +113,7 @@ schema:
   MQTT_Data: "str"
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
-  
+
   LogLevel: list(debug|info||warning||error)?
 host_network: true
 host_dbus: true
