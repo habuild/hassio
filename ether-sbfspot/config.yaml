@@ -63,7 +63,7 @@ options:
     Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,OperTm,FeedTm,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal
   PVoutput_SID: "0123456789:12345"
   PVoutput_Key: "fake9364fake4545afke834fake"
-
+  logLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   Sensors_HA: list(No||Create||Purge|)?
@@ -113,8 +113,8 @@ schema:
   MQTT_Data: "str"
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
-  LogDir: "str?"
-  LogLevel: list(debug|info|warning||error)?
+  
+  LogLevel: list(debug|info||warning||error)?
 host_network: true
 host_dbus: true
 image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
