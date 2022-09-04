@@ -23,5 +23,5 @@ bashio::log.info "[SBFspot Upload Log Latest] $(tail -n1 "/data/sbfspot/log/SBFs
 #busybox command for minus 1 day
 #date +%Y%m%d -d @$(($(date +%s)-86400))
 
-# remove log files older than 3 days
-find /data/sbfspot/log -mtime +3 -exec rm {} \;
+# remove log files older than 3 days no longer required, however keeping for the message in the log.
+## find /data/sbfspot/log -mtime +3 -exec rm {} \; 
