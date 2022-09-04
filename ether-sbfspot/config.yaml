@@ -38,7 +38,7 @@ options:
   Locale: en-US
   Timezone: "!secret Timezone"
   BTConnectRetries: 10
-  
+
   SQL_Database: "SBFspot"
   SQL_Hostname: core-mariadb
   SQL_Port: "3306"
