@@ -1,0 +1,114 @@
+---
+name: ETHER-SBFspot
+version: dev-111
+slug: ether-sbfspot
+description: Manage SBFspot with a simple interface
+url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
+stage: experimental
+arch:
+  - amd64
+init: false
+homeassistant_api: true
+panel_icon: mdi:solar-power-variant
+services:
+  - mysql:want
+  - mqtt:want
+options:
+  Connection_Type: "Bluetooth"
+  Sensors_HA: No
+  BTAddress: "!secret BTAddress"
+  Password: "!secret SBFpassword"
+  LocalBTAddress: "!secret LocalBTAddress"
+  IP_Address: "255.255.255.255"
+  MIS_Enabled: 0
+  Plantname: "!secret SBFplantname"
+  OutputPath: /data/sbfspot/%Y
+  OutputPathEvents: /data/sbfspot/%Y/events
+  Latitude: "!secret home_lat"
+  Longitude: "!secret home_long"
+  CalculateMissingSpotValues: 1
+  #  DateTimeFormat: "%H:%M:%S %z%n%Y-%m-%d" unused to ensure proper Timestamps
+  DateFormat: "%d/%m/%Y"
+  DecimalPoint: comma
+  TimeFormat: "%H:%M:%S%"
+  SynchTime: 0
+  SynchTimeLow: 1
+  SynchTimeHigh: 3600
+  SunRSOffset: 900
+  Locale: en-US
+  Timezone: "!secret Timezone"
+  BTConnectRetries: 10
+
+  SQL_Database: "SBFspot"
+  SQL_Hostname: core-mariadb
+  SQL_Port: "3306"
+  SQL_Username: "sbfspot"
+  SQL_Password: "!secret mariadb_pw"
+  MQTT_Publisher: /usr/bin/mosquitto_pub
+  MQTT_Host: core-mosquitto
+  MQTT_Port: "1883"
+  MQTT_User: "!secret mqtt_user"
+  MQTT_Pass: "!secret mqtt_pass"
+  MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
+  MQTT_ItemFormat: '"{key}": {value}'
+  MQTT_ItemDelimiter: comma
+
+  MQTT_Data: >-
+    Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,OperTm,FeedTm,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal
+  PVoutput_SID: "0123456789:12345"
+  PVoutput_Key: "fake9364fake4545afke834fake"
+  logLevel: info
+schema:
+  Connection_Type: list(Bluetooth|Ethernet)?
+  Sensors_HA: list(No||Create||Purge|)?
+  BTAddress: "str"
+  Password: "password"
+  LocalBTAddress: "str"
+  IP_Address: "str"
+  Plantname: "str"
+  MIS_Enabled: "int?"
+  OutputPath: "str?"
+  OutputPathEvents: "str?"
+  Latitude: "str?"
+  Longitude: "str?"
+  Timezone: "str?"
+  DateTimeFormat: "str?"
+  DateFormat: "str?"
+  DecimalPoint: "str?"
+  TimeFormat: "str?"
+  SynchTime: "int?"
+  SynchTimeLow: "int?"
+  SynchTimeHigh: "int?"
+  SunRSOffset: "int?"
+  Locale: "str?"
+  CalculateMissingSpotValues: "int?"
+  BTConnectRetries: "int?"
+  CSV_Export: "int?"
+  CSV_ExtendedHeader: "int?"
+  CSV_Header: "int?"
+  CSV_SaveZeroPower: "int?"
+  CSV_Delimiter: "str?"
+  CSV_Spot_TimeSource: "str?"
+  CSV_Spot_WebboxHeader: "int?"
+  SQL_Database: "str?"
+  SQL_Hostname: "str?"
+  SQL_Port: "str?"
+  SQL_Username: "str?"
+  SQL_Password: "password?"
+  MQTT_Publisher: "str?"
+  MQTT_Host: "str"
+  MQTT_Port: "str"
+  MQTT_User: "str"
+  MQTT_Pass: "password"
+  MQTT_Topic: "str"
+  MQTT_ItemFormat: "str"
+  MQTT_ItemDelimiter: str
+  MQTT_PublisherArgs: str?
+  MQTT_Data: "str"
+  PVoutput_SID: "password?"
+  PVoutput_Key: "password?"
+
+  LogLevel: list(debug|info||warning||error)?
+host_network: true
+host_dbus: true
+image: "ghcr.io/habuild/{arch}-addon-ether-sbfspot"
