@@ -7,12 +7,12 @@
 
 CONFIG_PATH=/data/options.json
 
-PLANTNAME="$(jq --raw-output '.Plantname' $CONFIG_PATH)"
-MQTT_Host="$(jq --raw-output '.MQTT_Host' $CONFIG_PATH)"
-MQTT_User="$(jq --raw-output '.MQTT_User' $CONFIG_PATH)"
-MQTT_Pass="$(jq --raw-output '.MQTT_Pass' $CONFIG_PATH)"
-MQTT_Topic="$(jq --raw-output '.MQTT_Topic' $CONFIG_PATH)"
-MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
+PLANTNAME="$(bashio::config 'Plantname')"
+MQTT_Host="$(bashio::config 'MQTT_Host' 'core-mosquitto')"
+MQTT_User="$(bashio::config 'MQTT_User' '!secret mqtt_user')"
+MQTT_Pass="$(bashio::config 'MQTT_Pass' '!secret mqtt_pass')"
+MQTT_Topic="$(bashio::config 'MQTT_Topic')"
+MQTT_Data="$(bashio::config 'MQTT_Data')"
 
 
 #  make set config
@@ -22,7 +22,7 @@ MQTT_Data="$(jq --raw-output '.MQTT_Data' $CONFIG_PATH)"
 if bashio::fs.file_exists '/data/device'; then
    bashio::log.green "{ Using Existing Device info }"
    else
-           value="$(jq --raw-output '.Connection_Type' $CONFIG_PATH)"
+           value="$(bashio::config 'Connection_Type')"
         if bashio::var.equals "${value}" "Bluetooth"; then
            /usr/bin/sbfspot/genSenBlue
            bashio::log.info
