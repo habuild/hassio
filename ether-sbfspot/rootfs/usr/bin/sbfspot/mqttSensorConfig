@@ -6,7 +6,7 @@ set -e
 CONFIG_PATH=/data/options.json
 
 PLANTNAME="$(bashio::config 'Plantname')"
-MQTT_Host="$(bashio::config 'MQTT_Host')"
+MQTT_Host="$(bashio::config 'MQTT_Host' 'core-mosquitto')"
 MQTT_User="$(bashio::config 'MQTT_User')"
 MQTT_Pass="$(bashio::config 'MQTT_Pass')"
 MQTT_Topic="$(bashio::config 'MQTT_Topic')"
