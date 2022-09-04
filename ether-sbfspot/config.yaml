@@ -23,7 +23,6 @@ options:
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
   IP_Address: "255.255.255.255"
-  MIS_Enabled: 0
   Plantname: "!secret SBFplantname"
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
@@ -42,8 +41,8 @@ schema:
   Sensors_HA: list(No||Create||Purge|)?
   BTAddress: "str"
   Password: "password"
-  LocalBTAddress: "str"
-  IP_Address: "str"
+  LocalBTAddress: "str?"
+  IP_Address: "str?"
   Plantname: "str"
   MIS_Enabled: "int?"
   OutputPath: "str?"
@@ -75,13 +74,13 @@ schema:
   SQL_Username: "str?"
   SQL_Password: "password?"
   MQTT_Publisher: "str?"
-  MQTT_Host: "str"
-  MQTT_Port: "str"
+  MQTT_Host: "str?"
+  MQTT_Port: "str?"
   MQTT_User: "str"
   MQTT_Pass: "password"
   MQTT_Topic: "str"
-  MQTT_ItemFormat: "str"
-  MQTT_ItemDelimiter: str
+  MQTT_ItemFormat: "str?"
+  MQTT_ItemDelimiter: str?
   MQTT_PublisherArgs: str?
   MQTT_Data: "str"
   PVoutput_SID: "password?"
