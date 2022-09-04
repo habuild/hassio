@@ -245,7 +245,7 @@ MQTT_Port=$CONFIG_MQTT_PORT
 MQTT_Topic=$CONFIG_MQTT_TOPIC
 MQTT_ItemFormat=$CONFIG_MQTT_ITEMFORMAT
 MQTT_ItemDelimiter=$CONFIG_MQTT_ITEMDELIMITER
-MQTT_PublisherArgs=-h $(bashio::config 'MQTT_Host') -u $(bashio::config 'MQTT_User') -P $(bashio::config 'MQTT_Pass') -t {topic} -m "{{message}}" -d
+MQTT_PublisherArgs=-h $(bashio::config 'MQTT_Host' 'core-mosquitto') -u $(bashio::config 'MQTT_User') -P $(bashio::config 'MQTT_Pass') -t {topic} -m "{{message}}" -d
 MQTT_Data=$CONFIG_MQTT_DATA
 EOL
 
