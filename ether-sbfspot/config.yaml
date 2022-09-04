@@ -38,13 +38,7 @@ options:
   Locale: en-US
   Timezone: "!secret Timezone"
   BTConnectRetries: 10
-  CSV_Export: 0
-  CSV_ExtendedHeader: 1
-  CSV_Header: 1
-  CSV_SaveZeroPower: 1
-  CSV_Delimiter: semicolon
-  CSV_Spot_TimeSource: Inverter
-  CSV_Spot_WebboxHeader: 0
+  
   SQL_Database: "SBFspot"
   SQL_Hostname: core-mariadb
   SQL_Port: "3306"
