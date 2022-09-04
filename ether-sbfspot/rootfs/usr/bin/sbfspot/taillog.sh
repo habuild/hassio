@@ -3,7 +3,7 @@
 cd /
 
 #---- Create lognow variable
-lognow=$(date +%Y%m%d)
+#  lognow=$(date +%Y%m%d)
 
 # Sleep until log updated from last SBFspot run
 sleep 45
