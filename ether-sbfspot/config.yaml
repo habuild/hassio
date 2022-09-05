@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-113
+version: dev-114
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -85,5 +85,4 @@ schema:
   MQTT_Data: "str"
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
-
   LogLevel: list(debug|info||warning||error)?
