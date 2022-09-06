@@ -117,7 +117,7 @@ configuration:
   MQTT_Port:
     name: MQTT Port
     description: >-
-  1883 is default. Can be Blank.
+      1883 is default. Can be Blank.
   MQTT_User:
     name: MQTT User !secret mqtt_user is default!
     description: >-
