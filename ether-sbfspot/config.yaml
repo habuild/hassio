@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-114
+version: dev-115
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -27,14 +27,15 @@ options:
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
   Timezone: "!secret Timezone"
+  DateTimeFormat: "'%H:%M:%S %d-%m-%y'"
   SQL_Password: "!secret mariadb_pw"
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
   MQTT_Data: >-
     Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,OperTm,FeedTm,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal
-  PVoutput_SID: "0123456789:12345"
-  PVoutput_Key: "fake9364fake4545afke834fake"
+  PVoutput_SID: "!secret pvoSID"
+  PVoutput_Key: "!secret pvoAPIkey"
   LogLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
