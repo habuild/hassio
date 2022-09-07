@@ -126,6 +126,11 @@ It is advised to **backup and/or disable existing yaml sensors** to avoid naming
 
 <details><summary><b>No</b> sensors. HAOS-SBFspot will run without generating sensors. It will use yaml or mqtt sensors. </summary>
 <p>
+
+- Use this option if you want to keep your existing yaml energy sensor on the energy dashboard.
+
+  You can make new sensors. You can't convert the new sensors to keep the old energy dash values.
+
 </p>
 </details>
 
@@ -135,6 +140,8 @@ It is advised to **backup and/or disable existing yaml sensors** to avoid naming
 [MQTT Integration](https://www.home-assistant.io/integrations/mqtt)
 
 It is advised to **backup and/or disable existing yaml sensors** to avoid naming conflicts.
+
+Updating the new energy sensor to follow the old energy sensor on the energy dashboard is not possible in HA.
 
     - This option will create topics using your plantname and inverter serial number
 
