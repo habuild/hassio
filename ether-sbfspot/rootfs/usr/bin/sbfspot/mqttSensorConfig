@@ -101,6 +101,10 @@ RoK='-r'               #  retain  '-r' or  '-d' depending on value above
 IFS=',' read -r -a array <<< "$MQTT_Data"
 bashio::log.magenta "${array[@]}"
 
+####  All Sensors List
+#  PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,OperTm,FeedTm,PDCTot,PDC1,PDC2,PDC,UDC1,UDC2,UDC,IDC1,IDC2,IDC,BTSignal,InvWakeupTm,InvSleepTm,MeteringWOut,MeteringWIn,MeteringWTot
+####  
+
 ###### MAKE SENSORS #######
 
 value='PrgVersion'
@@ -410,168 +414,6 @@ value='PACTot'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='PDC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Array PDC'
-   mdi_icon='mdi:solar-panel-large'
-   devClass='power'
-   stClass='measurement'
-   UoM='W'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='PDC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Array2 PDC'
-   mdi_icon='mdi:solar-panel'
-   devClass='power'
-   stClass='measurement'
-   UoM='W'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='UDC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Array UDC'
-   mdi_icon='mdi:solar-panel-large'
-   devClass='voltage'
-   stClass='measurement'
-   UoM='V'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='UDC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Array2 UDC'
-   mdi_icon='mdi:solar-panel'
-   devClass='voltage'
-   stClass='measurement'
-   UoM='V'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='IDC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Array IDC'
-   mdi_icon='mdi:solar-panel-large'
-   devClass='current'
-   stClass='measurement'
-   UoM='A'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='IDC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Array2 IDC'
-   mdi_icon='mdi:solar-panel'
-   devClass='current'
-   stClass='measurement'
-   UoM='A'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='PDCTot'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA DC All Strings'
-   mdi_icon='mdi:solar-power-variant-outline'
-   devClass='power'
-   stClass='measurement'
-   UoM='W'
-   EnabDef='true' 
-   ent_cat=
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='OperTm'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Total Op Time'
-   mdi_icon='mdi:clock'
-   devClass='duration'
-   stClass='total_increasing'
-   UoM='h'
-   EnabDef='true' 
-   ent_cat='diagnostic'
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
-value='FeedTm'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Total Feed In Time'
-   mdi_icon='mdi:clock-digital'
-   devClass='duration'
-   stClass='total_increasing'
-   UoM='h'
-   EnabDef='true' 
-   ent_cat='diagnostic'
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
-
 value='PAC1'
  if [[ " ${array[*]} " =~ " $value " ]]; then
    
@@ -600,8 +442,7 @@ value='PAC2'
    UoM='W'
    EnabDef='false' 
    ent_cat= 
-   
-   
+      
    bashio::log.info Setting Up "$value"
    
    /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
@@ -734,6 +575,230 @@ value='IAC3'
    else
      bashio::log.yellow Skipping "${value}"
 fi
+
+value='OperTm'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Total Op Time'
+   mdi_icon='mdi:clock'
+   devClass='duration'
+   stClass='total_increasing'
+   UoM='h'
+   EnabDef='true' 
+   ent_cat='diagnostic'
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='FeedTm'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Total Feed In Time'
+   mdi_icon='mdi:clock-digital'
+   devClass='duration'
+   stClass='total_increasing'
+   UoM='h'
+   EnabDef='true' 
+   ent_cat='diagnostic'
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+##############   DC Power Section
+
+value='PDCTot'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA DC All Strings'
+   mdi_icon='mdi:solar-power-variant-outline'
+   devClass='power'
+   stClass='measurement'
+   UoM='W'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='PDC1'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array1 PDC'
+   mdi_icon='mdi:solar-panel-large'
+   devClass='power'
+   stClass='measurement'
+   UoM='W'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='PDC2'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array2 PDC'
+   mdi_icon='mdi:solar-panel'
+   devClass='power'
+   stClass='measurement'
+   UoM='W'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='PDC'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array PDC Tot'
+   mdi_icon='mdi:solar-panel'
+   devClass='power'
+   stClass='measurement'
+   UoM='W'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+###############   DC voltage Section
+
+value='UDC1'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array1 UDC'
+   mdi_icon='mdi:solar-panel-large'
+   devClass='voltage'
+   stClass='measurement'
+   UoM='V'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='UDC2'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array2 UDC'
+   mdi_icon='mdi:solar-panel'
+   devClass='voltage'
+   stClass='measurement'
+   UoM='V'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='UDC'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array UDC Tot'
+   mdi_icon='mdi:solar-panel'
+   devClass='voltage'
+   stClass='measurement'
+   UoM='V'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+#################   DC Current section
+
+value='IDC1'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array1 IDC'
+   mdi_icon='mdi:solar-panel-large'
+   devClass='current'
+   stClass='measurement'
+   UoM='A'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='IDC2'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array2 IDC'
+   mdi_icon='mdi:solar-panel'
+   devClass='current'
+   stClass='measurement'
+   UoM='A'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+value='IDC'
+ if [[ " ${array[*]} " =~ " $value " ]]; then
+   
+   describe='SMA Array IDC Tot'
+   mdi_icon='mdi:solar-panel'
+   devClass='current'
+   stClass='measurement'
+   UoM='A'
+   EnabDef='true' 
+   ent_cat=
+   
+   bashio::log.info Setting Up "$value"
+   
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
+   else 
+     bashio::log.yellow Skipping "${value}"
+fi
+
+######## 
 
 value='GridFreq'
  if [[ " ${array[*]} " =~ " $value " ]]; then
