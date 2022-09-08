@@ -15,17 +15,17 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # install requirements
 RUN apk update && apk add --no-cache \
-    bluez=5.65 \
-    bluez-dev=5.65 \
-    boost-dev=1.78.0 \
-    curl-dev=7.83.1 \
-    git=2.36.2 \
-    g++=11.2.1_git20220219 \
-    make=4.3 \
-    mariadb-dev=10.6.9 \
-    mosquitto-clients=2.0.14 \
-    nginx=1.22.0 \
-    tzdata=2022a
+    bluez=5.65-r0 \
+    bluez-dev=5.65-r0 \
+    boost-dev=1.78.0-r1 \
+    curl-dev=7.83.1-r3 \
+    git=2.36.2-r0 \
+    g++=11.2.1_git20220219-r2 \
+    make=4.3-r0 \
+    mariadb-dev=10.6.9-r0 \
+    mosquitto-clients=2.0.14-r1 \
+    nginx=1.22.0-r1 \
+    tzdata=2022a-r0
            
 # download and build SBFspot
 WORKDIR /tmp
@@ -49,16 +49,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 
 RUN apk update && apk add --no-cache \
-    bluez=5.65 \
-    nano=6.3 \
-    bluez-libs=5.65 \
-    libstdc++=11.2.1_git20220219 \
-    mariadb-common=10.6.9 \
-    mariadb-connector-c=3.1.13 \
-    ncurses-libs=6.3_p20220521 \
-    libcurl=7.83.1 \
-    mosquitto-clients=2.0.14 \
-    nginx=1.22.0
+    bluez=5.65-r0 \
+    nano=6.3-r0 \
+    bluez-libs=5.65-r0 \
+    libstdc++=11.2.1_git20220219-r2 \
+    mariadb-common=10.6.9-r0 \
+    mariadb-connector-c=3.1.13-r4 \
+    ncurses-libs=6.3_p20220521-r0 \
+    libcurl=7.83.1-r2 \
+    mosquitto-clients=2.0.14-r1 \
+    nginx=1.22.0-r1
     
     #tzdata=2022a-r0 
     #boost-date_time1.78 
