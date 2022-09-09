@@ -16,7 +16,6 @@ panel_icon: mdi:solar-power-variant
 services:
   - mysql:want
   - mqtt:want
-  - homeassistant:need
 options:
   Connection_Type: "Bluetooth"
   Sensors_HA: No
