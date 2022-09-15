@@ -13,7 +13,7 @@ host_network: true
 host_dbus: true
 usb: true
 uart: true
-devices: 
+devices:
   - /dev/ttyAMA0
 homeassistant_api: true
 hassio_api: true
