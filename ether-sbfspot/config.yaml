@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-123
+version: dev-124
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -14,6 +14,7 @@ host_dbus: true
 usb: true
 uart: true
 homeassistant_api: true
+hassio_api: true
 ingress: true
 ingress_port: 0
 ingress_entry: /
