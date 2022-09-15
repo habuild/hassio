@@ -120,4 +120,4 @@ LABEL \
 
 
 #Launch nginx with debug options. not working yet
-#CMD [ "nginx","-g","daemon off;error_log /dev/stdout debug;" ] 
+CMD [ "nginx","-g","daemon off;error_log /dev/stdout debug;" ] 
