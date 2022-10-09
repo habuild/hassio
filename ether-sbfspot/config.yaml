@@ -12,12 +12,9 @@ init: false
 host_network: true
 host_dbus: true
 homeassistant_api: true
-hassio_api: true
-ingress: true
-ingress_port: 0
 panel_icon: mdi:solar-power-variant
 services:
-  - mysql:want
+  - mysql:need
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
@@ -25,7 +22,7 @@ options:
   BTAddress: "!secret BTAddress"
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
-  IP_Address: "255.255.255.255"
+  IP_Address: "55.255.255.255"
   Plantname: "!secret SBFplantname"
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
@@ -36,7 +33,7 @@ options:
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
   MQTT_Data: >-
-    PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,OperTm,FeedTm,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal
+    PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,OperTm,FeedTm,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal,InvWakeupTm,InvSleepTm
   PVoutput_SID: "!secret pvoSID"
   PVoutput_Key: "!secret pvoAPIkey"
   LogLevel: info
