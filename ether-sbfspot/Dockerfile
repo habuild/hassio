@@ -25,7 +25,7 @@ RUN apk update && apk add --no-cache \
     mariadb-dev=10.6.9-r0 \
     mosquitto-clients=2.0.14-r1 \
     nginx=1.22.0-r1 \
-    tzdata=2022a-r0
+    tzdata=2022c-r0
            
 # download and build SBFspot
 WORKDIR /tmp
@@ -56,11 +56,11 @@ RUN apk update && apk add --no-cache \
     mariadb-common=10.6.9-r0 \
     mariadb-connector-c=3.1.13-r4 \
     ncurses-libs=6.3_p20220521-r0 \
-    libcurl=7.83.1-r2 \
+    libcurl=7.83.1-r3 \
     mosquitto-clients=2.0.14-r1 \
     nginx=1.22.0-r1
     
-    #tzdata=2022a-r0 
+    #tzdata=2022c-r0 
     #boost-date_time1.78 
 
 
@@ -83,7 +83,7 @@ COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 COPY rootfs /
 
 RUN chmod a+x /etc/services.d/sbfspot/** /usr/bin/sbfspot/**
- 
+
 # --- install cron ---
 # set shell
 RUN echo 'SHELL=/bin/bash' > /etc/crontabs/root
@@ -98,26 +98,24 @@ RUN echo '@reboot sleep 60 && /usr/bin/sbfspot/SBFspotUploadDaemon -c /usr/bin/s
 #  Log SBFspotUpload to HA logging window  defunct now in version 3.9.6+ sbfspot, using it for the timed message
 RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh' >> /etc/crontabs/root
 
-
-
 # Labels
 LABEL \
-    io.hass.name="Ether-SBFspot" \
-    io.hass.description="Home Assitant addon for Bluetooth SBFspot" \
+    io.hass.name="HAOS-SBFspot" \
+    io.hass.description="Home Assistant addon for Bluetooth SBFspot, is an open source project to get actual and archive data out of an SMA® inverter over Bluetooth or Ethernet (Speedwire®)" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
     maintainer="Hasqt <https://community.home-assistant.io/u/hasqt>" \
-    org.label-schema.description="Home Assitant addon for Bluetooth SBFspot" \
+    org.label-schema.description="Home Assistant addon for Bluetooth SBFspot, is an open source project to get actual and archive data out of an SMA® inverter over Bluetooth or Ethernet (Speedwire®)" \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="Ether-SBFspot" \
+    org.label-schema.name="HAOS-SBFspot" \
     org.label-schema.schema-version="1.0" \
-    org.label-schema.url="https://github.com/habuild/hassio/tree/main/ether-sbfspot" \
-    org.label-schema.usage="https://github.com/habuild/hassio/tree/main/ether-sbfspot/README.md" \
+    org.label-schema.url="https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot" \
+    org.label-schema.usage="https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/habuild/hassio" \
+    org.label-schema.vcs-url="https://github.com/habuild/hassio-addons" \
     org.label-schema.vendor="Hasqt"
 
 
 #Launch nginx with debug options. not working yet
-CMD [ "nginx","-g","daemon off;error_log /dev/stdout debug;" ] 
+#CMD [ "nginx","-g","daemon off;error_log /dev/stdout debug;" ] 
