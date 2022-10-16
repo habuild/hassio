@@ -11,7 +11,7 @@
 ###  https://github.com/just-containers/s6-overlay/blob/master/README.md
 
 
-# ## This in particular is confusing, it doesn't seem like this is being adopted
+# ## This in particular is confusing, it doesn't seem like this is being adopted when I look for examples in other peoples addons
 # ## that relates more to 2. from my PM though
 #
 # ## Shebangs, which require absolute paths, are an exception, and need manual editing. 
