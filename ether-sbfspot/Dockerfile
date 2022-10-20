@@ -17,7 +17,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache \
     bluez \              #  =5.65-r0
     bluez-dev=5.65-r0 \          #  =5.65-r0
-    boost-dev \          #  =1.78.0-r1
+    boost-dev=1.78.0-r1 \          #  =1.78.0-r1
     curl-dev \           #  =7.83.1-r3
     git \                #  =2.36.2-r0
     g++ \                #  =11.2.1_git20220219-r2
