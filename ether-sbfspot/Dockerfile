@@ -1,7 +1,5 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 
-# hadolint ignore=DL3018
-
 ARG BUILD_FROM
 FROM $BUILD_FROM AS builder-base
 
@@ -17,6 +15,7 @@ COPY rootfs /
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # install requirements
+# hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
     bluez \
     bluez-dev \
@@ -50,7 +49,7 @@ RUN \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-
+# hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
     bluez \
     nano \
