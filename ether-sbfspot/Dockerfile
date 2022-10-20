@@ -1,4 +1,7 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
+
+# hadolint ignore=DL3018
+
 ARG BUILD_FROM
 FROM $BUILD_FROM AS builder-base
 
