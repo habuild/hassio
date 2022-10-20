@@ -16,7 +16,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # install requirements
 RUN apk update && apk add --no-cache \
     bluez \              #  =5.65-r0
-    bluez-dev \          #  =5.65-r0
+    bluez-dev=5.65-r0 \          #  =5.65-r0
     boost-dev \          #  =1.78.0-r1
     curl-dev \           #  =7.83.1-r3
     git \                #  =2.36.2-r0
