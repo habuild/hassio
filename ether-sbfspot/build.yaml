@@ -12,7 +12,7 @@ labels:
   org.opencontainers.image.source: "https://github.com/habuild/builder"
   org.opencontainers.image.licenses: "Apache License 2.0"
 codenotary:
-  #  signer: ${{ secrets.CAS_EMAIL }}
+  signer: ha.cas.secret@gmail.com
   base_image: notary@home-assistant.io
 args:
   TEMPIO_VERSION: "2021.09.0"
