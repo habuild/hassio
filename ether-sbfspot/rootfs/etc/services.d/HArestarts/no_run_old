@@ -52,16 +52,16 @@
 ## bashio::exit.ok()
 
 
-import asyncio
-import websockets
-import logging
-import json
+#  import asyncio
+#  import websockets
+#  import logging
+#  import json
 
-logger = logging.getLogger('websockets')
-logger.setLevel(logging.DEBUG)
-logger.addHandler(logging.StreamHandler())
+#  logger = logging.getLogger('websockets')
+#  logger.setLevel(logging.DEBUG)
+#  logger.addHandler(logging.StreamHandler())
 
-from requests import get   ##  https://requests.readthedocs.io/en/latest/user/install/#python-m-pip-install-requests
+#  from requests import get   ##  https://requests.readthedocs.io/en/latest/user/install/#python-m-pip-install-requests
 
 url = "http://supervisor/network/info"
 headers = {
