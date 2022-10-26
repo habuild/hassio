@@ -55,6 +55,7 @@
 import asyncio
 import websockets
 import logging
+import json
 
 logger = logging.getLogger('websockets')
 logger.setLevel(logging.DEBUG)
