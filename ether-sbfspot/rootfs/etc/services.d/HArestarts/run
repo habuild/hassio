@@ -67,7 +67,7 @@ async def initLogger():
             except Exception:
                pass
                
- async def main(): 
+async def main(): 
     listen = asyncio.create_task(initSocket()) 
     log = asyncio.create_task(initLogger()) 
     await listen
