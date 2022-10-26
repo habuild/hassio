@@ -7,7 +7,7 @@ import threading
 import json
 
 token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMjdlZWQ3NTU2YjU0MDkwYTE4MjJhMTFlYjI4Y2M4ZSIsImlhdCI6MTY2Njc4MTIyOCwiZXhwIjoxOTgyMTQxMjI4fQ.V_3lkaaARk3xpEjqZFuwWY0gDGoS_-JV4ML3OeeJ7Qs'  # fill in your token
-host = '10.0.0.200'      # fill in your Home Assistant IP-address or domain
+host = 'localhost'      # fill in your Home Assistant IP-address or domain
 
 port = 8123
 cache = {}
