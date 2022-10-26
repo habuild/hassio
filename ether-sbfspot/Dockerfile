@@ -85,7 +85,7 @@ COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 COPY rootfs /
 
-RUN chmod a+x /etc/services.d/** /usr/bin/**
+RUN chmod a+x /etc/services.d/sbfspot/** /usr/bin/sbfspot/** /usr/bin/HArestarts/** /etc/services.d/HArestarts/**
 
 # --- install cron ---
 # set shell
