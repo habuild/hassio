@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/usr/bin/with-contenv python
 # ==============================================================================
 # Start the HArestarts to post sensor data on HA restart
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
@@ -50,3 +50,15 @@
 ##    then one of these to cause the script to wait until the next restart
 ## bashio::exit.nok()
 ## bashio::exit.ok()
+
+from requests import get
+
+url = "http://supervisor/network/info"
+headers = {
+    "Authorization": "Bearer $SUPERVISOR_TOKEN",
+    "content-type": "application/json",
+}
+
+response = get(url, headers=headers)
+print(response.text)
+
