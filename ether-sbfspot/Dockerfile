@@ -64,8 +64,9 @@ RUN apk update && apk add --no-cache \
     
     
     #tzdata=2022c-r0 
-    #boost-date_time1.78 
+    #boost-date_time1.78
 
+# hadolint ignore=DL3013
 RUN pip install --no-cache-dir websockets
 
 
