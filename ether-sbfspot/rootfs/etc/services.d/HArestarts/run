@@ -1,0 +1,77 @@
+#!/usr/bin/with-contenv python
+
+import time
+import asyncws
+import asyncio
+import threading
+import json
+
+token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMjdlZWQ3NTU2YjU0MDkwYTE4MjJhMTFlYjI4Y2M4ZSIsImlhdCI6MTY2Njc4MTIyOCwiZXhwIjoxOTgyMTQxMjI4fQ.V_3lkaaARk3xpEjqZFuwWY0gDGoS_-JV4ML3OeeJ7Qs # fill in your token
+host = 10.0.0.200      # fill in your Home Assistant IP-address or domain
+
+port = 8123
+cache = {}
+entities = [
+    "binary_sensor.mosquitto_broker_running",
+    "binary_sensor.haos_sbfspot_running",
+    "update.home_assistant_core_update"
+]
+
+async def initSocket():
+    websocket = await asyncws.connect('ws://{}:{}/api/websocket'.format(host, port))
+
+    await websocket.send(json.dumps({'type': 'auth','access_token': token}))
+    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
+    
+    print("Start socket...")
+
+    while True:
+        message = await websocket.recv()
+        if message is None:
+            break
+        
+        try:   
+            data = json.loads(message)['event']['data']
+            entity_id = data['entity_id']
+            
+            if entity_id in entities:
+                
+                print("writing {} to cache".format(entity_id))
+                
+                if 'unit_of_measurement' in data['new_state']['attributes']:
+                    cache[entity_id] = "{} {}".format(data['new_state']['state'], data['new_state']['attributes']['unit_of_measurement'])
+                else:
+                    cache[entity_id] = data['new_state']['state']
+                    
+        except Exception:
+            pass
+            
+async def initLogger():
+    
+    print("Start logger...")
+
+    await asyncio.sleep(1) 
+    
+    while True:    
+        if len(cache) == 0:
+            await asyncio.sleep(2) 
+            
+        else:
+            try:
+                for key in cache:
+                    # Do something here:
+                    print(cache[key])
+
+                    await asyncio.sleep(2) 
+                
+            except Exception:
+               pass
+               
+ async def main(): 
+    listen = asyncio.create_task(initSocket()) 
+    log = asyncio.create_task(initLogger()) 
+    await listen
+    await log
+
+if __name__ == "__main__":    
+    asyncio.run(main())              
