@@ -63,12 +63,12 @@
 
 #  from requests import get   ##  https://requests.readthedocs.io/en/latest/user/install/#python-m-pip-install-requests
 
-url = "http://supervisor/network/info"
-headers = {
-    "Authorization": "Bearer ${SUPERVISOR_TOKEN}",
-    "content-type": "application/json",
-}
+#  url = "http://supervisor/network/info"
+#  headers = {
+#      "Authorization": "Bearer ${SUPERVISOR_TOKEN}",
+#      "content-type": "application/json",
+#  }
 
-response = get(url, headers=headers)
-print(response.text)
+#  response = get(url, headers=headers)
+#  print(response.text)
 
