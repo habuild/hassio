@@ -67,7 +67,7 @@ RUN apk update && apk add --no-cache \
     #boost-date_time1.78
 
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir websockets
+RUN pip install --no-cache-dir websockets requests
 
 
 # Copy data for add-on
