@@ -60,6 +60,7 @@ logger = logging.getLogger('websockets')
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
+from requests import get   ##  https://requests.readthedocs.io/en/latest/user/install/#python-m-pip-install-requests
 
 url = "http://supervisor/network/info"
 headers = {
