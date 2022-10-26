@@ -64,7 +64,7 @@ from requests import get   ##  https://requests.readthedocs.io/en/latest/user/in
 
 url = "http://supervisor/network/info"
 headers = {
-    "Authorization": "Bearer $SUPERVISOR_TOKEN",
+    "Authorization": "Bearer ${SUPERVISOR_TOKEN}",
     "content-type": "application/json",
 }
 
