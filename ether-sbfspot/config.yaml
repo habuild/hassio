@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: dev-130
+version: dev-131
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -12,6 +12,7 @@ arch:
 init: false
 host_network: true
 host_dbus: true
+hassio_api: true
 homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 services:
