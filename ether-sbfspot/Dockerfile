@@ -66,7 +66,7 @@ RUN apk update && apk add --no-cache \
     #tzdata=2022c-r0 
     #boost-date_time1.78 
 
-RUN pip install websockets
+RUN pip install --no-cache-dir websockets
 
 
 # Copy data for add-on
