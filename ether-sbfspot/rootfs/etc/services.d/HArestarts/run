@@ -51,6 +51,11 @@
 ## bashio::exit.nok()
 ## bashio::exit.ok()
 
+import logging
+logger = logging.getLogger('websockets')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+
 from requests import get
 
 url = "http://supervisor/network/info"
