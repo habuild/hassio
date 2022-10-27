@@ -59,7 +59,7 @@ async def display_date():
 
 async def main(): 
     display = asyncio.create_task(display_date())
-    log = asyncio.create_task(initSocket()) 
+    listen = asyncio.create_task(initSocket()) 
     await listen
     await display
 
