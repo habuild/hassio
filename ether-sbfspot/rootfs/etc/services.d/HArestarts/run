@@ -12,4 +12,11 @@ async def display_date():
             break
         await asyncio.sleep(1)
 
-asyncio.run(display_date())
+#  asyncio.run(display_date())
+
+async def main(): 
+    display = asyncio.create_task(display_date())
+    await display
+
+if __name__ == "__main__":    
+    asyncio.run(main())
