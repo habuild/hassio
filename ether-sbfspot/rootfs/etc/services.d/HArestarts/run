@@ -1,8 +1,8 @@
 #!/usr/bin/with-contenv python
 
-import asyncws
+import websockets
 import asyncio
-import threading
+
 import json
 import datetime
 import time
@@ -18,26 +18,35 @@ entities = [
     "sensor.gas_consumption"
 ]
 
+async def initSocket():
+    websocket = await asyncws.connect('ws://{}:{}/api/websocket'.format(host, port))
 
-async def initLogger():
-    print("Start logger...")
-
-    await asyncio.sleep(1) 
+    await websocket.send(json.dumps({'type': 'auth','access_token': token}))
+    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
     
-    while True:    
-        if len(cache) == 0:
-            await asyncio.sleep(2) 
-            
-        else:
-            try:
-                for key in cache:
-                    # Do something here:
-                    print(cache[key])
+    print("Start socket...")
 
-                    await asyncio.sleep(2) 
+    while True:
+        message = await websocket.recv()
+        if message is None:
+            await asyncio.sleep(0)
+        
+        try:   
+            data = json.loads(message)['event']['data']
+            entity_id = data['entity_id']
+            
+            if entity_id in entities:
                 
-            except Exception:
-               pass
+                print("writing {} to cache".format(entity_id))
+                
+                if 'unit_of_measurement' in data['new_state']['attributes']:
+                    cache[entity_id] = "{} {}".format(data['new_state']['state'], data['new_state']['attributes']['unit_of_measurement'])
+                else:
+                    cache[entity_id] = data['new_state']['state']
+                    
+        except Exception:
+            pass
+
                
 async def display_date():
     loop = asyncio.get_running_loop()
@@ -52,8 +61,8 @@ async def display_date():
 
 async def main(): 
     display = asyncio.create_task(display_date())
-    log = asyncio.create_task(initLogger()) 
-    await log
+    log = asyncio.create_task(initSocket()) 
+    await listen
     await display
 
 if __name__ == "__main__":    
