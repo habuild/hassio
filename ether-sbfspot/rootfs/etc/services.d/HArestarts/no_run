@@ -1,27 +1,47 @@
 #!/usr/bin/with-contenv python
 
-import time
 import asyncws
 import asyncio
 import threading
 import json
+import datetime
+import time
 
 token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMjdlZWQ3NTU2YjU0MDkwYTE4MjJhMTFlYjI4Y2M4ZSIsImlhdCI6MTY2Njc4MTIyOCwiZXhwIjoxOTgyMTQxMjI4fQ.V_3lkaaARk3xpEjqZFuwWY0gDGoS_-JV4ML3OeeJ7Qs'  # fill in your token
 host = 'localhost'      # fill in your Home Assistant IP-address or domain
 
 port = 8123
-cache = {}
+cache = {} # cache
 entities = [
-    "binary_sensor.mosquitto_broker_running",
-    "binary_sensor.haos_sbfspot_running",
-    "update.home_assistant_core_update"
+    "sensor.power_tariff",
+    "sensor.power_consumption_watt",
+    "sensor.gas_consumption"
 ]
+    
+async def initLogger():
+    print("Start logger...")
 
+        
+    while True:    
+        if len(cache) == 0:
+            break
+            
+        else:
+            try:
+                for key in cache:
+                    # Do something here:
+                    print(cache[key])
+
+                    break
+                
+            except Exception:
+               pass
+        
 async def initSocket():
     websocket = await asyncws.connect('ws://{}:{}/api/websocket'.format(host, port))
 
     await websocket.send(json.dumps({'type': 'auth','access_token': token}))
-    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'homeassistant_started'}))
+    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
     
     print("Start socket...")
 
@@ -45,33 +65,23 @@ async def initSocket():
                     
         except Exception:
             pass
-            
-async def initLogger():
-    
-    print("Start logger...")
 
-    await asyncio.sleep(1, loop=None) 
-    
-    while True:    
-        if len(cache) == 0:
-            await asyncio.sleep(2, loop=None) 
-            
-        else:
-            try:
-                for key in cache:
-                    # Do something here:
-                    print(cache[key])
+async def display_date():
+    loop = asyncio.get_running_loop()
+    end_time = loop.time() + 5.0
+    while True:
+        print(datetime.datetime.now())
+        if (loop.time() + 1.0) >= end_time:
+            break
+        await asyncio.sleep(1)
 
-                    await asyncio.sleep(2, loop=None) 
-                
-            except Exception:
-               pass
-               
 async def main(): 
     listen = asyncio.create_task(initSocket()) 
     log = asyncio.create_task(initLogger()) 
+    display = asyncio.create_task(display_date())
     await listen
     await log
+    await display
 
 if __name__ == "__main__":    
-    asyncio.run(main())              
+    asyncio.run(main())
