@@ -26,6 +26,9 @@ async def initSocket():
          await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'homeassistant_started'}))
          message = await websocket.recv()
          print(message)
+         await websocket.send(json.dumps({'id': 2, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
+         message = await websocket.recv()
+         print(message)
 
     while True:
         try:
@@ -33,9 +36,7 @@ async def initSocket():
         except websockets.ConnectionClosedOK:
             break
         print(message)
-        except Exception:
-            pass
-
+        
                
 async def display_date():
     loop = asyncio.get_running_loop()
