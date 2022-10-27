@@ -37,6 +37,8 @@ async def initSocket():
             break
         print(message)
         
+        except Exception:
+            pass
                
 async def display_date():
     loop = asyncio.get_running_loop()
