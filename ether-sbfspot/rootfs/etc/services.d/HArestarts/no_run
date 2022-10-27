@@ -50,11 +50,11 @@ async def initLogger():
     
     print("Start logger...")
 
-    await asyncio.sleep(1) 
+    await asyncio.sleep(1, loop=None) 
     
     while True:    
         if len(cache) == 0:
-            await asyncio.sleep(2) 
+            await asyncio.sleep(2, loop=None) 
             
         else:
             try:
@@ -62,7 +62,7 @@ async def initLogger():
                     # Do something here:
                     print(cache[key])
 
-                    await asyncio.sleep(2) 
+                    await asyncio.sleep(2, loop=None) 
                 
             except Exception:
                pass
