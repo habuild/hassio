@@ -18,7 +18,8 @@ entities = [
     "sensor.gas_consumption"
 ]
 
-async def initSocket():
+@async.coroutine
+def initSocket():
     async with websockets.connect('ws://{}:{}/api/websocket'.format(host, port)) as websocket:
          await websocket.send(json.dumps({'type': 'auth','access_token': token}))
          message = await websocket.recv()
