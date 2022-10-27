@@ -19,12 +19,10 @@ entities = [
 ]
 
 async def initSocket():
-    websocket = await asyncws.connect('ws://{}:{}/api/websocket'.format(host, port))
-
-    await websocket.send(json.dumps({'type': 'auth','access_token': token}))
-    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
-    
-    print("Start socket...")
+    async with websockets.connect('ws://{}:{}/api/websocket'.format(host, port)) as websocket:
+         await websocket.send(json.dumps({'type': 'auth','access_token': token}))
+         await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
+         print(response)
 
     while True:
         message = await websocket.recv()
