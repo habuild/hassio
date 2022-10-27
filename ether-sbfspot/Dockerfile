@@ -67,7 +67,7 @@ RUN apk update && apk add --no-cache \
     #boost-date_time1.78
 
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir asyncio asyncws aiohttp
+RUN pip install --no-cache-dir asyncio websockets
 
 ##  websockets requests
 
