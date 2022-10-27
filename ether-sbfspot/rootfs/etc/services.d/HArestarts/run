@@ -21,28 +21,18 @@ entities = [
 async def initSocket():
     async with websockets.connect('ws://{}:{}/api/websocket'.format(host, port)) as websocket:
          await websocket.send(json.dumps({'type': 'auth','access_token': token}))
-         await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
+         message = await websocket.recv()
+         print(message)
+         await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'homeassistant_started'}))
          message = await websocket.recv()
          print(message)
 
     while True:
-        message = await websocket.recv()
-        if message is None:
-            await asyncio.sleep(0)
-        
-        try:   
-            data = json.loads(message)['event']['data']
-            entity_id = data['entity_id']
-            
-            if entity_id in entities:
-                
-                print("writing {} to cache".format(entity_id))
-                
-                if 'unit_of_measurement' in data['new_state']['attributes']:
-                    cache[entity_id] = "{} {}".format(data['new_state']['state'], data['new_state']['attributes']['unit_of_measurement'])
-                else:
-                    cache[entity_id] = data['new_state']['state']
-                    
+        try:
+            message = await websocket.recv()
+        except websockets.ConnectionClosedOK:
+            break
+        print(message)
         except Exception:
             pass
 
