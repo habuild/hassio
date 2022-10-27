@@ -21,7 +21,7 @@ async def initSocket():
     websocket = await asyncws.connect('ws://{}:{}/api/websocket'.format(host, port))
 
     await websocket.send(json.dumps({'type': 'auth','access_token': token}))
-    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
+    await websocket.send(json.dumps({'id': 1, 'type': 'subscribe_events', 'event_type': 'homeassistant_started'}))
     
     print("Start socket...")
 
