@@ -35,21 +35,7 @@ async def initSocket():
         if message is None:
             break
         
-        try:   
-            data = json.loads(message)['event']['data']
-            entity_id = data['entity_id']
-            
-            if entity_id in entities:
-                
-                print("writing {} to cache".format(entity_id))
-                
-                if 'unit_of_measurement' in data['new_state']['attributes']:
-                    cache[entity_id] = "{} {}".format(data['new_state']['state'], data['new_state']['attributes']['unit_of_measurement'])
-                else:
-                    cache[entity_id] = data['new_state']['state']
-                    
-        except Exception:
-            pass
+        
                
 async def display_date():
     loop = asyncio.get_running_loop()
