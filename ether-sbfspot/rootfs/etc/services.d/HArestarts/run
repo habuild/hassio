@@ -27,15 +27,15 @@ async def initSocket():
          message = await websocket.recv()
          print(message)
          await websocket.send(json.dumps({'id': 2, 'type': 'subscribe_events', 'event_type': 'state_changed'}))
-         message = await websocket.recv()
-         print(message)
+         response = await websocket.recv()
+         print(response)
 
     while True:
-        message = await websocket.recv()
+        response = await websocket.recv()
         if message is None:
             break
         
-        
+asyncio.get_event_loop().run_until_complete(initSocket())      
                
 async def display_date():
     loop = asyncio.get_running_loop()
