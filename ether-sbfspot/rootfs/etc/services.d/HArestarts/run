@@ -13,8 +13,8 @@ host = 'localhost'      # fill in your Home Assistant IP-address or domain
 port = 8123
 cache = {} # cache
 entities = [
-    "sensor.power_tariff",
-    "sensor.power_consumption_watt",
+    "sensor.sma_serial_no",
+    "alarm_control_panel.home_alarm",
     "sensor.gas_consumption"
 ]
 
