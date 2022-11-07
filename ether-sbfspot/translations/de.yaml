@@ -1,38 +1,38 @@
 ---
-Konfiguration:
-  Verbindungstyp:
+configuration:
+  Connection_Type:
     name: Verbindungstyp
     Beschreibung: >-
       Wählen Sie Bluetooth oder Ethernet, nur die zugehörigen Optionen werden in SBFspot generiert.cfg
-  SENSOREN_HA:
+   Sensors_HA:
     name: Sensoren für die MQTT-Integration erstellen oder löschen.
     Beschreibung: >-
       Wenn Sie über vorhandene YAML-Sensoren verfügen, sichern und entfernen Sie diese zuvor, um Namenskonflikte zu vermeiden.
-  BTAdresse:
+  BTAddress:
     bezeichnung: Bluetooth-Mac !geheime BTAddress ist Standard
     Beschreibung: >-
       Ihre Wechselrichter-Bluetooth-MAC-Adresse
-  Passwort:
+  Password:
     name: Passwort !geheimes SBFpassword ist Standard
     Beschreibung: >-
       Wechselrichter-Passwort - normalerweise 0000 oder Sunny Explorer-Passwort.
-  LocalBTAdresse:
+  LocalBTAddress:
     name: Gastgeber BT MAC !geheime lokale Adresse
     Beschreibung: >-
       Ihr Host-Bluetooth-MAC. Es wird in den Protokollen angezeigt. Es kann leer sein.
-  IP-Adresse:
+  IP_Address:
     name: Ethernet-IP-Adresse
     Beschreibung: >-
       IP-Adresse des Wechselrichters. Kann für mehrere Wechselrichter durch Kommas getrennt werden. 196.168.01.10, 196.168.01.20
-  Falsch aktiviert:
+  MIS_Enabled:
     name: Multi-Wechselrichter-Systeme
     Beschreibung: >-
       Es ist nur für Bluetooth-Multi-Inverter-Systeme.
-  Pflanzenname:
+  Plantname:
     name: Pflanzenname!geheimer Pflanzenname
     Beschreibung: >-
       Der Anlagenname wird zum Erstellen Ihres mqtt-Themas verwendet.
-  Ausgabepfad:
+  OutputPath:
     name: Datenpfad
     Beschreibung: >-
       /data/sbfspot/%Y ist die Standardeinstellung. Jetzt auf Standard setzen! Leer lassen!
@@ -40,42 +40,42 @@ Konfiguration:
     name: Ereignispfad
     Beschreibung: >-
       /data/sbfspot/%Y/events ist die Standardeinstellung. Jetzt auf Standard setzen! Leer lassen!
-  Breitengrad:
+  Latitude:
     name: Breite !geheimes Zuhause
     Beschreibung: >-
       Standort der PV-Anlage http://itouchmap.com/latlong.html
-  Längengrad:
+  Longitude:
     name: Längengrad !geheimes zuhause_lang
     Beschreibung: >-
       Beispiel für Ukkel, Belgien Breitengrad = 50,80 Längengrad = 4,33
-  Fehlpunktwerte berechnen:
+  CalculateMissingSpotValues:
     name: Fehlende Spot-Werte berechnen
     Beschreibung: >-
       Bei Einstellung auf 1 werden Werte berechnet, die nicht vom Wechselrichter bereitgestellt werden. beispiel: Pdc1 = Idc1 * Udc1
-  Datumzeitformat:
+  DateTimeFormat:
     name: Datums- und Uhrzeitformat für InvTime Sonnenaufgang und Sonnenuntergang.
     Beschreibung: >-
       Benutzerdefinierte Zeitanzeige für InvTime Sonnenaufgang und Sonnenuntergang (sieht gut aus '% H:% M:% S% d /% m /% Y') siehe strftime () -Funktion
-  Synchronzeit:
+  SynchTime:
     name: Wechselrichter-Synchronisationszeit. Standard ist 0, wenn leer gelassen
     Beschreibung: >-
       Synchronzeit (0-30 - 0 = deaktiviert, 1 = einmal pro Tag (Standard), 7 = einmal pro Woche, 30 = einmal pro Monat) Wenn der Wert ungleich Null ist, wird die Anlagenzeit mit der lokalen Hostzeit synchronisiert
   SynchTimeLow:
     name: Untere Schwelle synchronisieren
     beschreibung: SynchTimeLow (1-120 - default 1)
-  Synchronzeithoch:
+  SynchTimeHigh:
     name: Hoher Schwellenwert synchronisieren
     Beschreibung: >-
       SynchTimeHigh (1200-3600 - Standard 3600) Die Anlagenzeit wird an die lokale Hostzeit angepasst, wenn SynchTime = 1 ist und der Zeitunterschied zwischen den Grenzwerten SynchTimeLow und SynchTimeHigh liegt
-  Sonnenoffset:
+  SunRSOffset:
     name: Sonnenauf- /-untergang Offset
     Beschreibung: >-
       Offset, um vor Sonnenaufgang zu beginnen und nach Sonnenuntergang zu enden (0-3600 - Standard 900 Sekunden)
-  Gebietsschema:
+  Locale:
     name: Sprache für CSV
     Beschreibung: >-
       Unterstützte Standard-Gebietsschemas: de-DE;en-US;fr-FR;nl-NL;es-ES;it-IT
-  Zeitzone:
+  Timezone:
     name: Zeitzone !geheime Zeitzone
     beschreibung: Europe/Brussels
   BTConnectRetries:
@@ -86,7 +86,7 @@ Konfiguration:
     name: CSV-Export Leer lassen! theoretisch können Sie csv an den Ausgabepfad senden..
     Beschreibung: >-
       CSV-Export in den Datenpfad. Aufhörte. Datenpfade werden für das Löschen von Dateien nicht gepflegt.
-  SQL_DATENBANK:
+  SQL_Database:
     name: SQL-Datenbankname.
     Beschreibung: >-
       Der Name Ihrer SBFspot-Datenbank. SBFspot ist Standard.
@@ -98,11 +98,11 @@ Konfiguration:
     name: SQL-Anschluss
     Beschreibung: >-
       3306 ist Standard. Dieser Port muss im MariaDB-Addon aktiviert sein.
-  Sql_benutzername:
+  SQL_Username:
     name: SQL-Benutzer
     Beschreibung: >-
       Benutzer und Pass müssen im MariaDB-Addon erstellt werden. Das myPHPadmin-Addon kann für die anfängliche Erstellung von DB-Tabellen verwendet werden. siehe Readme für den Link zur Erstellungsdatei.
-  SQL_Passwort:
+  SQL_Password:
     name: SQL Passwort !geheimes mariadb_pw
     Beschreibung: >-
       Benutzer und Pass müssen im MariaDB-Addon erstellt werden. !geheimes mariadb_pw ist Standard!
@@ -118,7 +118,7 @@ Konfiguration:
     bezeichnung: MQTT-Anschluss
     Beschreibung: >-
       1883 ist Standard. Kann leer sein.
-  MQTT_BENUTZER:
+ MQTT_User:
     name: MQTT-Benutzer !geheimer mqtt_user ist Standard!
     Beschreibung: >-
       MQTT-Benutzername. Standardmäßig auf !geheimer mqtt_user wenn leer! Erforderlich für die Sensoreinrichtung.
@@ -146,11 +146,11 @@ Konfiguration:
     name: MQTT-Sensoren Artikel. Fügen Sie die gewünschten Optionen hinzu oder entfernen Sie sie. Die Liste finden Sie in SBFspot.Standard.cfg oder die readme.
     Beschreibung: >-
       Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,OperTm,FeedTm,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2, BTSignal ist Standard
-  PVAUSGANG_SID:
+  PVoutput_SID:
     name: Pvausgang SID !geheimes pvoSID
     Beschreibung: >-
       Fügen Sie hier Ihre Wechselrichter-Seriennummer und die PVoutput-API-ID hinzu. Wechselrichter seriell > 0123456789:12345 < PV-Ausgangs-ID
-  Pvausgab_schlüssel:
+  PVoutput_Key:
     name: Pvausgang API-Schlüssel !geheimer pvoAPIkey
     Beschreibung: >-
       Fügen Sie hier Ihren PVoutput-API-Schlüssel hinzu. Standardmäßig gefälscht, wenn Sie kein Konto erstellen möchten.
