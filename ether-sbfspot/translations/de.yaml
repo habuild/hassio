@@ -1,5 +1,5 @@
 ---
-configuration:
+Konfiguration:
   Connection_Type:
     name: Verbindungstyp
     Beschreibung: >-
