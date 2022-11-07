@@ -4,7 +4,7 @@ configuration:
     name: Verbindungstyp
     Beschreibung: >-
       Wählen Sie Bluetooth oder Ethernet, nur die zugehörigen Optionen werden in SBFspot generiert.cfg
-   Sensors_HA:
+  Sensors_HA:
     name: Sensoren für die MQTT-Integration erstellen oder löschen.
     Beschreibung: >-
       Wenn Sie über vorhandene YAML-Sensoren verfügen, sichern und entfernen Sie diese zuvor, um Namenskonflikte zu vermeiden.
@@ -118,7 +118,7 @@ configuration:
     bezeichnung: MQTT-Anschluss
     Beschreibung: >-
       1883 ist Standard. Kann leer sein.
- MQTT_User:
+  MQTT_User:
     name: MQTT-Benutzer !geheimer mqtt_user ist Standard!
     Beschreibung: >-
       MQTT-Benutzername. Standardmäßig auf !geheimer mqtt_user wenn leer! Erforderlich für die Sensoreinrichtung.
