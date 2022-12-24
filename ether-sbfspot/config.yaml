@@ -16,7 +16,7 @@ hassio_api: true
 homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 map:
-  - config/www: rw
+  - config/www/:rw
 services:
   - mysql:need
   - mqtt:want
