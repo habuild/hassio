@@ -3,10 +3,10 @@ name: HAOS-SBFspot-test
 version: 2023.7.2test
 slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
-url: "https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot"
+url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
 stage: experimental
 
-image: "ghcr.io/habuild/{arch}-addon-haos-sbfspot"
+image: "ghcr.io/habuild/{arch}-addon-haos-sbfspot-test"
 arch:
   - armhf
   - armv7
