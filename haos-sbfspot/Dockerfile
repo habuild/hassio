@@ -102,7 +102,7 @@ RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh' >> /etc/crontabs/root
 
 # Labels
 LABEL \
-    io.hass.name="HAOS-SBFspot" \
+    io.hass.name="HAOS-SBFspot-test" \
     io.hass.description="Home Assistant addon for Bluetooth SBFspot, is an open source project to get actual and archive data out of an SMA® inverter over Bluetooth or Ethernet (Speedwire®)" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
@@ -110,12 +110,12 @@ LABEL \
     maintainer="Hasqt <https://community.home-assistant.io/u/hasqt>" \
     org.label-schema.description="Home Assistant addon for Bluetooth SBFspot, is an open source project to get actual and archive data out of an SMA® inverter over Bluetooth or Ethernet (Speedwire®)" \
     org.label-schema.build-date=${BUILD_DATE} \
-    org.label-schema.name="HAOS-SBFspot" \
+    org.label-schema.name="HAOS-SBFspot-test" \
     org.label-schema.schema-version="1.0" \
-    org.label-schema.url="https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot" \
+    org.label-schema.url="https://github.com/habuild/hassio/tree/main/haos-sbfspot" \
     org.label-schema.usage="https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot/README.md" \
     org.label-schema.vcs-ref=${BUILD_REF} \
-    org.label-schema.vcs-url="https://github.com/habuild/hassio-addons" \
+    org.label-schema.vcs-url="https://github.com/habuild/hassio" \
     org.label-schema.vendor="Hasqt"
 
 
