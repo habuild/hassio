@@ -23,7 +23,7 @@ RUN apk update && apk add --no-cache \
     git=2.40.1-r0 \
     g++=12.2.1_git20220924-r10 \
     make=4.4.1-r1 \
-    mariadb-dev=10.11.3-r0\
+    mariadb-dev=10.11.4-r0\
     mosquitto-clients=2.0.15-r3 \
     nginx=1.24.0-r6 \
     tzdata=2023c-r1
@@ -54,7 +54,7 @@ RUN apk update && apk add --no-cache \
     nano=7.2-r1 \
     bluez-libs=5.66-r5 \
     libstdc++=12.2.1_git20220924-r10 \
-    mariadb-common=10.11.3-r0 \
+    mariadb-common=10.11.4-r0 \
     mariadb-connector-c=3.3.5-r0 \
     ncurses-libs=6.4_p20230506-r0 \
     # split version in pkgs manager
