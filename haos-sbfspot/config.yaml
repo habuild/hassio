@@ -1,5 +1,5 @@
 ---
-name: HAOS-SBFspot
+name: HAOS-SBFspot-test
 version: 2023.7.2test
 slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
