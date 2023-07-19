@@ -1,7 +1,7 @@
 ---
 name: HAOS-SBFspot
 version: 2023.7.2test
-slug: haos-sbfspot
+slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio-addons/tree/main/haos-sbfspot"
 stage: experimental
