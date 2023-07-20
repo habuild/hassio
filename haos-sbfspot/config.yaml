@@ -1,6 +1,6 @@
 ---
 name: HAOS-SBFspot-test
-version: 2023.7.3test
+version: 2023.7.4test
 slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
@@ -16,7 +16,6 @@ init: false
 host_network: true
 host_dbus: true
 homeassistant_api: true
-auth_api: true
 panel_icon: mdi:solar-power-variant
 map:
   - share:rw
