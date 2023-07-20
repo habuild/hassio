@@ -1,6 +1,6 @@
 {
   "name": "ArgonOne Active Cooling",
-  "image": "habuild/{arch}-hassosargonone",
+  "image": "ghcr.io/habuild/{arch}-hassosargonone",
   "version": "30a",
   "slug": "argon_one_temp",
   "description": "Actively keeping your Argon One cool.",
