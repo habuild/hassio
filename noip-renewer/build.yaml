@@ -1,3 +1,4 @@
+---
 image: ghcr.io/home-assistant/{arch}-base-debian
 build_from:
   aarch64: "arm64v8/debian:"
