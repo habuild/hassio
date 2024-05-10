@@ -7,10 +7,14 @@ RUN \
     curl -sSLf -o /usr/bin/tempio \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Copy root filesystem
 COPY rootfs /
 
 RUN chmod a+x /etc/services.d/noip-renewer/**
+
 # Do this from run file
 # FROM simaofsilva/noip-renewer
 
