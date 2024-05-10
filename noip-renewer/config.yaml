@@ -8,10 +8,7 @@ stage: experimental
 
 image: "ghcr.io/habuild/{arch}-addon-noip-renewer"
 arch:
-  - armhf
-  - armv7
   - aarch64
-  - amd64
 panel_icon: mdi:certificate
 map:
   - share:rw
