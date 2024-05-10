@@ -13,9 +13,9 @@ panel_icon: mdi:certificate
 map:
   - share:rw
 options:
-  NOIP_Email: "!secret NOIP Email address"
-  NOIP_Password: "!secret NOIP password"
-  NOIP_TOTP_KEY: "!secret NOIP two factor key"
+  NOIP_Email: "!secret NOIP_Email"
+  NOIP_Password: "!secret NOIP_Password"
+  NOIP_TOTP_KEY: "!secret NOIP_TOTP_KEY"
   Translate_Enabled: "false"
 schema:
   NOIP_Email: "str?"
