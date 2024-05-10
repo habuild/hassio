@@ -16,16 +16,10 @@ PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
 
 message=$(echo "The current time is $(date)")
 
-# ---- Print Host sys info
-message=$(echo "$(uname -smrv)")
-bashio::log.info
-bashio::log.info ${__BASHIO_COLORS_CYAN} "${message:="Hello World..."}"
-bashio::log.info
-
 NOIP_TOTP_KEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
 
 TRANSLATE="$(jq --raw-output '.Translate_Enabled' $CONFIG_PATH)"
-message=$(echo "The uname is $(uname -a)")
-# docker run --rm --env NO_IP_USERNAME=$(EMAIL) --env NO_IP_PASSWORD=$(PASSWORD) --env NO_IP_TOTP_KEY=$(NOIP-TOTP-KEY) --env TRANSLATE_ENABLED=$(TRANSLATE) simaofsilva/noip-renewer:latest 
+
+# docker run --rm --env NO_IP_USERNAME=$(EMAIL) --env NO_IP_PASSWORD=$(PASSWORD) --env NO_IP_TOTP_KEY=$(NOIP_TOTP_KEY) --env TRANSLATE_ENABLED=$(TRANSLATE) simaofsilva/noip-renewer:latest 
 
 
