@@ -11,7 +11,7 @@ RUN \
 COPY rootfs /
 
 # Do this from run file
-FROM simaofsilva/noip-renewer
+# FROM simaofsilva/noip-renewer
 
 # Labels
 LABEL \
