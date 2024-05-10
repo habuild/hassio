@@ -10,7 +10,7 @@ RUN \
 # Copy root filesystem
 COPY rootfs /
 
-FROM simaofsilva/noip-renewer:latest
+FROM simaofsilva/noip-renewer
 
 # Labels
 LABEL \
