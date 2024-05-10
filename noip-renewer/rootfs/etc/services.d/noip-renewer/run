@@ -3,7 +3,7 @@
 # Start the SBFspot service
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-
+set -x
 CONFIG_PATH=/data/options.json
 
 message=$(echo "PWD is current directory $(pwd)")
