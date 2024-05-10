@@ -1,5 +1,5 @@
-![logo](https://github.com/habuild/hassio/blob/main/noip-renewer/logo.png?raw=true)
------
+## ![logo](https://github.com/habuild/hassio/blob/main/noip-renewer/logo.png?raw=true)
+
 copy of simao-silva/noip-renewer
 
 Usage
