@@ -7,8 +7,8 @@ build_from:
   amd64: "ghcr.io/home-assistant/amd64-base:3.18"
 
 labels:
-  org.opencontainers.image.title: "SBFspot for Home Assistant"
-  org.opencontainers.image.description: "SBFspot for new add-ons."
+  org.opencontainers.image.title: "noip-renewer for homeassistant"
+  org.opencontainers.image.description: "noip-renewer."
   org.opencontainers.image.source: "https://github.com/habuild"
   org.opencontainers.image.licenses: "Apache License 2.0"
 codenotary:
