@@ -1,4 +1,5 @@
-FROM https://hub.docker.com/r/simaofsilva/noip-renewer
+ARG BUILD_FROM
+FROM $BUILD_FROM AS builder-base
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
@@ -8,6 +9,8 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
+
+FROM simaofsilva/noip-renewer:latest
 
 # Labels
 LABEL \
