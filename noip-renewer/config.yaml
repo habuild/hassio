@@ -12,7 +12,6 @@ arch:
   - armv7
   - aarch64
   - amd64
-init: false
 panel_icon: mdi:certificate
 map:
   - share:rw
