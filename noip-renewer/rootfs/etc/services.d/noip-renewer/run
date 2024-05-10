@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start the SBFspot service
+# s6-overlay docs: https://github.com/just-containers/s6-overlay
+# ==============================================================================
+
+CONFIG_PATH=/data/options.json
