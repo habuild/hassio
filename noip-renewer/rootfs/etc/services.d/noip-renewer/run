@@ -21,6 +21,6 @@ set -x
 TRANSLATE="$(jq --raw-output '.Translate_Enabled' $CONFIG_PATH)"
 
 
-exec docker run --rm --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest
+docker run --rm --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest
 
 sleep 20
