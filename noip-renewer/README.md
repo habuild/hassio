@@ -1,4 +1,4 @@
-## ![noip-logo](https://github.com/habuild/hassio/blob/main/noip-renewer/logo.png)
+# ![noip-logo](https://github.com/habuild/hassio/blob/main/noip-renewer/logo.png)
 
 copy of simao-silva/noip-renewer
 
