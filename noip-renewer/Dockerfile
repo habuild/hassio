@@ -1,4 +1,4 @@
-FROM https://github.com/simao-silva/noip-renewer:latest
+FROM simao-silva/noip-renewer:latest
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
