@@ -9,7 +9,7 @@ CONFIG_PATH=/data/options.json
 message=$(echo "PWD is current directory $(pwd)")
 
 # docker pull simaofsilva/noip-renewer:latest
-set -x
+
 EMAIL="$(jq --raw-output '.NOIP_Email' $CONFIG_PATH)"
 
 PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
@@ -17,9 +17,10 @@ PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
 message=$(echo "The current time is $(date)")
 
 NOIP_TOTP_KEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
-
+set -x
 TRANSLATE="$(jq --raw-output '.Translate_Enabled' $CONFIG_PATH)"
 
-# docker run --rm --env NO_IP_USERNAME=$(EMAIL) --env NO_IP_PASSWORD=$(PASSWORD) --env NO_IP_TOTP_KEY=$(NOIP_TOTP_KEY) --env TRANSLATE_ENABLED=$(TRANSLATE) simaofsilva/noip-renewer:latest 
+
+docker run --rm --env NO_IP_USERNAME=$(EMAIL) --env NO_IP_PASSWORD=$(PASSWORD) --env NO_IP_TOTP_KEY=$(NOIP_TOTP_KEY) --env TRANSLATE_ENABLED=$(TRANSLATE) simaofsilva/noip-renewer:latest 
 
 
