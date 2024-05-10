@@ -1,4 +1,4 @@
-FROM simao-silva/noip-renewer:latest
+FROM https://hub.docker.com/r/simaofsilva/noip-renewer
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
