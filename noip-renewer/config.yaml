@@ -18,7 +18,7 @@ map:
   - share:rw
 options:
   NOIP_Email: "!secret NOIP Email address"
-  NOIP_Password: "!secret NOIP password"  
+  NOIP_Password: "!secret NOIP password"
   NOIP_TOTP_KEY: "!secret NOIP two factor key"
   Translate_Enabled: "false"
 schema:
@@ -26,4 +26,3 @@ schema:
   NOIP_Password: "str?"
   NOIP_TOTP_KEY: "str?"
   Translate_Enabled: "str?"
-  
