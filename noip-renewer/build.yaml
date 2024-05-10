@@ -14,4 +14,3 @@ args:
 labels:
   io.hass.base.name: debian
   org.opencontainers.image.source: https://github.com/home-assistant/docker-base
-
