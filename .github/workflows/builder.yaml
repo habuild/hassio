@@ -5,7 +5,7 @@ name: Builder
 
 env:
   BUILD_ARGS: "--test"
-  MONITORED_FILES: "config.*,run"
+  MONITORED_FILES: "config.*, rootfs/etc/services.d/noip-renewer/run"
 
 on:
   push:
