@@ -8,7 +8,7 @@ CONFIG_PATH=/data/options.json
 
 message=$(echo "PWD is current directory $(pwd)")
 
-docker pull simaofsilva/noip-renewer:latest
+# docker pull simaofsilva/noip-renewer:latest
 
 EMAIL="$(jq --raw-output '.NOIP_Email' $CONFIG_PATH)"
 PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
