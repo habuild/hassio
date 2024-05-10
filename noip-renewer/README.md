@@ -7,6 +7,4 @@ docker run --rm --env NO_IP_USERNAME=<EMAIL> --env NO_IP_PASSWORD=<PASSWORD> --e
 
 ---
 
-![icon](https://github.com/habuild/hassio/blob/main/noip-renewer/icon.png)
-
 ![icon](https://github.com/habuild/hassio/blob/main/noip-renewer/icon.png?raw=true)
