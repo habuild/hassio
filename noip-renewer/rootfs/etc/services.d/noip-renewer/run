@@ -16,11 +16,11 @@ PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
 
 message=$(echo "The current time is $(date)")
 
-NOIP_TOTP_KEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
+NOIP_TOTPKEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
 set -x
 TRANSLATE="$(jq --raw-output '.Translate_Enabled' $CONFIG_PATH)"
 
 
-docker run --rm simaofsilva/noip-renewer:latest --env NO_IP_USERNAME="$(EMAIL)" --env NO_IP_PASSWORD="$(PASSWORD)" --env NO_IP_TOTP_KEY="$(NOIP_TOTP_KEY)" --env TRANSLATE_ENABLED="$(TRANSLATE)" 
+docker run --rm simaofsilva/noip-renewer:latest --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" 
 
 sleep 20
