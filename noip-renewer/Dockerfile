@@ -11,7 +11,7 @@ RUN \
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Do this from run file
-FROM simaofsilva/noip-renewer
+# FROM simaofsilva/noip-renewer
 
 # Copy root filesystem
 COPY rootfs /
