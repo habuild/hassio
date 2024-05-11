@@ -10,13 +10,15 @@ RUN \
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# Do this from run file
+FROM simaofsilva/noip-renewer
+
 # Copy root filesystem
 COPY rootfs /
 
 RUN chmod a+x /etc/services.d/noip-renewer/**
 
-# Do this from run file
-# FROM simaofsilva/noip-renewer
+
 
 # Labels
 LABEL \
