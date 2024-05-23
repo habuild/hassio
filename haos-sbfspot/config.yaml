@@ -1,6 +1,6 @@
 ---
 name: HAOS-SBFspot-test
-version: 2023.7.4test
+version: 2023.5.1test
 slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
@@ -24,7 +24,7 @@ services:
   - mqtt:want
 options:
   Connection_Type: "Bluetooth"
-  Sensors_HA: No
+  Sensors_HA: "No"
   BTAddress: "!secret BTAddress"
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
