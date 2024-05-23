@@ -8,11 +8,11 @@
 ![Project Maintenance][maintenance-shield] [![CI](https://github.com/habuild/hassio-addons/actions/workflows/addon-ci.yaml/badge.svg)](https://github.com/habuild/hassio-addons/actions/workflows/addon-ci.yaml)
 
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2022.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
 
 [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fhabuild%2Fhassio-addons)
 
-This [home assistant](https://www.home-assistant.io/getting-started/) add-on provides a wrapper for the **Bluetooth** version of [SBFspot 3.9.6](https://github.com/SBFspot/SBFspot/releases/latest).
+This [home assistant](https://www.home-assistant.io/getting-started/) add-on provides a wrapper for the **Bluetooth** version of [SBFspot 3.9.8](https://github.com/SBFspot/SBFspot/releases/latest).
 
 This add-on runs a crontab service for SBFspot and SPFspotUploader at 5 minutely daytime interval.
 
