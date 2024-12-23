@@ -19,10 +19,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache \
     bluez=5.79-r0 \
     bluez-dev=5.79-r0 \
-    boost-dev \
+    boost-dev=1.84.0-r2 \
     curl-dev=8.11.1-r0 \
-    git \
-    g++ \
+    git=2.47.1-r0 \
+    g++=14.2.0-r4 \
     make=4.4.1-r2 \
     mariadb-dev=11.4.4-r1\
     mosquitto-clients=2.0.20-r0 \
@@ -88,7 +88,7 @@ COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 COPY rootfs /
 
-RUN chmod a+x /etc/services.d/sbfspot/** /usr/bin/sbfspot/** /usr/bin/HArestarts/** /etc/services.d/HArestarts/**
+RUN chmod a+x /etc/services.d/sbfspot/** /usr/bin/sbfspot/**
 
 # --- install cron ---
 # set shell
