@@ -54,9 +54,9 @@ RUN apk update && apk add --no-cache \
     nano=8.2-r0 \
     bluez-libs=5.79-r0 \
     libstdc++=14.2.0-r4 \
-    mariadb-common=11.4.4-r0 \
+    mariadb-common=11.4.4-r1 \
     mariadb-connector-c=3.3.10-r0 \
-    ncurses-libs=6.4_p20241006-r3 \
+    ncurses-libs=6.5_p20241006-r3 \
     libcurl=8.11.1-r0 \
     mosquitto-clients=2.0.20-r0 
     
