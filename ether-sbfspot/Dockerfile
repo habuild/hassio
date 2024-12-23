@@ -26,7 +26,6 @@ RUN apk update && apk add --no-cache \
     make=4.4.1-r2 \
     mariadb-dev=10.11.8-r0\
     mosquitto-clients=2.0.18-r0 \
-    nginx=1.26.1-r0 \
     tzdata=2024a-r1
            
 # download and build SBFspot
@@ -55,12 +54,12 @@ RUN apk update && apk add --no-cache \
     nano=8.0-r0 \
     bluez-libs=5.76-r0 \
     libstdc++=13.2.1_git20240309-r0 \
-    mariadb-common=10.11.8-r0 \
+    mariadb-common=10.11.10-r0 \
     mariadb-connector-c=3.3.10-r0 \
-    ncurses-libs=6.4_p20240420-r0 \
-    libcurl=8.7.1-r0 \
-    mosquitto-clients=2.0.18-r0 \
-    nginx=1.26.1-r0
+    ncurses-libs=6.4_p20240420-r2 \
+    libcurl=8.11.1-r0 \
+    mosquitto-clients=2.0.18-r0 
+    
     
     
     #tzdata=2022c-r0 
