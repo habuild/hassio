@@ -20,13 +20,13 @@ RUN apk update && apk add --no-cache \
     bluez=5.76-r0 \
     bluez-dev=5.76-r0 \
     boost-dev=1.82.0-r5 \
-    curl-dev=8.8.0-r0 \
+    curl-dev=8.11.1-r0 \
     git=2.45.2-r0 \
     g++=13.2.1_git20240309-r0 \
     make=4.4.1-r2 \
-    mariadb-dev=10.11.8-r0\
+    mariadb-dev=10.11.10-r0\
     mosquitto-clients=2.0.18-r0 \
-    tzdata=2024a-r1
+    tzdata=2024b-r0
            
 # download and build SBFspot
 WORKDIR /tmp
