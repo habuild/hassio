@@ -17,15 +17,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # install requirements
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
-    bluez=5.76-r0 \
-    bluez-dev=5.76-r0 \
+    bluez=5.79-r0 \
+    bluez-dev=5.79-r0 \
     boost-dev=1.82.0-r5 \
     curl-dev=8.11.1-r0 \
     git=2.45.2-r0 \
     g++=13.2.1_git20240309-r0 \
     make=4.4.1-r2 \
-    mariadb-dev=10.11.10-r0\
-    mosquitto-clients=2.0.18-r0 \
+    mariadb-dev=11.4.4-r1\
+    mosquitto-clients=2.0.20-r0 \
     tzdata=2024b-r0
            
 # download and build SBFspot
@@ -50,15 +50,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
-    bluez=5.76-r0 \
-    nano=8.0-r0 \
-    bluez-libs=5.76-r0 \
-    libstdc++=13.2.1_git20240309-r0 \
-    mariadb-common=10.11.10-r0 \
+    bluez=5.79-r0 \
+    nano=8.2-r0 \
+    bluez-libs=5.79-r0 \
+    libstdc++=14.2.0-r4 \
+    mariadb-common=11.4.4-r0 \
     mariadb-connector-c=3.3.10-r0 \
-    ncurses-libs=6.4_p20240420-r2 \
+    ncurses-libs=6.4_p20241006-r3 \
     libcurl=8.11.1-r0 \
-    mosquitto-clients=2.0.18-r0 
+    mosquitto-clients=2.0.20-r0 
     
     
     
