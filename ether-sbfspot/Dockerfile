@@ -19,10 +19,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache \
     bluez=5.79-r0 \
     bluez-dev=5.79-r0 \
-    boost-dev-1.84.0-r2 \
+    boost-dev-1.84.0-r1 \
     curl-dev=8.11.1-r0 \
-    git-2.47.1-r0 \
-    g++-14.2.0-r4 \
+    git-2.45.2-r0 \
+    g++-13.2.1_git20240309-r0 \
     make=4.4.1-r2 \
     mariadb-dev=11.4.4-r1\
     mosquitto-clients=2.0.20-r0 \
