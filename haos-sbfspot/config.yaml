@@ -1,6 +1,6 @@
 ---
 name: HAOS-SBFspot-test
-version: 2023.5.1test
+version: 2025.2.1test
 slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
