@@ -54,11 +54,11 @@ RUN apk update && apk add --no-cache \
     libstdc++=14.2.0-r6 \
     mariadb-common=11.4.8-r0 \
     mariadb-connector-c=3.3.10-r0 \
-    ncurses-libs=6.5_p20241006-r3 \
+    ncurses-libs=6.5_p20250503-r0 \
     libcurl=8.14.1-r1 \
     mosquitto-clients=2.0.21-r0 \
-    nginx=1.26.2-r4
     
+    #nginx=1.26.2-r4
     #tzdata=2023c-r1 
     #boost-date_time1.78 
 
