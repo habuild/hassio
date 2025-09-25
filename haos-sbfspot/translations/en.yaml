@@ -30,26 +30,32 @@ configuration:
       It is only for Bluetooth multi inverter systems. 0 Disabled, 1 Enabled.
   InvSerial:
     name: Inverter 1 Serial Number
-    description: Serial Number for inverter one. Usually auto detected.
+    description: >- 
+      Serial Number for inverter one. Usually auto detected.
   Plantname:
     name: Plant Name !secret Plantname
     description: >-
       Plant name is used to create your mqtt topic.
   InvSerial2:
     name: Inverter 2 serial Number
-    description: >- Second Inverter Serial Number for Multi Sensor Creation.
+    description: >- 
+      Second Inverter Serial Number for Multi Sensor Creation.
   InvName2:
     name: Inverter 2 Name, usually the serial number
-    description: >- Second Inverter Name for Multi Sensor Creation.
+    description: >- 
+      Second Inverter Name for Multi Sensor Creation.
   Plantname2:
     name: Inverter 2 Plant name.
-    description: >- Second Inverter Plant Name for Multi Sensor Creation. Can be whatever you want. Single Word recommended.
+    description: >- 
+      Second Inverter Plant Name for Multi Sensor Creation. Can be whatever you want. Single Word recommended.
   InvType2:
     name: Inverter 2 Model eg. SMA5000
-    description: >- Second Inverter Model for Multi Sensor Creation. You can make it up!
+    description: >- 
+      Second Inverter Model for Multi Sensor Creation. You can make it up!
   InvSwVer2:
     name: Inverter 2 Software version
-    description: >- Second Inverter Firmware version for Multi Sensor Creation. You can make it up!
+    description: >- 
+      Second Inverter Firmware version for Multi Sensor Creation. You can make it up!
   OutputPath:
     name: Data path
     description: >-
