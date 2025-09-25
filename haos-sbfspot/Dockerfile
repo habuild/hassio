@@ -1,6 +1,6 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-#FROM $BUILD_FROM AS builder-base --debug
+FROM $BUILD_FROM AS builder-base --debug
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
@@ -62,8 +62,6 @@ RUN apk update && apk add --no-cache \
     #tzdata=2023c-r1 
     #boost-date_time1.78 
 
-
-
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
 COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
@@ -71,12 +69,6 @@ COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemo
 COPY --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
 COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
-
-
-#RUN cp /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot \
-# && cp /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot \
-# && cp /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot \
-# && cp /tmp/SBFspot/TagList* /usr/bin/sbfspot
 
 COPY rootfs /
 
@@ -97,7 +89,7 @@ RUN echo '@reboot sleep 60 && /usr/bin/sbfspot/SBFspotUploadDaemon -c /usr/bin/s
 RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh' >> /etc/crontabs/root
 
 # Labels
-LABEL \ --debug
+LABEL \ 
     io.hass.name="HAOS-SBFspot-test" \
     io.hass.description="Home Assistant addon for Bluetooth SBFspot, is an open source project to get actual and archive data out of an SMA® inverter over Bluetooth or Ethernet (Speedwire®)" \
     io.hass.arch="${BUILD_ARCH}" \
