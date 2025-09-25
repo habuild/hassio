@@ -29,6 +29,7 @@ options:
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
   IP_Address: "55.255.255.255"
+  InvSerial: ""
   Plantname: "!secret SBFplantname"
   InvSerial2: ""
   InvName2: ""
@@ -50,11 +51,12 @@ options:
   LogLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
-  Sensors_HA: list(No||Create||Purge|)?
+  Sensors_HA: list(No||Create||Multi||Purge|)?
   BTAddress: "str"
   Password: "password"
   LocalBTAddress: "str?"
   IP_Address: "str?"
+  InvSerial: "str?"
   Plantname: "str"
   InvSerial2: "Str?"
   InvName2: "Str?"
