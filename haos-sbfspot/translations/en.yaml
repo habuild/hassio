@@ -28,12 +28,15 @@ configuration:
     name: MIS_Enabled Multi Inverter Systems
     description: >-
       It is only for Bluetooth multi inverter systems. 0 Disabled, 1 Enabled.
+  InvSerial:
+    name: Inverter 1 Serial Number
+    description: Serial Number for inverter one. Usually auto detected.
   Plantname:
     name: Plant Name !secret Plantname
     description: >-
       Plant name is used to create your mqtt topic.
   InvSerial2:
-    name: Inverter 2 serial
+    name: Inverter 2 serial Number
     description: >- Second Inverter Serial Number for Multi Sensor Creation.
   InvName2:
     name: Inverter 2 Name, usually the serial number
