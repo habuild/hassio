@@ -35,7 +35,7 @@ elif bashio::var.equals "${var}" "Create"; then
 
 elif bashio::var.equals "${var}" "Multi"; then
      bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |'
-     /usr/bin/sbfspot/MultiSensor
+     /usr/bin/sbfspot/MultiSensors
 
 elif bashio::var.equals "$var" "Purge"; then
       bashio::log.red '|    PURGING SENSORS FROM MQTT    |'
