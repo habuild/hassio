@@ -3,7 +3,7 @@
 #  Publish MQTT sensors for Config discovery.
 
 set -e
-CONFIG_PATH=/data/options.json
+CONFIG_PATH=/data/options.json # shellcheck disable=SC2034
 
 PLANTNAME="$(bashio::config 'Plantname')"
 MQTT_Host="$(bashio::config 'MQTT_Host' 'core-mosquitto')"
@@ -26,16 +26,16 @@ bashio::log.cyan "${MQTT_Data}"
 DEVICE_PATH=/data/device
 
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
-InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo or perhaps not
+InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"   # shellcheck disable=SC2034  #    <<< ---- prints bad formant SN: SerialNo or perhaps not
 InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
-InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"
-InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
-BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )"   #  <<< --- Compress BT MAC to use in Unique ID
+InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)" # shellcheck disable=SC2034
+InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)" # shellcheck disable=SC2034
+BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )" # shellcheck disable=SC2034  #  <<< --- Compress BT MAC to use in Unique ID 
 
 #Extra Sensor Info 
 PLANTNAME2="$(bashio::config 'Plantname2')"
 InvSerial2="$(bashio::config 'InvSerial2')"
-InvName2="$(bashio::config 'InvName2')"
+InvName2="$(bashio::config 'InvName2')" # shellcheck disable=SC2034
 InvSwVer2="$(bashio::config 'InvSwVer2')"
 InvType2="$(bashio::config 'InvType2')"
 
