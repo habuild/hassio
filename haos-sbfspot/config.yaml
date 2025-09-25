@@ -1,6 +1,6 @@
 ---
 name: HAOS-SBFspot-test
-version: 2025.2.1test
+version: 2025.9.1test
 slug: haos-sbfspot-test
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
@@ -30,6 +30,11 @@ options:
   LocalBTAddress: "!secret LocalBTAddress"
   IP_Address: "55.255.255.255"
   Plantname: "!secret SBFplantname"
+  InvSerial2: ""
+  InvName2: ""
+  Plantname2: ""
+  InvType2: ""
+  InvSwVer2: ""
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
   Timezone: "!secret Timezone"
@@ -51,6 +56,11 @@ schema:
   LocalBTAddress: "str?"
   IP_Address: "str?"
   Plantname: "str"
+  InvSerial2: "Str?"
+  InvName2: "Str?"
+  Plantname2: "Str?"
+  InvType2: "Str?"
+  InvSwVer2: "Str?"
   MIS_Enabled: "int?"
   OutputPath: "str?"
   OutputPathEvents: "str?"
