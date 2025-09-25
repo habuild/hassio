@@ -26,7 +26,7 @@ RUN apk update && apk add --no-cache \
     make \
     mariadb-dev \
     mosquitto-clients \
-    tzdata=2024b-r1
+    tzdata
            
 # download and build SBFspot
 WORKDIR /tmp
