@@ -1,6 +1,6 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM AS builder-base
+FROM $BUILD_FROM AS builder-base --debug
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
@@ -17,7 +17,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache \
     bluez=5.82-r0 \
     bluez-dev=5.82-r0 \
-    boost-dev=1.84.0-r2 \
+    boost-dev=1.84.0-r3 \
     curl-dev=8.14.1-r1 \
     git=2.49.1-r0 \
     g++=14.2.0-r6 \
@@ -37,7 +37,7 @@ RUN \
 
 
 # runtinme container   
-FROM $BUILD_FROM
+FROM $BUILD_FROM --debug
 
 ARG TEMPIO_VERSION BUILD_ARCH
 RUN \
@@ -98,7 +98,7 @@ RUN echo '@reboot sleep 60 && /usr/bin/sbfspot/SBFspotUploadDaemon -c /usr/bin/s
 RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh' >> /etc/crontabs/root
 
 # Labels
-LABEL \
+LABEL \ --debug
     io.hass.name="HAOS-SBFspot-test" \
     io.hass.description="Home Assistant addon for Bluetooth SBFspot, is an open source project to get actual and archive data out of an SMA® inverter over Bluetooth or Ethernet (Speedwire®)" \
     io.hass.arch="${BUILD_ARCH}" \
