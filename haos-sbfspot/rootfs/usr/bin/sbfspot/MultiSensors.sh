@@ -81,7 +81,7 @@ value='PrgVersion'
    
    bashio::log.info Setting Up "${value}"
    
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME2"/sbfspot_"$InvSerial2""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\", \"value_template\": \"{{ 'V' + value_json.$value | default(None) }}\", \"unique_id\": \"$InvSerial2"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-$PLANTNAME2\"], \"name\": \"HAOS-SBFspot-"$InvSerial2\", \"model\": \"$InvType2\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer2\" }}" "$debugMQTT" "$RoK"
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME2"/sbfspot_"$InvSerial2""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\", \"value_template\": \"{{ 'V' + value_json.$value | default(None) }}\", \"unique_id\": \"$InvSerial2"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-$PLANTNAME2\"], \"name\": \"HAOS-SBFspot"'_'"$InvSerial2\", \"model\": \"$InvType2\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer2\" }}" "$debugMQTT" "$RoK"
     else
      bashio::log.yellow Skipping "${value}"
 fi
