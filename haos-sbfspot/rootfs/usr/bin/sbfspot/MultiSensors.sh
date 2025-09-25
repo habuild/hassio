@@ -37,13 +37,13 @@ PLANTNAME2="$(bashio::config 'Plantname2')"
 INVSERIAL2="$(bashio::config 'InvSerial2')"
 INVNAME2="$(bashio::config 'InvName2')"
 INVSWSER2="$(bashio::config 'InvSwVer2')"
-INVTYPE2="$(bashio::config '$InvType2')"
+INVTYPE2="$(bashio::config 'InvType2')"
 
 bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 
 
 bashio::log.cyan "${InvSerial}"
-bashio::log.green "${InSerial2}"
+bashio::log.green "${InvSerial2}"
 
 
 debugMQTT='--quiet'    #  debug   '-d' or '--quiet'
@@ -568,7 +568,7 @@ value='FeedTm'
    
    bashio::log.info Setting Up "$value"
    
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME2"/sbfspot_"$InvSerial""$value2"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial2"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-$PLANTNAME2\"], \"name\": \"HAOS-SBFspot-$InvSerial2\", \"model\": \"$InvType2\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer2\" }}" "$debugMQTT" "$RoK"
+   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME2"/sbfspot_"$InvSerial2""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial2"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-$PLANTNAME2\"], \"name\": \"HAOS-SBFspot-$InvSerial2\", \"model\": \"$InvType2\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer2\" }}" "$debugMQTT" "$RoK"
    else 
      bashio::log.yellow Skipping "${value}"
 fi
