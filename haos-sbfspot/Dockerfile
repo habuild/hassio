@@ -1,6 +1,6 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM AS builder-base --debug
+FROM $BUILD_FROM # AS builder-base --debug
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
@@ -37,7 +37,7 @@ RUN \
 
 
 # runtinme container   
-FROM $BUILD_FROM --debug
+FROM $BUILD_FROM 
 
 ARG TEMPIO_VERSION BUILD_ARCH
 RUN \
