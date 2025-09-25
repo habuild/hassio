@@ -69,7 +69,7 @@ bashio::log.magenta "${array[@]}"
 ###### MAKE SENSORS #######
 
 value='PrgVersion'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SBFspot Version'
    mdi_icon='mdi:white-balance-sunny'
