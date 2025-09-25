@@ -55,7 +55,7 @@ RUN apk update && apk add --no-cache \
     bluez-libs \
     libstdc++ \
     mariadb-common \
-    mariadb-connector- \
+    mariadb-connector-c \
     ncurses-libs \
     libcurl \
     mosquitto-clients 
