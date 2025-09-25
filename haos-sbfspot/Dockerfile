@@ -1,6 +1,6 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
 ARG BUILD_FROM
-FROM $BUILD_FROM AS builder-base --debug
+#FROM $BUILD_FROM AS builder-base --debug
 
 # Execute during the build of the image
 ARG TEMPIO_VERSION BUILD_ARCH
@@ -66,7 +66,6 @@ RUN apk update && apk add --no-cache \
 
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
-
 COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
 COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
 COPY --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
