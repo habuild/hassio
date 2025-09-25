@@ -68,23 +68,7 @@ bashio::log.magenta "${array[@]}"
 
 ###### MAKE SENSORS #######
 
-value='PrgVersion'
- if [[ " ${array[*]} " =~  $value  ]]; then
-   
-   describe='SBFspot Version'
-   mdi_icon='mdi:white-balance-sunny'
-   #  devClass= << add in \"device_class\": \"$devClass\",
-   #  stClass=  << add in \"state_class\": \"$stClass\",
-   #  UoM=      << add in \"unit_of_measurement\": \"$UoM\",
-   EnabDef='true' 
-   ent_cat='diagnostic'
-   
-   bashio::log.info Setting Up "${value}"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial\", \"value_template\": \"{{ 'V' + value_json.$value | default(None) }}\", \"unique_id\": \"$InvSerial"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-Sensors\"], \"name\": \"HAOS-SBFspot\", \"model\": \"$InvType\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer\" }}" "$debugMQTT" "$RoK"
-    else
-     bashio::log.yellow Skipping "${value}"
-fi
+
 
 value='PrgVersion'
  if [[ " ${array[*]} " =~  $value  ]]; then
@@ -105,7 +89,7 @@ value='PrgVersion'
 fi
 
 value='Plantname'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Plantname'
    mdi_icon='mdi:card-bulleted'
@@ -123,7 +107,7 @@ value='Plantname'
 fi
 
 value='InvName'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Inverter Nom'
    mdi_icon='mdi:card-bulleted'
@@ -141,7 +125,7 @@ value='InvName'
 fi
 
 value='Timestamp'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Timestamp'
    mdi_icon='mdi:clock-digital'
@@ -159,7 +143,7 @@ value='Timestamp'
 fi
 
 value='InvTime'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Time Inverter'
    mdi_icon='mdi:clock'
@@ -178,7 +162,7 @@ value='InvTime'
 fi
 
 value='SunRise'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Sun Rise'
    mdi_icon='mdi:weather-sunny'
@@ -197,7 +181,7 @@ value='SunRise'
 fi
 
 value='SunSet'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Sun Set'
    mdi_icon='mdi:weather-hazy'
@@ -216,7 +200,7 @@ value='SunSet'
 fi
 
 value='InvSerial'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Serial No'
    mdi_icon='mdi:card-bulleted-settings'
@@ -234,7 +218,7 @@ value='InvSerial'
 fi
 
 value='InvClass'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA device type'
    mdi_icon='mdi:cupboard-outline'
@@ -252,7 +236,7 @@ value='InvClass'
 fi
 
 value='InvType'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA device Model'
    mdi_icon='mdi:card-bulleted-settings'
@@ -270,7 +254,7 @@ value='InvType'
 fi
 
 value='InvSwVer'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA device Firmware'
    mdi_icon=mdi:select-inverse
@@ -288,7 +272,7 @@ value='InvSwVer'
 fi
 
 value='InvStatus'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Inverter Status'
    mdi_icon=mdi:select-inverse
@@ -306,7 +290,7 @@ value='InvStatus'
 fi
 
 value='InvTemperature'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Inverter Running Temp'
    mdi_icon='mdi:coolant-temperature'
@@ -322,7 +306,7 @@ value='InvTemperature'
 fi
 
 value='InvGridRelay'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA device Grid Relay'
    mdi_icon='mdi:electric-switch'
@@ -340,7 +324,7 @@ value='InvGridRelay'
 fi
 
 value='EToday'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Energy Daily'
    mdi_icon='mdi:solar-power-variant'
@@ -358,7 +342,7 @@ value='EToday'
 fi
 
 value='ETotal'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Energy Lifetime'
    mdi_icon='mdi:solar-power-variant'
@@ -376,7 +360,7 @@ value='ETotal'
 fi
 
 value='PACTot'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA AC Power'
    mdi_icon='mdi:solar-power-variant'
@@ -394,7 +378,7 @@ value='PACTot'
 fi
 
 value='PAC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA AC Power Line 1'
    mdi_icon='mdi:transmission-tower'
@@ -412,7 +396,7 @@ value='PAC1'
 fi
 
 value='PAC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA AC Power Line 2'
    mdi_icon='mdi:transmission-tower'
@@ -430,7 +414,7 @@ value='PAC2'
 fi
 
 value='PAC3'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA AC Power Line 3'
    mdi_icon='mdi:transmission-tower'
@@ -448,7 +432,7 @@ value='PAC3'
 fi
 
 value='UAC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Phase 1 Voltage'
    mdi_icon='mdi:transmission-tower'
@@ -466,7 +450,7 @@ value='UAC1'
 fi
 
 value='UAC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Phase 2 Voltage'
    mdi_icon='mdi:transmission-tower'
@@ -484,7 +468,7 @@ value='UAC2'
 fi
 
 value='UAC3'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Phase 3 Voltage'
    mdi_icon='mdi:transmission-tower'
@@ -502,7 +486,7 @@ value='UAC3'
 fi
 
 value='IAC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Phase 1 Current'
    mdi_icon='mdi:transmission-tower'
@@ -520,7 +504,7 @@ value='IAC1'
 fi
 
 value='IAC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Phase 2 Current'
    mdi_icon='mdi:transmission-tower'
@@ -538,7 +522,7 @@ value='IAC2'
 fi
 
 value='IAC3'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Phase 3 Current'
    mdi_icon='mdi:transmission-tower'
@@ -556,7 +540,7 @@ value='IAC3'
 fi
 
 value='OperTm'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Total Op Time'
    mdi_icon='mdi:clock'
@@ -574,7 +558,7 @@ value='OperTm'
 fi
 
 value='FeedTm'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Total Feed In Time'
    mdi_icon='mdi:clock-digital'
@@ -594,7 +578,7 @@ fi
 ##############   DC Power Section
 
 value='PDCTot'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA DC All Strings'
    mdi_icon='mdi:solar-power-variant-outline'
@@ -612,7 +596,7 @@ value='PDCTot'
 fi
 
 value='PDC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array1 PDC'
    mdi_icon='mdi:solar-panel-large'
@@ -630,7 +614,7 @@ value='PDC1'
 fi
 
 value='PDC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array2 PDC'
    mdi_icon='mdi:solar-panel'
@@ -648,7 +632,7 @@ value='PDC2'
 fi
 
 value='PDC'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array PDC Tot'
    mdi_icon='mdi:solar-panel'
@@ -668,7 +652,7 @@ fi
 ###############   DC voltage Section
 
 value='UDC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array1 UDC'
    mdi_icon='mdi:solar-panel-large'
@@ -686,7 +670,7 @@ value='UDC1'
 fi
 
 value='UDC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array2 UDC'
    mdi_icon='mdi:solar-panel'
@@ -704,7 +688,7 @@ value='UDC2'
 fi
 
 value='UDC'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array UDC Tot'
    mdi_icon='mdi:solar-panel'
@@ -724,7 +708,7 @@ fi
 #################   DC Current section
 
 value='IDC1'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array1 IDC'
    mdi_icon='mdi:solar-panel-large'
@@ -742,7 +726,7 @@ value='IDC1'
 fi
 
 value='IDC2'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array2 IDC'
    mdi_icon='mdi:solar-panel'
@@ -760,7 +744,7 @@ value='IDC2'
 fi
 
 value='IDC'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Array IDC Tot'
    mdi_icon='mdi:solar-panel'
@@ -780,7 +764,7 @@ fi
 ######## 
 
 value='GridFreq'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Frequency'
    mdi_icon='mdi:transmission-tower'
@@ -798,7 +782,7 @@ value='GridFreq'
 fi
 
 value='BTSignal'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Bluetooth Signal'
    mdi_icon='mdi:bluetooth'
@@ -816,7 +800,7 @@ value='BTSignal'
 fi
 
 value='BatTmpVal'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Temp'
    mdi_icon='mdi:home-battery-outline'
@@ -834,7 +818,7 @@ value='BatTmpVal'
 fi
 
 value='BatVol'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Voltage'
    mdi_icon='mdi:battery-charging-medium'
@@ -852,7 +836,7 @@ value='BatVol'
 fi
 
 value='BatAmp'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Current'
    mdi_icon='mdi:battery-charging-medium'
@@ -871,7 +855,7 @@ fi
 
 #set -x
 value='BatChaStt'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
     
    describe='SMA Battery Charging'
    mdi_icon='mdi:battery-clock'
@@ -889,7 +873,7 @@ value='BatChaStt'
 fi
 
 value='InvWakeupTm'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA WakeUp time'
    mdi_icon='mdi:sleep-off'
@@ -908,7 +892,7 @@ value='InvWakeupTm'
 fi
 
 value='InvSleepTm'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA sleep time'
    mdi_icon='mdi:sleep'
@@ -926,7 +910,7 @@ value='InvSleepTm'
      bashio::log.yellow Skipping "${value}"
 fi
 value='MeteringWOut'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power --> Grid'
    mdi_icon='mdi:transmission-tower'
@@ -944,7 +928,7 @@ value='MeteringWOut'
 fi
 
 value='MeteringWIn'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power <-- Grid'
    mdi_icon='mdi:transmission-tower'
@@ -962,7 +946,7 @@ value='MeteringWIn'
 fi
 
 value='MeteringWTot'
- if [[ " ${array[*]} " =~ " $value " ]]; then
+ if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power Net Grid'
    mdi_icon='mdi:transmission-tower'
