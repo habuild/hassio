@@ -15,16 +15,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # install requirements from https://pkgs.alpinelinux.org/packages?name=&branch=v3.21&repo=&arch=&origin=&flagged=&maintainer=
 RUN apk update && apk add --no-cache \
-    bluez=5.82-r0 \
-    bluez-dev=5.82-r0 \
-    boost-dev=1.84.0-r3 \
-    curl-dev=8.14.1-r1 \
-    git=2.49.1-r0 \
-    g++=14.2.0-r6 \
-    make=4.4.1-r3 \
-    mariadb-dev=11.4.8-r0\
-    mosquitto-clients=2.0.21-r0 \
-    tzdata=2025b-r0
+    bluez \
+    bluez-dev \
+    boost-dev \
+    curl-dev \
+    git \
+    g++ \
+    make \
+    mariadb-dev\
+    mosquitto-clients \
+    tzdata
            
 # download and build SBFspot
 WORKDIR /tmp
@@ -48,15 +48,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 
 RUN apk update && apk add --no-cache \
-    bluez=5.82-r0 \
-    bluez-libs=5.82-r0 \
-    nano=8.4-r0 \
-    libstdc++=14.2.0-r6 \
-    mariadb-common=11.4.8-r0 \
-    mariadb-connector-c=3.3.10-r0 \
-    ncurses-libs=6.5_p20250503-r0 \
-    libcurl=8.14.1-r1 \
-    mosquitto-clients=2.0.21-r0 
+    bluez \
+    bluez-libs \
+    nano \
+    libstdc++ \
+    mariadb-common \
+    mariadb-connector-c \
+    ncurses-libs \
+    libcurl \
+    mosquitto-clients
     
     #nginx=1.26.2-r4
     #tzdata=2023c-r1 
