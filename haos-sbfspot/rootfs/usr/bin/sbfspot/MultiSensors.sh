@@ -159,24 +159,24 @@ value='InvTime'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='SunRise'
- if [[ " ${array[*]} " =~ " $value " ]]; then
-   
-   describe='SMA Sun Rise'
-   mdi_icon='mdi:weather-sunny'
-   devClass=    ### no class for timestamp custom
-   stClass=
-   UoM=
-   EnabDef='true'
-   ent_cat=
-   ts="$(bashio::config 'DateTimeFormat')"
-   
-   bashio::log.info Setting Up "$value"
-   
-   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME2"/sbfspot_"$InvSerial2""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial2"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-$PLANTNAME2\"], \"name\": \"HAOS-SBFspot-$InvSerial2\", \"model\": \"$InvType2\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer2\" }}" "$debugMQTT" "$RoK"
-   else 
-     bashio::log.yellow Skipping "${value}"
-fi
+#value='SunRise'
+# if [[ " ${array[*]} " =~ " $value " ]]; then
+#   
+#   describe='SMA Sun Rise'
+#   mdi_icon='mdi:weather-sunny'
+#   devClass=    ### no class for timestamp custom
+#   stClass=
+#   UoM=
+#   EnabDef='true'
+#   ent_cat=
+#   ts="$(bashio::config 'DateTimeFormat')"
+#   
+#   bashio::log.info Setting Up "$value"
+#   
+#   /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME2"/sbfspot_"$InvSerial2""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial2"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""-$PLANTNAME2\"], \"name\": \"HAOS-SBFspot-$InvSerial2\", \"model\": \"$InvType2\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InvSwVer2\" }}" "$debugMQTT" "$RoK"
+#   else 
+#     bashio::log.yellow Skipping "${value}"
+#fi
 
 value='SunSet'
  if [[ " ${array[*]} " =~ " $value " ]]; then
