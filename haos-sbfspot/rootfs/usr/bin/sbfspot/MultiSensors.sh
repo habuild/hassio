@@ -34,10 +34,10 @@ BTmac="$(jq --raw-output '.BTAddress' /data/options.json | tr -d ':' )"   #  <<<
 
 #Extra Sensor Info 
 PLANTNAME2="$(bashio::config 'Plantname2')"
-INVSERIAL2="$(bashio::config 'InvSerial2')"
-INVNAME2="$(bashio::config 'InvName2')"
-INVSWSER2="$(bashio::config 'InvSwVer2')"
-INVTYPE2="$(bashio::config 'InvType2')"
+InvSerial2="$(bashio::config 'InvSerial2')"
+InvName2="$(bashio::config 'InvName2')"
+InvSwVer2="$(bashio::config 'InvSwVer2')"
+InvType2="$(bashio::config 'InvType2')"
 
 bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 
