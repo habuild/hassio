@@ -52,12 +52,12 @@ options:
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   Sensors_HA: list(No||Create||Multi||Purge|)?
-  BTAddress: "str"
-  Password: "password"
+  BTAddress: "str?"
+  Password: "str"
   LocalBTAddress: "str?"
   IP_Address: "str?"
   InvSerial: "str?"
-  Plantname: "str"
+  Plantname: "str?"
   InvSerial2: "Str?"
   InvName2: "Str?"
   Plantname2: "Str?"
@@ -95,9 +95,9 @@ schema:
   MQTT_Publisher: "str?"
   MQTT_Host: "str?"
   MQTT_Port: "str?"
-  MQTT_User: "str"
-  MQTT_Pass: "password"
-  MQTT_Topic: "str"
+  MQTT_User: "str?"
+  MQTT_Pass: "password?"
+  MQTT_Topic: "str?"
   MQTT_ItemFormat: "str?"
   MQTT_ItemDelimiter: str?
   MQTT_PublisherArgs: str?
