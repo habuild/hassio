@@ -48,7 +48,7 @@ RUN \
 # Copy root filesystem
 COPY rootfs /  
 
-FROM SBFspotCopy AS builder-sbf
+FROM SBFspotCopy AS builder
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
