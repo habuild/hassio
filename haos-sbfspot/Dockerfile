@@ -45,7 +45,7 @@ WORKDIR /usr/bin/sbfspot
 COPY \
        /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
        /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-       /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+       # /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
        /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 
