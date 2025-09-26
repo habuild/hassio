@@ -1,49 +1,10 @@
-## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
-ARG BUILD_FROM
-FROM $BUILD_FROM AS builder-base
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
+# hadolint ignore=DL3006
+FROM FROM ghcr.io/habuild/aarch64-addon-ether-sbfspot:2025.9.15
 
-# Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH
-RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
-# Copy root filesystem
-COPY rootfs /
+
 # Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-# install requirements from https://pkgs.alpinelinux.org/packages?name=&branch=v3.21&repo=&arch=&origin=&flagged=&maintainer=
-RUN apk update && apk add --no-cache \
-    bluez \
-    bluez-dev \
-    boost-dev \
-    curl-dev \
-    git \
-    g++ \
-    make \
-    mariadb-dev\
-    mosquitto-clients \
-    tzdata
-           
-# download and build SBFspot
-WORKDIR /tmp
-RUN \
-    git clone https://github.com/sbfspot/SBFspot.git . \
-    && sed -i s/mariadbclient/mariadb/ ./SBFspot/makefile \
-    && make -C ./SBFspot mariadb \
-    && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
-    && make -C ./SBFspotUploadDaemon mariadb
-
-
-# runtinme container   
-FROM $BUILD_FROM 
-
-ARG TEMPIO_VERSION BUILD_ARCH
-RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 
@@ -58,10 +19,7 @@ RUN apk update && apk add --no-cache \
     libcurl \
     mosquitto-clients
     
-    #nginx=1.26.2-r4
-    #tzdata=2023c-r1 
-    #boost-date_time1.78 
-
+    
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
 COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
