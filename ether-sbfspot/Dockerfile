@@ -34,6 +34,9 @@ RUN apk update && apk add --no-cache \
 
 # Copy root filesystem
 COPY rootfs /
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
   
 # download and build SBFspot
 WORKDIR /tmp 
@@ -43,6 +46,9 @@ RUN \
     && make -C ./SBFspot mariadb \
     && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
     && make -C ./SBFspotUploadDaemon mariadb
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
