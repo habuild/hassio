@@ -27,9 +27,9 @@ options:
 schema:
   InvSerial: "str?"
   Plantname: "str?"
-  InvSerial2: "Str?"
+  InvSerial2: "str?"
   InvName2: "str?"
-  Plantname2: "Str?"
+  Plantname2: "str?"
   InvType2: "str?"
   InvSwVer2: "str?"
   NOIP_Email: "str?"
