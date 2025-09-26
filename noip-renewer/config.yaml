@@ -13,13 +13,13 @@ panel_icon: mdi:certificate
 map:
   - share:rw
 options:
-  InvSerial: 
+  InvSerial:
   Plantname: "!secret SBFplantname"
-  InvSerial2: 
-  InvName2: 
-  Plantname2: 
-  InvType2: 
-  InvSwVer2: 
+  InvSerial2:
+  InvName2:
+  Plantname2:
+  InvType2:
+  InvSwVer2:
   NOIP_Email: "!secret NOIP_Email"
   NOIP_Password: "!secret NOIP_Password"
   NOIP_TOTP_KEY: "!secret NOIP_TOTP_KEY"
