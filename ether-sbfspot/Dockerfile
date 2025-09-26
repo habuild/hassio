@@ -8,6 +8,8 @@ ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to 
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+
+
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -32,6 +34,9 @@ RUN apk update && apk add --no-cache \
 
 # Copy root filesystem
 COPY rootfs /
+
+ARG BUILD_FROM
+FROM $BUILD_FROM AS builder-base
            
 # download and build SBFspot
 WORKDIR /tmp 
@@ -44,6 +49,8 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /  
+
+FROM $BUILD_FROM
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
@@ -65,8 +72,8 @@ RUN apk update && apk add --no-cache \
 WORKDIR /usr/bin/sbfspot
 # hadolint ignore=DL3022
 COPY \ 
-  --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-  --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+  --from=builder /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+  --from=${BUILD} /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
   --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
   --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
