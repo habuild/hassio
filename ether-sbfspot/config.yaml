@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: 2025.9.12
+version: 2025.9.13
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
