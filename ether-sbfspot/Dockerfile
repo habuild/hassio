@@ -69,7 +69,7 @@ RUN apk update && apk add --no-cache \
 
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
-# hadolint ignore=DL3022
+# hadolint ignore=DL3023
 COPY \ 
   --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
   --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
