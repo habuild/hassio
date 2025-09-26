@@ -35,9 +35,7 @@ RUN apk update && apk add --no-cache \
 # Copy root filesystem
 COPY rootfs /
 
-ARG BUILD_FROM
-FROM $BUILD_FROM AS builder-base
-           
+          
 # download and build SBFspot
 WORKDIR /tmp 
 RUN \
@@ -50,7 +48,8 @@ RUN \
 # Copy root filesystem
 COPY rootfs /  
 
-FROM $BUILD_FROM
+ARG BUILD_FROM
+FROM $BUILD_FROM AS builder-base
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
