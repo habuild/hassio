@@ -48,8 +48,8 @@ RUN \
 # Copy root filesystem
 COPY rootfs /  
 
-ARG SBFspotCopy
-FROM SBFspotCopy AS builder
+ARG sbfspot
+FROM sbfspot AS builder
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
@@ -68,7 +68,7 @@ RUN apk update && apk add --no-cache \
     #boost-date_time1.78 
 
 # Copy data for add-on
-FROM SBFspotCopy
+FROM sbfspot
 WORKDIR /usr/bin/sbfspot
 # hadolint ignore=DL3023
 COPY \ 
