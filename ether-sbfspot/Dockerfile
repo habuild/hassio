@@ -6,7 +6,7 @@
 
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
 # hadolint ignore=DL3006
-FROM ${BUILD_FROM}
+FROM ${BUILD_FROM} AS builder-base
 
 
 
@@ -32,12 +32,6 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     tzdata
 
-# Copy root filesystem
-COPY rootfs /
-
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-  
 # download and build SBFspot
 WORKDIR /tmp 
 RUN \
@@ -47,6 +41,7 @@ RUN \
     && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
     && make -C ./SBFspotUploadDaemon mariadb
 
+FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -54,17 +49,13 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /usr/bin/sbfspot
 # hadolint ignore=DL3023
 COPY \ 
-    /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-    /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-    /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-    /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+   --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+   --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+   --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+   --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
     
 # Copy root filesystem
 COPY rootfs /  
-
-FROM ${BUILD_FROM}
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
