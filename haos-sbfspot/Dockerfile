@@ -4,7 +4,7 @@
 ## hadolint ignore=DL3022   
 ## COPY --from should reference a previously defined FROM alias
 
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
+ARG BUILD_FROM  # =ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
 # hadolint ignore=DL3006
 FROM $BUILD_FROM AS builder-base
 
@@ -60,12 +60,12 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /usr/bin/sbfspot
 
-COPY rootfs /
+
 # Copy data for add-on
-COPY \
-       --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-       --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-       --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
+COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
+COPY --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
+COPY --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 COPY rootfs /
 
