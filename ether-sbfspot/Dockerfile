@@ -1,7 +1,7 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
-# shellcheck disable=DL3018  
+# hadolint ignore=DL3018  
 ## Hadolint ignore Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
-# Shellcheck disable=DL3022   
+# hadolint ignore=DL3022   
 ## COPY --from should reference a previously defined FROM alias
 
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
