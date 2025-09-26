@@ -764,7 +764,7 @@ fi
 
 ######## 
 
-value='GridFreq'
+value='GridFreq_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Frequency'
@@ -782,7 +782,7 @@ value='GridFreq'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='BTSignal'
+value='BTSignal_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Bluetooth Signal'
@@ -800,7 +800,7 @@ value='BTSignal'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='BatTmpVal'
+value='BatTmpVal_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Temp'
@@ -818,7 +818,7 @@ value='BatTmpVal'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='BatVol'
+value='BatVol_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Voltage'
@@ -836,7 +836,7 @@ value='BatVol'
      bashio::log.yellow Skipping "${value}" 
 fi
 
-value='BatAmp'
+value='BatAmp_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Current'
@@ -855,7 +855,7 @@ value='BatAmp'
 fi
 
 #set -x
-value='BatChaStt'
+value='BatChaStt_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
     
    describe='SMA Battery Charging'
@@ -876,7 +876,7 @@ fi
 value='InvWakeupTm'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
-   describe='SMA WakeUp time'
+   describe='SMA WakeUp time_2'
    mdi_icon='mdi:sleep-off'
    devClass=    ### no class for timestamp custom
    stClass=
@@ -892,7 +892,7 @@ value='InvWakeupTm'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='InvSleepTm'
+value='InvSleepTm_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA sleep time'
@@ -910,7 +910,7 @@ value='InvSleepTm'
    else 
      bashio::log.yellow Skipping "${value}"
 fi
-value='MeteringWOut'
+value='MeteringWOut_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power --> Grid'
@@ -928,7 +928,7 @@ value='MeteringWOut'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='MeteringWIn'
+value='MeteringWIn_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power <-- Grid'
@@ -946,7 +946,7 @@ value='MeteringWIn'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='MeteringWTot'
+value='MeteringWTot_2'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power Net Grid'
