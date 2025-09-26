@@ -48,7 +48,7 @@ RUN \
 COPY rootfs /  
 
 
-FROM BUILD_FROM AS builder
+FROM builder AS build1
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
     bluez \
@@ -69,10 +69,10 @@ RUN apk update && apk add --no-cache \
 WORKDIR /usr/bin/sbfspot
 # hadolint ignore=DL3023
 COPY \ 
-   --from=builder /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-   --from=builder /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-   --from=builder /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-   --from=builder /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+    /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+    /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+    /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+    /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 
 COPY rootfs /
