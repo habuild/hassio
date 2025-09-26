@@ -1,7 +1,43 @@
-ARG BUILD_FROM=ghcr.io/habuild/aarch64-addon-ether-sbfspot:2025.9.15
-# hadolint ignore=DL3006
-FROM ${BUILD_FROM}
+## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
+## hadolint ignore=DL3018  
+## Hadolint ignore Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
+## hadolint ignore=DL3022   
+## COPY --from should reference a previously defined FROM alias
 
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
+# hadolint ignore=DL3006
+FROM ${BUILD_FROM} AS builder-base
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Setup base
+# hadolint ignore=DL3003
+#RUN \
+     #apk add --no-cache \
+        # would be cool to add base SBFspot here.
+## install requirements from https://pkgs.alpinelinux.org/packages?name=&branch=v3.22&repo=&arch=&origin=&flagged=&maintainer=
+# hadolint ignore=DL3018
+RUN apk update && apk add --no-cache \
+    bluez \
+    bluez-dev \
+    boost-dev \
+    curl-dev \
+    git \
+    g++ \
+    make \
+    mariadb-dev\
+    mosquitto-clients \
+    tzdata
+
+# download and build SBFspot
+WORKDIR /tmp 
+RUN \
+    git clone https://github.com/sbfspot/SBFspot.git . \
+    && sed -i s/mariadbclient/mariadb/ ./SBFspot/makefile \
+    && make -C ./SBFspot mariadb \
+    && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
+    && make -C ./SBFspotUploadDaemon mariadb
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -21,10 +57,10 @@ RUN apk update && apk add --no-cache \
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
 COPY  \
-      --from=${BUILD_FROM} /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-      --from=${BUILD_FROM} /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-      --from=${BUILD_FROM} /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-      --from=${BUILD_FROM} /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+       /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+       /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+       /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+       /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 
 COPY rootfs /
