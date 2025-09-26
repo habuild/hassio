@@ -1,7 +1,7 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
-## hadolint disable=dl3018  
+## hadolint ignore=DL3018  
 ## Hadolint ignore Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
-## hadolint disable=dl3022   
+## hadolint ignore=DL3022   
 ## COPY --from should reference a previously defined FROM alias
 
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
@@ -63,7 +63,7 @@ RUN apk update && apk add --no-cache \
 
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
-# hadolint disable=dl3022
+# hadolint ignore=DL3022
 COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
 COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
 COPY --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv
