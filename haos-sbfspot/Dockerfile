@@ -4,7 +4,7 @@
 ## hadolint ignore=DL3022   
 ## COPY --from should reference a previously defined FROM alias
 
-ARG BUILD_FROM=FROM ghcr.io/habuild/aarch64-addon-ether-sbfspot:2025.9.15    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
 # hadolint ignore=DL3006
 FROM $BUILD_FROM AS builder
 
@@ -41,6 +41,7 @@ RUN \
     
 WORKDIR /usr/bin/sbfspot
 
+COPY rootfs /
 # Copy data for add-on
 COPY \
        /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
