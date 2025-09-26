@@ -17,7 +17,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
      #apk add --no-cache \
         # would be cool to add base SBFspot here.
 ## install requirements from https://pkgs.alpinelinux.org/packages?name=&branch=v3.22&repo=&arch=&origin=&flagged=&maintainer=
-# hadolint disable=dl3018
+# hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
     bluez \
     bluez-dev \
@@ -45,7 +45,7 @@ RUN \
 # Copy root filesystem
 COPY rootfs /  
 
-# hadolint disable=dl3018
+# hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
     bluez \
     bluez-libs \
