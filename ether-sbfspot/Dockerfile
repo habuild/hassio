@@ -41,7 +41,7 @@ RUN \
     && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
     && make -C ./SBFspotUploadDaemon mariadb
 
-FROM ${BUILD_FROM}
+FROM builder-base
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
