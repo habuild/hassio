@@ -48,7 +48,6 @@ RUN \
 COPY rootfs /  
 
 
-FROM builder AS build1
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
     bluez \
@@ -66,6 +65,7 @@ RUN apk update && apk add --no-cache \
     #boost-date_time1.78 
 
 # Copy data for add-on
+FROM builder AS build1
 WORKDIR /usr/bin/sbfspot
 # hadolint ignore=DL3023
 COPY \ 
