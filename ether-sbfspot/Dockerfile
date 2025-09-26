@@ -44,9 +44,21 @@ RUN \
     && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
     && make -C ./SBFspotUploadDaemon mariadb
 
+# Copy data for add-on
+WORKDIR /usr/bin/sbfspot
+# hadolint ignore=DL3023
+COPY \ 
+    /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+    /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+    /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+    /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+    
 # Copy root filesystem
 COPY rootfs /  
 
+FROM ${BUILD_FROM}
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
@@ -64,14 +76,7 @@ RUN apk update && apk add --no-cache \
     #tzdata=2023c-r1 
     #boost-date_time1.78 
 
-# Copy data for add-on
-WORKDIR /usr/bin/sbfspot
-# hadolint ignore=DL3023
-COPY \ 
-    /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-    /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-    /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-    /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+
 
 
 COPY rootfs /
