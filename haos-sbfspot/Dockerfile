@@ -21,10 +21,10 @@ RUN apk update && apk add --no-cache \
 # Copy data for add-on
 WORKDIR /usr/bin/sbfspot
 COPY  \
-      --from=BUILD_FROM /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-      --from=BUILD_FROM /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-      --from=BUILD_FROM /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-      --from=BUILD_FROM /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+      --from=${BUILD_FROM} /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+      --from=${BUILD_FROM} /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+      --from=${BUILD_FROM} /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+      --from=${BUILD_FROM} /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 
 COPY rootfs /
