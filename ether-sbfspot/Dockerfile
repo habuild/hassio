@@ -48,6 +48,7 @@ RUN \
 # Copy root filesystem
 COPY rootfs /  
 
+ARG SBFspotCopy
 FROM SBFspotCopy AS builder-sbf
 
 # hadolint ignore=DL3018
