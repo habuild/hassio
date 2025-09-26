@@ -6,7 +6,7 @@
 
 ARG BUILD_FROM=FROM ghcr.io/habuild/aarch64-addon-ether-sbfspot:2025.9.15    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
 # hadolint ignore=DL3006
-FROM ${BUILD_FROM} AS builder-base
+FROM $BUILD_FROM AS builder-base
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -40,7 +40,7 @@ RUN \
     && make -C ./SBFspotUploadDaemon mariadb
 
 ARG builder
-FROM builder
+FROM builder-base
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
