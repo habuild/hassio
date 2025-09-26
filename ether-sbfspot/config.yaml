@@ -1,6 +1,6 @@
 ---
 name: ETHER-SBFspot
-version: 2025.9.2
+version: 2025.9.5
 slug: ether-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/ether-sbfspot"
@@ -13,7 +13,6 @@ arch:
 init: false
 host_network: true
 host_dbus: true
-hassio_api: true
 homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 map:
@@ -28,7 +27,13 @@ options:
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
   IP_Address: "55.255.255.255"
+  InvSerial: ""
   Plantname: "!secret SBFplantname"
+  InvSerial2: ""
+  InvName2: ""
+  Plantname2: ""
+  InvType2: ""
+  InvSwVer2: ""
   Latitude: "!secret home_lat"
   Longitude: "!secret home_long"
   Timezone: "!secret Timezone"
@@ -44,12 +49,18 @@ options:
   LogLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
-  Sensors_HA: list(No||Create||Purge|)?
-  BTAddress: "str"
-  Password: "password"
+  Sensors_HA: list(No||Create||Multi||Purge|)?
+  BTAddress: "str?"
+  Password: "str"
   LocalBTAddress: "str?"
   IP_Address: "str?"
-  Plantname: "str"
+  InvSerial: "str?"
+  Plantname: "str?"
+  InvSerial2: "Str?"
+  InvName2: "Str?"
+  Plantname2: "Str?"
+  InvType2: "Str?"
+  InvSwVer2: "Str?"
   MIS_Enabled: "int?"
   OutputPath: "str?"
   OutputPathEvents: "str?"
@@ -82,9 +93,9 @@ schema:
   MQTT_Publisher: "str?"
   MQTT_Host: "str?"
   MQTT_Port: "str?"
-  MQTT_User: "str"
-  MQTT_Pass: "password"
-  MQTT_Topic: "str"
+  MQTT_User: "str?"
+  MQTT_Pass: "password?"
+  MQTT_Topic: "str?"
   MQTT_ItemFormat: "str?"
   MQTT_ItemDelimiter: str?
   MQTT_PublisherArgs: str?
