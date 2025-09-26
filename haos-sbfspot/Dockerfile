@@ -4,7 +4,7 @@
 ## hadolint ignore=DL3022   
 ## COPY --from should reference a previously defined FROM alias
 
-ARG BUILD_FROM  # =ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
 # hadolint ignore=DL3006
 FROM $BUILD_FROM AS builder-base
 
