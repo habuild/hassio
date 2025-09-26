@@ -1,6 +1,6 @@
 ---
 name: HAOS-SBFspot
-version: 2025.9.3
+version: 2025.9.5
 slug: haos-sbfspot
 description: Manage SBFspot with a simple interface
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
@@ -31,7 +31,7 @@ options:
   IP_Address: "55.255.255.255"
   InvSerial: ""
   Plantname: "!secret SBFplantname"
-  MIS_Enabled: ""
+  MIS_Enabled: "0"
   InvSerial2: ""
   InvName2: ""
   Plantname2: ""
