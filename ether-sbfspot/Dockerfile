@@ -49,7 +49,7 @@ RUN \
 COPY rootfs /  
 
 ARG SBFspotCopy
-FROM SBFspotCopy AS builder-sbf
+FROM SBFspotCopy AS builder
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
@@ -72,10 +72,10 @@ FROM SBFspotCopy
 WORKDIR /usr/bin/sbfspot
 # hadolint ignore=DL3023
 COPY \ 
-  --from=builder-sbf /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-  --from=builder-sbf /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-  --from=builder-sbf /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-  --from=builder-sbf /tmp/SBFspot/TagList* /usr/bin/sbfspot/
+  --from=builder /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
+  --from=builder /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
+  --from=builder /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
+  --from=builder /tmp/SBFspot/TagList* /usr/bin/sbfspot/
 
 
 COPY rootfs /
