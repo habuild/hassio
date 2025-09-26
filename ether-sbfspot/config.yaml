@@ -29,6 +29,7 @@ options:
   IP_Address: "55.255.255.255"
   InvSerial: ""
   Plantname: "!secret SBFplantname"
+  MIS_Enabled: ""
   InvSerial2: ""
   InvName2: ""
   Plantname2: ""
