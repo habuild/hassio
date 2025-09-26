@@ -41,61 +41,6 @@ RUN \
     && sed -i s/mariadbclient/mariadb/ ./SBFspotUploadDaemon/makefile \
     && make -C ./SBFspotUploadDaemon mariadb
 
-#ARG builder-base=BUILD_FROM
-#FROM builder-base
-# Set shell
-#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-# Copy data for add-on
-#WORKDIR /usr/bin/sbfspot
-# hadolint ignore=DL3023
-#COPY \ 
-   --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot \
-   --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon \
-   --from=builder-base /tmp/SBFspot/date_time_zonespec.csv /usr/bin/sbfspot/date_time_zonespec.csv \
-   --from=builder-base /tmp/SBFspot/TagList* /usr/bin/sbfspot/
-    
-# Copy root filesystem
-#COPY rootfs /  
-
-# hadolint ignore=DL3018
-#RUN apk update && apk add --no-cache \
-    bluez \
-    bluez-libs \
-    nano \
-    libstdc++ \
-    mariadb-common \
-    mariadb-connector-c \
-    ncurses-libs \
-    libcurl \
-    mosquitto-clients
-    
-    #nginx=1.26.2-r4
-    #tzdata=2023c-r1 
-    #boost-date_time1.78 
-
-
-
-
-#COPY rootfs /
-
-#RUN chmod a+x /etc/services.d/sbfspot/** /usr/bin/sbfspot/**
-
-# --- install cron ---
-# set shell
-#RUN echo 'SHELL=/bin/bash' > /etc/crontabs/root
-# update sensors after restart
-#RUN echo '@reboot sleep 30 && /usr/bin/sbfspot/SBFspot -v -ad0 -am0 -mqtt -finq > /dev/stdout' >> /etc/crontabs/root
-# daily data SBFspot
-#RUN echo '*/5 6-22 * * *    /usr/bin/sbfspot/SBFspot -v -ad1 -am0 -ae0 -mqtt > /dev/stdout' >> /etc/crontabs/root
-# monthly data SBFspot
-#RUN echo '55 05 * * *       /usr/bin/sbfspot/SBFspot -v -sp0 -ad0 -am1 -ae1 -finq > /dev/stdout' >> /etc/crontabs/root
-# start SBFspotUpload 1 min after boot
-#RUN echo '@reboot sleep 60 && /usr/bin/sbfspot/SBFspotUploadDaemon -c /usr/bin/sbfspot/SBFspotUpload.cfg > /dev/stdout' >> /etc/crontabs/root
-#  Log SBFspotUpload to HA logging window  defunct now in version 3.9.6+ sbfspot, using it for the timed message
-#RUN echo '*/5 6-22 * * * /usr/bin/sbfspot/taillog.sh' >> /etc/crontabs/root
-
-############################ Base labels etc below
 
 # Build arguments
 ARG BUILD_ARCH
