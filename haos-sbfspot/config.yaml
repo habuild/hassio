@@ -62,7 +62,7 @@ schema:
   InvName2: "str?"
   Plantname2: "str?"
   InvType2: "str?"
-  InvSwVer2: "Str?"
+  InvSwVer2: "str?"
   MIS_Enabled: "int?"
   OutputPath: "str?"
   OutputPathEvents: "str?"
