@@ -1,4 +1,8 @@
 ## https://developers.home-assistant.io/docs/add-ons/configuration#add-on-dockerfile
+# shellcheck disable=DL3018  
+## Hadolint ignore Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
+# Shellcheck disable=DL3022   
+## COPY --from should reference a previously defined FROM alias
 
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1    ## Should swap this link to ghrc.io/docker-base/alpinelinux:3.22, not sure of the link
 # hadolint ignore=DL3006
@@ -13,7 +17,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
      #apk add --no-cache \
         # would be cool to add base SBFspot here.
 # install requirements from https://pkgs.alpinelinux.org/packages?name=&branch=v3.22&repo=&arch=&origin=&flagged=&maintainer=
-# shellcheck disable=DL3018  ## Hadolint ignore Pin versions in apk add. Instead of `apk add <package>` use `apk add <package>=<version>`
 RUN apk update && apk add --no-cache \
     bluez \
     bluez-dev \
@@ -57,7 +60,6 @@ RUN apk update && apk add --no-cache \
     #boost-date_time1.78 
 
 # Copy data for add-on
-# Shellcheck disable=DL3022   ## COPY --from should reference a previously defined FROM alias
 WORKDIR /usr/bin/sbfspot
 COPY --from=builder-base /tmp/SBFspot/mariadb/bin/SBFspot /usr/bin/sbfspot/SBFspot
 COPY --from=builder-base /tmp/SBFspotUploadDaemon/mariadb/bin/SBFspotUploadDaemon /usr/bin/sbfspot/SBFspotUploadDaemon
