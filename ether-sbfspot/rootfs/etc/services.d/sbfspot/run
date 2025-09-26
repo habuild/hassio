@@ -23,7 +23,6 @@ bashio::log.info ${__BASHIO_COLORS_CYAN} "${message:="Hello World..."}"
 bashio::log.info
 
 
-
 #set -x
 
 var="$(jq --raw-output '.Sensors_HA' $CONFIG_PATH)"
@@ -33,6 +32,10 @@ if bashio::var.equals "${var}" "No"; then
 elif bashio::var.equals "${var}" "Create"; then
      bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |'
      /usr/bin/sbfspot/mqttSensorConfig
+
+elif bashio::var.equals "${var}" "Multi"; then
+     bashio::log.magenta '|   INITIALISE MQTT SENSOR CREATION   |'
+     /usr/bin/sbfspot/MultiSensors
 
 elif bashio::var.equals "$var" "Purge"; then
       bashio::log.red '|    PURGING SENSORS FROM MQTT    |'
