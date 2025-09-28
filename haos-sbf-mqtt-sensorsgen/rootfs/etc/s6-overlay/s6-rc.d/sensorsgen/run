@@ -67,8 +67,8 @@ bashio::log.green "${InvSerial2}"
 
 if bashio::config.equals "log_level" "debug"; then
                       debugMQTT='-d'  #  debug   '-d' or '--quiet'
-                            else
-                              '--quiet' 
+        else
+                      debugMQTT='--quiet' 
 fi
 
 RoK='-r'               #  retain  '-r' or  '-d' depending on value above 
