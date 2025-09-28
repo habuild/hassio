@@ -47,6 +47,7 @@ InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 
 
 #Extra Sensor Info 
+Inv_Number:="$(bashio::config 'Inv_Number')"
 PLANTNAME2="$(bashio::config 'Plantname2')"
 InvSerial2="$(bashio::config 'InvSerial2')"
 InvName2="$(bashio::config 'InvName2')" 
