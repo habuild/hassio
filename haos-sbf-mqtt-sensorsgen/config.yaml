@@ -24,7 +24,7 @@ options:
   InvType2: "model number"
   InvClass2: "Solar Inverter"
   Debug_MQTT: "--quiet"
-  test_msg: "false"
+  test_msg: false
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
