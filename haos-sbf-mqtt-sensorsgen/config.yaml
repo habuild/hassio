@@ -23,7 +23,7 @@ options:
   InvName2: ""
   InvSwVer2: ""
   InvType2: ""
-  InvClass2:
+  InvClass2: ""
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
