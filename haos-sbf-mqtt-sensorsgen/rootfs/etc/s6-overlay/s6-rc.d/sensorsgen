@@ -1,0 +1,16 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Habuild addon Sensors Generate
+# Runs SensorsGen
+# ==============================================================================
+declare -a options
+
+bashio::log.info "Starting SensorsGen..."
+
+options+=(-d)
+if bashio::config.false 'generate_sensors'; then
+    options+=(-x)
+fi
+
+exec sensorsgen "${options[@]}"
