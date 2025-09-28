@@ -10,6 +10,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache \
     mosquitto-clients
 
+WORKDIR /etc/s6-overlay
+
 #RUN chmod +x /etc/s6-overlay/s6-rc.d/init-sensorsgen/run
 
 
