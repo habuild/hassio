@@ -13,7 +13,7 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /etc/s6-overlay/s6-rc.d/sensorsgen
 
-RUN chmod +x /etc/s6-overlay/s6-rc.d/sensorsgen/**
+RUN chmod +x /etc/s6-overlay/s6-rc.d/**
 
 
 # Build arguments
