@@ -1,6 +1,6 @@
 ---
 name: HAOS-SBF-MQTT-SensorsGen
-version: 2025.9.16
+version: 2025.9.17
 slug: haos-sbf-mqtt-sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
@@ -24,6 +24,7 @@ options:
   InvType2: "model number"
   InvClass2: "Solar Inverter"
   Debug_MQTT: "--quiet"
+  test_msg: "false"
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
@@ -39,7 +40,8 @@ schema:
   InvSwVer2: "str?"
   InvType2: "str?"
   InvClass2: "str?"
-  Debug_MQTT: list(-d|--quiet)
+  Debug_MQTT: list(-d|--quiet)?
+  test_msg: bool
   MQTT_User: "str?"
   MQTT_Pass: "password?"
   MQTT_Topic: "str?"
