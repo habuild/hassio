@@ -13,4 +13,4 @@ if bashio::config.false 'Generate_Sensors'; then
     options+=(-x)
 fi
 
-exec sensorsgen "${options[@]}"
+# exec sensorsgen "${options[@]}"
