@@ -24,7 +24,7 @@ bashio::log.blue "${MQTT_Topic}"
 bashio::log.cyan "${MQTT_Data}"
 
 
-DEVICE_PATH=/data/device
+DEVICE_PATH=/data/options.json
 
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
 InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo or perhaps not
