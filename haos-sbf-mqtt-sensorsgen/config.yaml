@@ -31,7 +31,7 @@ options:
     PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,OperTm,FeedTm,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal,InvWakeupTm,InvSleepTm
   LogLevel: info
 schema:
-  Generate-Sensors: bool
+  Generate_Sensors: bool
   InvSerial: "str?"
   Plantname: "str?"
   InvSerial2: "str?"
