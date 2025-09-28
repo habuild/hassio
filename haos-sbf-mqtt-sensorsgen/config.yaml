@@ -26,9 +26,9 @@ options:
   InvClass2: "Solar Inverter"
   test_msg: false
   Send_Command1: false
-  Command1: "/usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial1" -m "{\"PLANTNAME1\":\"$PLANTNAME1\",\"InvSerial1\":\"$InvSerial1"\,\"EToday\": \"6334\"}""
+  Command1: "/usr/bin/mosquitto_pub -h "{MQTT_Host} -u {MQTT_User} -P {MQTT_Pass} -t homeassistant/sbfspot_"PLANTNAME"/sbfspot_"InvSerial1" -m "{"PLANTNAME1","InvSerial1","EToday": "6334"}""
   Send_Command2: false
-  Command2: "/usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial2" -m "{\"PLANTNAME2\":\"$PLANTNAME2\",\"InvSerial2\":\"$InvSerial2"\,\"EToday\": \"9001\"}""
+  Command2: "/usr/bin/mosquitto_pub -h "{MQTT_Host} -u {MQTT_User} -P {MQTT_Pass} -t homeassistant/sbfspot_"PLANTNAME"/sbfspot_"InvSerial2" -m "{"PLANTNAME2","InvSerial2","EToday": "9001"}""
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
