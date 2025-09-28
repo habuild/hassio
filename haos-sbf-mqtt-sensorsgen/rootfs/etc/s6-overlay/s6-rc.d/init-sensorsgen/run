@@ -42,6 +42,7 @@ InvSerial2="$(bashio::config 'InvSerial2')"
 InvName2="$(bashio::config 'InvName2')" 
 InvSwVer2="$(bashio::config 'InvSwVer2')"
 InvType2="$(bashio::config 'InvType2')"
+InvClass2="$(bashio::config 'InvClass2')"
 
 bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 
