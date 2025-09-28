@@ -28,7 +28,7 @@ options:
   Send_Command1: false
   Command1: ""
   Send_Command2: false
-  Command2: "-t homeassistant/sbfspot_{PLANTNAME}/sbfspot_{InvSerial2} -m {"PLANTNAME2","InvSerial2","EToday": "9001"}"
+  Command2: ""
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
