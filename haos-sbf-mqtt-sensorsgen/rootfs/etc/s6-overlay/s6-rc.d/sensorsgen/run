@@ -779,7 +779,7 @@ fi
 
 ######## 
 
-value='GridFreq_2'
+value='GridFreq'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Grid Frequency'
@@ -797,7 +797,7 @@ value='GridFreq_2'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='BTSignal_2'
+value='BTSignal'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Bluetooth Signal'
@@ -815,7 +815,7 @@ value='BTSignal_2'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='BatTmpVal_2'
+value='BatTmpVal'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Temp'
@@ -833,7 +833,7 @@ value='BatTmpVal_2'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='BatVol_2'
+value='BatVol'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Voltage'
@@ -851,7 +851,7 @@ value='BatVol_2'
      bashio::log.yellow Skipping "${value}" 
 fi
 
-value='BatAmp_2'
+value='BatAmp'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Battery Current'
@@ -870,7 +870,7 @@ value='BatAmp_2'
 fi
 
 #set -x
-value='BatChaStt_2'
+value='BatChaStt'
  if [[ " ${array[*]} " =~  $value  ]]; then
     
    describe='SMA Battery Charging'
@@ -907,7 +907,7 @@ value='InvWakeupTm'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='InvSleepTm_2'
+value='InvSleepTm'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA sleep time'
@@ -925,7 +925,7 @@ value='InvSleepTm_2'
    else 
      bashio::log.yellow Skipping "${value}"
 fi
-value='MeteringWOut_2'
+value='MeteringWOut'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power --> Grid'
@@ -943,7 +943,7 @@ value='MeteringWOut_2'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='MeteringWIn_2'
+value='MeteringWIn'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power <-- Grid'
@@ -961,7 +961,7 @@ value='MeteringWIn_2'
      bashio::log.yellow Skipping "${value}"
 fi
 
-value='MeteringWTot_2'
+value='MeteringWTot'
  if [[ " ${array[*]} " =~  $value  ]]; then
    
    describe='SMA Power Net Grid'
