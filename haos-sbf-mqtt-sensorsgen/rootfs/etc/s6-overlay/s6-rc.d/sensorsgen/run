@@ -64,9 +64,15 @@ bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 bashio::log.cyan "${InvSerial}"
 bashio::log.green "${InvSerial2}"
 
-#Debug_MQTT="$(bashio::config 'Debug_MQTT')"  ################ change to log_level somehow
-#debugMQTT="$Debug_MQTT"    #  debug   '-d' or '--quiet'
+
+if bashio::config.equals "log_level" "debug"; then
+                      debugMQTT='-d'  #  debug   '-d' or '--quiet'
+                            else
+                              '--quiet' 
+fi
+
 RoK='-r'               #  retain  '-r' or  '-d' depending on value above 
+
 
 #  Array stuff     ####    https://stackoverflow.com/questions/3685970/check-if-a-bash-array-contains-a-value
 #if [[ " ${array[*]} " =~ " ${value} " ]]; then                     
