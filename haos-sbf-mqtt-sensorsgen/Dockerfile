@@ -8,7 +8,8 @@ COPY rootfs /
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN apk update && apk add --no-cache \
-    mosquitto-clients
+    mosquitto-clients \
+    nano
 
 WORKDIR /etc/s6-overlay
 
