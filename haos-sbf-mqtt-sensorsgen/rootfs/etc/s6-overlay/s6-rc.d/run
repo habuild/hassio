@@ -9,7 +9,7 @@ declare -a options
 bashio::log.info "Starting SensorsGen..."
 
 options+=(-d)
-if bashio::config.false 'generate_sensors'; then
+if bashio::config.false 'Generate_Sensors'; then
     options+=(-x)
 fi
 
