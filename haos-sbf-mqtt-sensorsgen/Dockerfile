@@ -7,6 +7,8 @@ COPY rootfs /
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+chmod +x /etc/s6-overlay/s6-rc.d/init-sensorsgen/run
+
 # Build arguments
 ARG BUILD_ARCH
 ARG BUILD_DATE
