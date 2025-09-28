@@ -61,8 +61,8 @@ bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 bashio::log.cyan "${InvSerial}"
 bashio::log.green "${InvSerial2}"
 
-
-debugMQTT='--quiet'    #  debug   '-d' or '--quiet'
+Debug_MQTT="$(bashio::config 'Debug_MQTT')"
+debugMQTT="$Debug_MQTT"    #  debug   '-d' or '--quiet'
 RoK='-r'               #  retain  '-r' or  '-d' depending on value above 
 
 #  Array stuff     ####    https://stackoverflow.com/questions/3685970/check-if-a-bash-array-contains-a-value
