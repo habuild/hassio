@@ -39,7 +39,7 @@ schema:
   InvSwVer2: "str?"
   InvType2: "str?"
   InvClass2: "str?"
-  Debug_MQTT: list(-d||--quiet)?
+  Debug_MQTT: list(-d|--quiet)
   MQTT_User: "str?"
   MQTT_Pass: "password?"
   MQTT_Topic: "str?"
