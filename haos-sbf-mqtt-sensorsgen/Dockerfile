@@ -11,7 +11,7 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-WORKDIR /etc/s6-overlay
+WORKDIR /etc/s6-overlay/s6-rc.d
 
 RUN chmod +x /etc/s6-overlay/s6-rc.d/sensorsgen/run
 
