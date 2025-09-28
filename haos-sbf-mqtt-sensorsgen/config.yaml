@@ -24,7 +24,6 @@ options:
   InvSwVer2: "12.35.45"
   InvType2: "model number"
   InvClass2: "Solar Inverter"
-  Debug_MQTT: "--quiet"
   test_msg: false
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
@@ -41,7 +40,6 @@ schema:
   InvSwVer2: "str?"
   InvType2: "str?"
   InvClass2: "str?"
-  Debug_MQTT: list(-d||--quiet)?
   test_msg: bool
   MQTT_User: "str?"
   MQTT_Pass: "password?"
