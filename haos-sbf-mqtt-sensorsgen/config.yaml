@@ -25,10 +25,6 @@ options:
   InvType2: "model number"
   InvClass2: "Solar Inverter"
   test_msg: false
-  Send_Command1: false
-  Command1: ""
-  Send_Command2: false
-  Command2: ""
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
@@ -45,10 +41,6 @@ schema:
   InvType2: "str?"
   InvClass2: "str?"
   test_msg: bool
-  Send_Command1: bool
-  Command1: "str"?
-  Send_Command2: bool
-  Command2: "str"?
   MQTT_User: "str?"
   MQTT_Pass: "password?"
   MQTT_Topic: "str?"
