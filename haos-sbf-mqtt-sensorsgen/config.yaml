@@ -17,6 +17,7 @@ panel_icon: mdi:solar-power-variant
 options:
   InvSerial: "Primary Inverter Serial"
   Plantname: "Primary Inverter Plantname"
+  Inv_Number: "Second"
   InvSerial2: "Secondary Inverter details"
   Plantname2: ""
   InvName2: ""
@@ -32,6 +33,7 @@ options:
 schema:
   InvSerial: "str?"
   Plantname: "str?"
+  Inv_Number: list(First|Second|Third)
   InvSerial2: "str?"
   Plantname2: "str?"
   InvName2: "str?"
