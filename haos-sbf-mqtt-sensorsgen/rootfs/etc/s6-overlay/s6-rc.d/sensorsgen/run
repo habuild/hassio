@@ -18,6 +18,9 @@ bashio::log.info "Starting SensorsGen..."
 set -e
 CONFIG_PATH=/data/options.json 
 
+current_timestamp=$(date +'%Y-%m-%d_%H-%M-%S')
+echo "Log file created on: $current_timestamp"
+
 PLANTNAME="$(bashio::config 'Plantname')"
 MQTT_Host="$(bashio::config 'MQTT_Host' 'core-mosquitto')"
 MQTT_User="$(bashio::config 'MQTT_User')"
@@ -82,6 +85,14 @@ bashio::log.magenta "${array[@]}"
 #  PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,OperTm,FeedTm,PDCTot,PDC1,PDC2,PDC,UDC1,UDC2,UDC,IDC1,IDC2,IDC,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt,InvWakeupTm,InvSleepTm,MeteringWOut,MeteringWIn,MeteringWTot
 ####  
 
+###### Publish Test message
+#test_msg="$(bashio::config 'test_msg')"
+
+if bashio::config.true 'test_msg'; then 
+
+/usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial2\" -m "{"\PrgVersion\": "\3.10.0\","\Plantname\": "\"PLANTNAME2"\,"\Timestamp\": "\$current_timestamp\","\SunRise\": "\2025-09-26T06:02:00+1000\","\SunSet\": "\2025-09-26T18:17:00+1000\","\InvSerial\": \"$InvSerial2\","\InvName\": \"$InvName2\","\InvTime\": "\2025-09-26T19:03:09+1000\","\InvStatus\": "\TEST MSG\","\InvSwVer\": "\$InvSerVer\","\InvClass\": "\Testing Solar Inverters\","\InvType\": "\$InvType\","\InvTemperature\": "\99.000\","\InvGridRelay\": "\Information is good, sadly we have none\","\EToday\": "\6.334\","\ETotal\": "\75462.350\","\GridFreq\": "\2.000\","\PACTot\": "\0.000\","\PAC1\": "\0.000\","\UAC1\": "\0.000\","\IAC1\": "\0.000\","\OperTm\": "\59117.104\","\FeedTm\": "\57784.924\","\PDCTot\": "\10.000\","\UDC1\": "\0.000,"UDC2\": "\0.000\","\IDC1\": "\0.000\","\IDC2\": "\0.000\","\PDC1\": "\0.000\","\PDC2\": "\0.000\","\BTSignal\": "\68.627\","\InvWakeupTm\": "\2025-09-26T06:35:32+1000\","\InvSleepTm\": "\2025-09-26T18:21:21+1000\"}" "$debugMQTT" "$RoK"
+
+fi
 ###### MAKE SENSORS #######
 
 
