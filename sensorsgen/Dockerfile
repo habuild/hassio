@@ -12,7 +12,7 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /s6-rc.d
 
-RUN chmod a+x /init-sensorsgen/** /sensorsgen/** /test/** /message1/** /message2/** /message3/** 
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/** /etc/s6-overlay/s6-rc.d/sensorsgen/** /etc/s6-overlay/s6-rc.d/test/** /etc/s6-overlay/s6-rc.d/message1/** /etc/s6-overlay/s6-rc.d/message2/** /etc/s6-overlay/s6-rc.d/message3/** 
     
 
 # Copy root filesystem
