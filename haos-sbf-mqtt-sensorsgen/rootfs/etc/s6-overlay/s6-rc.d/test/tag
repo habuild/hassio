@@ -17,8 +17,10 @@ bashio::log.info "Starting SensorsGen..."
 
 set -e
 CONFIG_PATH=/data/options.json 
+# '%Y-%m-%d_%H-%M-%S-%z' old
+# '%H:%M:%S %d-%m-%y' best
+current_timestamp=$(date +'%H:%M:%S %d-%m-%y-%z')
 
-current_timestamp=$(date +'%Y-%m-%d_%H-%M-%S-%z')
 echo "Log file created on: $current_timestamp"
 
 PLANTNAME="$(bashio::config 'Plantname')"
