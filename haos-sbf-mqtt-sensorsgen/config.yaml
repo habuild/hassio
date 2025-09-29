@@ -27,7 +27,7 @@ options:
   test_msg: false
   Send_Message1: false
   Message1: ""
-  Send_Messsage2: false
+  Send_Message2: false
   Message2: ""
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
