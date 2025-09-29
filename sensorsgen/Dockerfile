@@ -12,21 +12,8 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /s6-rc.d
 
-RUN \
-    chmod a+x ./s6-rc.d/init-sensorsgen/run \
-    && chmod a+x ./s6-rc.d/init-sensorsgen/up \
-    && chmod a+x ./s6-rc.d/init-sensorsgen/type \
-    && chmod a+x ./s6-rc.d/sensorsgen/run \
-    && chmod a+x ./s6-rc.d/sensorsgen/up \
-    && chmod a+x ./s6-rc.d/sensorsgen/type \
-    && chmod a+x ./s6-rc.d/test/tag \
-    && chmod a+x ./s6-rc.d/test/run \
-    && chmod a+x ./s6-rc.d/test/up \
-    && chmod a+x ./s6-rc.d/test/type \
-    && chmod a+x ./s6-rc.d/test/run \
-    && chmod a+x ./s6-rc.d/message1/run \
-    && chmod a+x ./s6-rc.d/message2/run \
-    && chmod a+x ./6-overlay/s6-rc.d/message3/run
+RUN chmod a+x /s6-rc.d/init-sensorsgen/run 
+    
 
 # Copy root filesystem
 COPY rootfs /
