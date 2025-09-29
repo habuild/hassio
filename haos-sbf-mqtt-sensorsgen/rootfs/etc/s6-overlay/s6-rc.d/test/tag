@@ -17,9 +17,9 @@ bashio::log.info "Starting SensorsGen..."
 
 set -e
 CONFIG_PATH=/data/options.json 
-# '%Y-%m-%d_%H-%M-%S-%z' old
-# '%H:%M:%S %d-%m-%y' best does it need -%z?
-current_timestamp=$(date +'%H:%M:%S %d-%m-%y')
+# '%Y-%m-%dT%H:%M:%S%z' best
+# '%H:%M:%S %d-%m-%y' standard needed for sbfspot config reading, not here.
+current_timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
 echo "Log file created on: $current_timestamp"
 
