@@ -46,9 +46,9 @@ schema:
   InvClass2: "str?"
   test_msg: bool
   Send_Message1: bool
-  Message1: "str"?
+  Message1: "str?"
   Send_Message2: bool
-  Message2: "str"?
+  Message2: "str?"
   MQTT_User: "str?"
   MQTT_Pass: "password?"
   MQTT_Topic: "str?"
