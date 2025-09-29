@@ -15,7 +15,7 @@ WORKDIR /etc/s6-overlay/s6-rc.d
 
 RUN \
      chmod a+x /etc/s6-overlay/s6-rc.d/sensorsgen/run \
-     chmod a+x /etc/s6-overlay/s6-rc.d/test/tag
+     && chmod a+x /etc/s6-overlay/s6-rc.d/test/tag
 
 
 # Build arguments
