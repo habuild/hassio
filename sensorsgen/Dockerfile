@@ -10,9 +10,9 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-WORKDIR /s6-rc.d
+WORKDIR /etc/s6-overlay/s6-rc.d
 
-RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/** /etc/s6-overlay/s6-rc.d/sensorsgen/** /etc/s6-overlay/s6-rc.d/test/** /etc/s6-overlay/s6-rc.d/message1/** /etc/s6-overlay/s6-rc.d/message2/** /etc/s6-overlay/s6-rc.d/message3/** 
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/run /etc/s6-overlay/s6-rc.d/sensorsgen/run /etc/s6-overlay/s6-rc.d/test/run /etc/s6-overlay/s6-rc.d/message1/run /etc/s6-overlay/s6-rc.d/message2/run /etc/s6-overlay/s6-rc.d/message3/run 
     
 
 # Copy root filesystem
