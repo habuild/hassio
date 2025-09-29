@@ -12,7 +12,7 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /s6-rc.d
 
-RUN chmod a+x /sensorsgen/run 
+RUN chmod a+x sensorsgen/run 
     
 
 # Copy root filesystem
