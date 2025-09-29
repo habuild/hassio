@@ -1,8 +1,7 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
 FROM $BUILD_FROM
 
-# Copy root filesystem
-COPY rootfs /
+
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -13,12 +12,14 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /s6-overlay/s6-rc.d
 
-RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/** /etc/s6-overlay/s6-rc.d/sensorsgen/** /etc/s6-overlay/s6-rc.d/test/** /etc/s6-overlay/s6-rc.d/message1/** /etc/s6-overlay/s6-rc.d/message2/** /etc/s6-overlay/s6-rc.d/message3/**
+RUN chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/* /etc/s6-overlay/s6-rc.d/sensorsgen/* /etc/s6-overlay/s6-rc.d/test/* /etc/s6-overlay/s6-rc.d/message1/* /etc/s6-overlay/s6-rc.d/message2/* /etc/s6-overlay/s6-rc.d/message3/*
 
     # && chmod a+x /etc/s6-overlay/s6-rc.d/test/tag \
     # && chmod a+x /etc/s6-overlay/s6-rc.d/test/run \
     # && chmod a+x /etc/s6-overlay/s6-rc.d/message1/run \
     # && chmod a+x /etc/s6-overlay/s6-rc.d/message2/run
+
+# Copy root filesystem
 COPY rootfs /
 
 # Build arguments
