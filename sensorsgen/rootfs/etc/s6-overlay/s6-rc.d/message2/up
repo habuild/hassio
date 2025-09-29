@@ -1,7 +1,0 @@
-#!/command/with-contenv bashio
-# shellcheck shell=bash
-# ==============================================================================
-
-if bashio::config.true 'Send_Message2'; then
-        ./message2/run
-fi
