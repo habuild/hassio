@@ -98,7 +98,7 @@ bashio::log.magenta "${array[@]}"
 ######## Command 1
 MESSAGE1="$(bashio::config 'Message1')"
  if bashio::config.true 'Send_Message1'; then
-              /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial2" -m $MESSAGE1
+              /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m $MESSAGE1
  fi
 
 ######## Command 2
