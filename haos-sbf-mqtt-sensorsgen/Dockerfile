@@ -18,7 +18,7 @@ RUN chmod a+x /etc/s6-overlay/s6-rc.d/**
     # && chmod a+x /etc/s6-overlay/s6-rc.d/test/run \
     # && chmod a+x /etc/s6-overlay/s6-rc.d/message1/run \
     # && chmod a+x /etc/s6-overlay/s6-rc.d/message2/run
-
+COPY rootfs /
 
 # Build arguments
 ARG BUILD_ARCH
