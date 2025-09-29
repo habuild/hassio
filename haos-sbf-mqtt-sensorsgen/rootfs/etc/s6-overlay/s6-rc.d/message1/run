@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 # ==============================================================================
 
-bashio.log.blue "Sending Message 1"
+bashi::log.blue "Sending Message 1"
 
 sleep 5
 
