@@ -1,10 +1,9 @@
 ---
 name: HAOS-SBF-MQTT-SensorsGen
-version: 2025.10.0a
+version: 2025.10.0b
 slug: haos-sbf-mqtt-sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/haos-sbfspot"
-stage: experimental
 image: "ghcr.io/habuild/{arch}-addon-haos-sbf-mqtt-sensorsgen"
 arch:
   - armhf
