@@ -26,7 +26,7 @@ options:
   InvClass2: "Solar Inverter"
   test_msg: false
   Send_Message1: false
-  Message1: ''
+  Message1: ""
   Send_Messsage2: false
   Message2: '{"Plantname": "SNA5000","Timestamp": "2025-09-29T13:40:04+1000","InvSerial": "2120108811","EToday": "6334","ETotal": "75462350"}'
   MQTT_User: "!secret mqtt_user"
