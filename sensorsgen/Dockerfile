@@ -44,7 +44,7 @@ LABEL \
     org.opencontainers.image.vendor="Hasqt" \
     org.opencontainers.image.authors="Hasqt <https://community.home-assistant.io/u/hasqt>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.url="https://github.com/habuild/hassio/tree/main/haos-sbf-mqtt-sensorsgen" \
+    org.opencontainers.image.url="https://github.com/habuild/hassio/tree/main/sensorsgen" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
     org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \
