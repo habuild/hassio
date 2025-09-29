@@ -18,8 +18,8 @@ bashio::log.info "Starting SensorsGen..."
 set -e
 CONFIG_PATH=/data/options.json 
 # '%Y-%m-%d_%H-%M-%S-%z' old
-# '%H:%M:%S %d-%m-%y' best
-current_timestamp=$(date +'%H:%M:%S %d-%m-%y-%z')
+# '%H:%M:%S %d-%m-%y' best does it need -%z?
+current_timestamp=$(date +'%H:%M:%S %d-%m-%y')
 
 echo "Log file created on: $current_timestamp"
 
