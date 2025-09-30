@@ -46,6 +46,10 @@ options:
   LogLevel: info
 schema:
   Make_Sensors: bool
+  Test_Msg: bool
+  Send_Message1: bool
+  Send_Message2: bool
+  Send_Message3: bool
   InvName: "str?"
   InvSerial: "str?"
   Plantname: "str?"
@@ -61,12 +65,8 @@ schema:
   InvSwVer3: "str?"
   InvType3: "str?"
   InvClass3: "str?"
-  Test_Msg: bool
-  Send_Message1: bool
   Message1: "str?"
-  Send_Message2: bool
   Message2: "str?"
-  Send_Message3: bool
   Message3: "str?"
   MQTT_User: "str?"
   MQTT_Pass: "password?"
