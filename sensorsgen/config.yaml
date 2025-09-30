@@ -54,14 +54,14 @@ options:
 schema:
   Make_Sensors: bool
   Test_Msg: bool
-  MQTT_Data: "str?"    
-  Send_Message_One:  
+  MQTT_Data: "str?"
+  Send_Message_One:
     Message1: "str?"
     Send_Message1: bool
   Send_Message_Two:
     Message2: "str?"
     Send_Message2: bool
-  Send_Message_Three:  
+  Send_Message_Three:
     Message3: "str?"
     Send_Message3: bool
   Main_Inverter:
