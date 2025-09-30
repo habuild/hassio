@@ -26,9 +26,11 @@ timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
 sleep 7
 
-if bashio::config.true 'Send_Message3'; then
-                bashio::log.pink "Sending User Message Three..."
-                bashio::log.pink
+bashio::log.magenta BOO this works yo?
 
-                /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "$MESSAGE3" -d
-fi
+#if bashio::config.true 'Send_Message3'; then
+#                bashio::log.pink "Sending User Message Three..."
+#                bashio::log.pink
+
+              #  /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "$MESSAGE3" -d
+#fi
