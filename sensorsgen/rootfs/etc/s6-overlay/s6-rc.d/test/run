@@ -21,7 +21,7 @@ InvSerial2="$(bashio::config 'InvSerial2')"
 current_timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
 
-sleep 8
+sleep 3
 
 if bashio::config.true 'test_msg'; then 
         bashio::log.red "Sending Test Message..."
