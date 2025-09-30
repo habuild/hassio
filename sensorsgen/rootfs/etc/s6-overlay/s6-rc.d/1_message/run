@@ -26,6 +26,7 @@ timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
 sleep 5
 
+MESSAGE1="$(bashio::config 'Message1')"
 if bashio::config.true 'Send_Message1'; then
               
               bashio::log.blue "Sending User Message One..."
