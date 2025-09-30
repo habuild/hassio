@@ -1,9 +1,6 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
 FROM $BUILD_FROM
 
-# Copy root filesystem
-COPY rootfs /
-
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -13,10 +10,14 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /etc/s6-overlay/s6-rc.d/addon-sensorsgen
 
-RUN \
-     chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/** \
-     && /etc/s6-overlay/s6-rc.d/sensorsgen/** \
-     && /etc/s6-overlay/s6-rc.d/test/**
+#RUN \
+#     chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/** \
+#     && /etc/s6-overlay/s6-rc.d/sensorsgen/** \
+#     && /etc/s6-overlay/s6-rc.d/test/**
+
+# Copy root filesystem
+COPY rootfs /
+
 
 # Build arguments
 ARG BUILD_ARCH
