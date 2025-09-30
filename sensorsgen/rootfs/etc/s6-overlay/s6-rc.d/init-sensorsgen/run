@@ -5,7 +5,8 @@
 # Generates Discovery MQTT messages for SBFspot sensors
 # ==============================================================================
 
-# set -e
+declare -a options
+
 CONFIG_PATH=/data/options.json 
 
 bashio::log.green "Starting SensorsGen..."

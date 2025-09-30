@@ -6,6 +6,8 @@ declare -a options
 
 CONFIG_PATH=/data/options.json
 
+
+
 sleep 8
 
 if bashio::config.true 'test_msg'; then 
