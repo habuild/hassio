@@ -51,11 +51,11 @@ options:
   LogLevel: info
 schema:
   Choices:
-    Make_Sensors: bool
-    Test_Msg: bool
-    Send_Message1: bool
-    Send_Message2: bool
-    Send_Message3: bool
+    - Make_Sensors: bool
+      Test_Msg: bool
+      Send_Message1: bool
+      Send_Message2: bool
+      Send_Message3: bool
   Message1: "str?"
   Message2: "str?"
   Message3: "str?"
