@@ -1,7 +1,1 @@
-#!/command/with-contenv bashio
-# shellcheck shell=bash
-# ==============================================================================
-
-if bashio::config.true 'test_msg'; then 
-            /etc/s6-overlay/s6-rc.d/test/run
-fi
+/etc/s6-overlay/s6-rc.d/test/run
