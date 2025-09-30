@@ -2,6 +2,8 @@
 # shellcheck shell=bash
 # ==============================================================================
 
+declare -a options
+
 CONFIG_PATH=/data/options.json
 
 sleep 8

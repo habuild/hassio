@@ -10,16 +10,10 @@ RUN apk update && apk add --no-cache \
 
 WORKDIR /etc/s6-overlay/s6-rc.d/
 
-# Copy root filesystem
+# Copy addon root filesystem and then set permissions of all files. 
 COPY rootfs /
 
 RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/**
-#RUN \
-#     chmod a+x /etc/s6-overlay/s6-rc.d/init-sensorsgen/** \
-#     && /etc/s6-overlay/s6-rc.d/sensorsgen/** \
-#     && /etc/s6-overlay/s6-rc.d/test/**
-
-
 
 
 # Build arguments
