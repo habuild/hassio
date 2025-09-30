@@ -1,0 +1,5 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+
+bashio::log.red Boo this is a file why isn't run
