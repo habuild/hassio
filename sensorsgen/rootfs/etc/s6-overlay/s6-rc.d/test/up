@@ -3,5 +3,5 @@
 # ==============================================================================
 
 if bashio::config.true 'test_msg'; then 
-            ./test/run
+            /etc/s6-overlay/s6-rc.d/test/run
 fi
