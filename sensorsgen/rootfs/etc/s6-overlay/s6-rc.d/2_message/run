@@ -1,7 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
-
+set -e
 declare -a options
 
 CONFIG_PATH=/data/options.json
