@@ -77,7 +77,7 @@ schema:
     InvSwVer3: "str?"
     InvType3: "str?"
     InvClass3: "str?"
-  MQTT_Data: "str"?    
+  MQTT_Data: "str?"    
   MQTT_Server:
     - MQTT_User: "str?"
       MQTT_Pass: "password?"
