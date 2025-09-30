@@ -24,14 +24,15 @@ InvSerial3="$(bashio::config 'InvSerial3')"
 current_timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
-sleep 7
+sleep 11
 
 bashio::log.magenta BOO this works yo?
 
 MESSAGE3="$(bashio::config 'Message3')"
 if bashio::config.true 'Send_Message3'; then
                 bashio::log.magenta "Sending User Message Three..."
+                bashio::log.magenta "MQTT Message"
                 bashio::log.magenta $MESSAGE3
-
+                bashio::log "MQTT Server Debug Response"
                 /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sbfspot_"$PLANTNAME"/sbfspot_"$InvSerial" -m "$MESSAGE3" -d
 fi
