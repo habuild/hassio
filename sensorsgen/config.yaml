@@ -81,6 +81,5 @@ schema:
   MQTT_Server:
     - MQTT_User: "str?"
       MQTT_Pass: "password?"
-      MQTT_Topic: "str?"
-  
+      MQTT_Topic: "str?"  
   LogLevel: list(trace|debug|info|notice|warning|error|fatal)?
