@@ -1,6 +1,6 @@
 ---
 name: SensorsGen
-version: 2025.2.80
+version: 2025.2.81
 slug: sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/sensorsgen"
@@ -15,61 +15,73 @@ homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 boot: manual_only
 options:
-  Make_Sensors: true
-  Test_Msg: false
-  Send_Message1: false
-  Send_Message2: false
-  Send_Message3: false
-  InvName: "Nom1"
-  InvSerial: "Primary Inverter Serial"
-  Plantname: "Primary Inverter Plantname"
-  InvName2: "Secondary Inverter details"
-  InvSerial2: ""
-  Plantname2: ""
-  InvSwVer2: "Firmware12.35.45"
-  InvType2: "model-number"
-  InvClass2: "Solar Inverter"
-  InvName3: "Nom3"
-  InvSerial3: ""
-  Plantname3: ""
-  InvSwVer3: ""
-  InvType3: ""
-  InvClass3: ""
-  Message1: '{"Plantname": "over9000", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2120108811", "EToday": "6334", "ETotal": "75462350"}'
-  Message2: '{"Plantname": "SNA5000", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2124584855", "EToday": "4546334", "ETotal": "2350"}'
-  Message3: "Some Message like Above will work best"
-  MQTT_User: "!secret mqtt_user"
-  MQTT_Pass: "!secret mqtt_pass"
-  MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
-  MQTT_Data: >-
-    PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,OperTm,FeedTm,PDCTot,PDC1,PDC2,PDC,UDC1,UDC2,UDC,IDC1,IDC2,IDC,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt,InvWakeupTm,InvSleepTm,MeteringWOut,MeteringWIn,MeteringWTot
+  Choices:
+    - Make_Sensors: true
+      Test_Msg: false
+      Send_Message1: false
+      Send_Message2: false
+      Send_Message3: false
+  Messages:
+    - Message1: '{"Plantname": "over9000", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2120108811", "EToday": "6334", "ETotal": "75462350"}'
+      Message2: '{"Plantname": "SNA5000", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2124584855", "EToday": "4546334", "ETotal": "2350"}'
+      Message3: "Some Message like Above will work best"
+  Main_Inverter:
+    - InvName: "Nom1"
+      InvSerial: "Primary Inverter Serial"
+      Plantname: "Primary Inverter Plantname"
+  Second_Inverter:
+    - InvName2: "Secondary Inverter details"
+      InvSerial2: ""
+      Plantname2: ""
+      InvSwVer2: "Firmware12.35.45"
+      InvType2: "model-number"
+      InvClass2: "Solar Inverter"
+  Third_Inverter:
+    - InvName3: "Nom3"
+      InvSerial3: ""
+      Plantname3: ""
+      InvSwVer3: ""
+      InvType3: ""
+      InvClass3: ""
+  MQTT_Server:
+    - MQTT_User: "!secret mqtt_user"
+      MQTT_Pass: "!secret mqtt_pass"
+      MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
+      MQTT_Data: >-
+          PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,OperTm,FeedTm,PDCTot,PDC1,PDC2,PDC,UDC1,UDC2,UDC,IDC1,IDC2,IDC,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt,InvWakeupTm,InvSleepTm,MeteringWOut,MeteringWIn,MeteringWTot
   LogLevel: info
 schema:
-  Make_Sensors: bool
-  Test_Msg: bool
-  Send_Message1: bool
-  Send_Message2: bool
-  Send_Message3: bool
-  InvName: "str?"
-  InvSerial: "str?"
-  Plantname: "str?"
-  InvName2: "str?"
-  InvSerial2: "str?"
-  Plantname2: "str?"
-  InvSwVer2: "str?"
-  InvType2: "str?"
-  InvClass2: "str?"
-  InvName3: "str?"
-  InvSerial3: "str?"
-  Plantname3: "str?"
-  InvSwVer3: "str?"
-  InvType3: "str?"
-  InvClass3: "str?"
-  Message1: "str?"
-  Message2: "str?"
-  Message3: "str?"
-  MQTT_User: "str?"
-  MQTT_Pass: "password?"
-  MQTT_Topic: "str?"
-  MQTT_Data: "str"
+  Choices:
+    - Make_Sensors: bool
+      Test_Msg: bool
+      Send_Message1: bool
+      Send_Message2: bool
+      Send_Message3: bool
+  Messages:
+    - Message1: "str?"
+      Message2: "str?"
+      Message3: "str?"
+  Main_Inverter:    
+    - InvName: "str?"
+      InvSerial: "str?"
+      Plantname: "str?"
+  Second_Inverter:
+    - InvName2: "str?"
+      InvSerial2: "str?"
+      Plantname2: "str?"
+      InvSwVer2: "str?"
+      InvType2: "str?"
+      InvClass2: "str?"
+  Third_Inverter:
+    - InvName3: "str?"
+      InvSerial3: "str?"
+      Plantname3: "str?"
+      InvSwVer3: "str?"
+      InvType3: "str?"
+      InvClass3: "str?"
+  MQTT_Server:
+    - MQTT_User: "str?"
+      MQTT_Pass: "password?"
+      MQTT_Topic: "str?"
+      MQTT_Data: "str"
   LogLevel: list(debug|info||warning||error)?
