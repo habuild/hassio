@@ -1,6 +1,6 @@
 ---
 name: SensorsGen
-version: 2025.2.75
+version: 2025.2.76
 slug: sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/sensorsgen"
@@ -15,18 +15,25 @@ homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 boot: manual_only
 options:
+  InvName: "Nom1"
   InvSerial: "Primary Inverter Serial"
   Plantname: "Primary Inverter Plantname"
+  InvName2: "Nom2"
   InvSerial2: "Secondary Inverter details"
   Plantname2: ""
-  InvName2: ""
   InvSwVer2: "12.35.45"
   InvType2: "model number"
   InvClass2: "Solar Inverter"
-  test_msg: false
+  InvName3: "Nom3"
+  InvSerial3: ""
+  Plantname3: ""
+  InvSwVer3: ""
+  InvType3: ""
+  InvClass3: ""
+  Test_Msg: false
   Send_Message1: false
   Message1: '{"Plantname": "over9000", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2120108811", "EToday": "6334", "ETotal": "75462350"}'
-  send_message2: false
+  Send_Message2: false
   Message2: '{"Plantname": "SNA5000", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2124584855", "EToday": "4546334", "ETotal": "2350"}'
   Send_Message3: false
   Message3: "str?"
@@ -37,18 +44,25 @@ options:
     PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,OperTm,FeedTm,PDCTot,PDC1,PDC2,PDC,UDC1,UDC2,UDC,IDC1,IDC2,IDC,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt,InvWakeupTm,InvSleepTm,MeteringWOut,MeteringWIn,MeteringWTot
   LogLevel: info
 schema:
+  InvName: "str?"
   InvSerial: "str?"
   Plantname: "str?"
+  InvName2: "str?"
   InvSerial2: "str?"
   Plantname2: "str?"
-  InvName2: "str?"
   InvSwVer2: "str?"
   InvType2: "str?"
   InvClass2: "str?"
-  test_msg: bool
+  InvName3: "str?"
+  InvSerial3: "str?"
+  Plantname3: "str?"
+  InvSwVer3: "str?"
+  InvType3: "str?"
+  InvClass3: "str?"
+  Test_Msg: bool
   Send_Message1: bool
   Message1: "str?"
-  send_message2: bool
+  Send_Message2: bool
   Message2: "str?"
   Send_Message3: bool
   Message3: "str?"
