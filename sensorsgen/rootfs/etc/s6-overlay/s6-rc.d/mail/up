@@ -1,1 +1,1 @@
-sensorsgen/rootfs/etc/s6-overlay/s6-rc.d/mail/run
+/etc/s6-overlay/s6-rc.d/mail/run
