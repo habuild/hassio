@@ -1,6 +1,6 @@
 ---
 name: SensorsGen
-version: 2025.10.17
+version: 2025.10.18
 slug: sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/sensorsgen"
@@ -41,6 +41,7 @@ options:
   InvSwVer3: ""
   InvType3: ""
   InvClass3: ""
+  DateTimeFormat: null
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
@@ -71,7 +72,7 @@ schema:
   InvSwVer3: str
   InvType3: str
   InvClass3: str
-  DateTimeFormat: str
+  DateTimeFormat: str?
   MQTT_User: str
   MQTT_Pass: password
   MQTT_Topic: str
