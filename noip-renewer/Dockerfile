@@ -4,8 +4,17 @@ FROM $BUILD_FROM
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Do this from run file
-# FROM simaofsilva/noip-renewer
+COPY rootfs /
+
+FROM simaofsilva/noip-renewer:latest
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# hadolint ignore=DL3018
+RUN RUN apk update && apk add --no-cache \
+        sudo \
+        nano
 
 # Copy root filesystem
 COPY rootfs /
