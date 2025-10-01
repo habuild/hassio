@@ -21,7 +21,7 @@ configuration:
     description: >-
       Create your desired message for Testing.
   Message1:
-    name: Message 1 format Very Important '{"Key1":"Value1","Key2":"Value2",\"Spaces Are Bad\":\"Use Slashes to Null Spaces\"}'
+    name: Message 1 format Very Important '{"Key1":"Value1", "Key2":"Value2", "Key3":"Value3", "ETC":"Ectetera"}'
     description: >-
       '{"Plantname": "Your_Plantname", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "2120108811", "EToday": "6334", "ETotal": "75462350"}'
   Send_Message1:
@@ -33,7 +33,7 @@ configuration:
     description: >-
       Create your desired message for Testing. Replace Plantname2 and InvSerial2 with your Values
   Message2:
-    name: Message 2 format Very Important '{"Key1":"Value1","Key2":"Value2",\"Spaces Are Bad\":\"Use Slashes to Null Spaces\"}'
+    name: Message 2 format Very Important '{"Key1":"Value1", "Key2":"Value2", "Key3":"Value3", "ETC":"Ectetera"}'
     description: >-
       '{"Plantname": "Plantname2", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "InvSerial2", "EToday": "6334", "ETotal": "75462350"}'
   Send_Message2:
@@ -45,7 +45,7 @@ configuration:
     description: >-
       replace Plantname2 and InvSerial2 with your Values, Create your desired message for Testing.
   Message3:
-    name: Message 3 format Very Important '{"Key1":"Value1","Key2":"Value2",\"Spaces Are Bad\":\"Use Slashes to Null Spaces\"}'
+    name: Message 3 format Very Important '{"Key1":"Value1", "Key2":"Value2", "Key3":"Value3", "ETC":"Ectetera"}'
     description: >-
       '{"Plantname": "Plantname3", "Timestamp": "2025-09-29T13:40:04+1000", "InvSerial": "InvSerial3", "EToday": "6334", "ETotal": "75462350"}'
   Send_Message3:
