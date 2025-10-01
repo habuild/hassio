@@ -4,9 +4,9 @@ FROM $BUILD_FROM
 #FROM simaofsilva/noip-renewer:latest
 
 # Set shell
-#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-
+COPY rootfs /
 
 FROM simaofsilva/noip-renewer:latest
 
