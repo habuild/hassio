@@ -13,25 +13,11 @@ panel_icon: mdi:certificate
 map:
   - share:rw
 options:
-  InvSerial:
-  Plantname: "!secret SBFplantname"
-  InvSerial2:
-  InvName2:
-  Plantname2:
-  InvType2:
-  InvSwVer2:
   NOIP_Email: "!secret NOIP_Email"
   NOIP_Password: "!secret NOIP_Password"
   NOIP_TOTP_KEY: "!secret NOIP_TOTP_KEY"
   Translate_Enabled: "false"
 schema:
-  InvSerial: "str?"
-  Plantname: "str?"
-  InvSerial2: "str?"
-  InvName2: "str?"
-  Plantname2: "str?"
-  InvType2: "str?"
-  InvSwVer2: "str?"
   NOIP_Email: "str?"
   NOIP_Password: "str?"
   NOIP_TOTP_KEY: "str?"
