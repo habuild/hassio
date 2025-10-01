@@ -1,6 +1,8 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
+set -e
+declare -a options
 
 CONFIG_PATH=/data/options.json
 
@@ -24,9 +26,14 @@ timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
 bashio::log.yellow "$timestamp" is the current_timestamp
 
+bashio::log.cyan "${InvSerial}"
+bashio::log.green "${InvSerial2}"
+bashio::log.yellow "${InvSerial3}"
+
 bashio::log.cyan "$PLANTNAME"
 bashio::log.magenta "$PLANTNAME2"
 bashio::log.blue "$PLANTNAME3"
+
 
 
 

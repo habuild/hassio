@@ -6,7 +6,7 @@
 # ==============================================================================
 declare -a options
 
-sleep 2
+sleep 1
 
 set -e
 CONFIG_PATH=/data/options.json 
@@ -62,6 +62,12 @@ bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 bashio::log.cyan "${InvSerial}"
 bashio::log.green "${InvSerial2}"
 bashio::log.yellow "${InvSerial3}"
+
+bashio::log.cyan "$PLANTNAME"
+bashio::log.magenta "$PLANTNAME2"
+bashio::log.blue "$PLANTNAME3"
+
+
 
 
 if bashio::config.equals "LogLevel" "debug"; then
