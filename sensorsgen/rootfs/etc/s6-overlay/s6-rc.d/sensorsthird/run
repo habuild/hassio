@@ -37,15 +37,20 @@ InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 
 #Extra Sensor Info 
 # Inv_Number:="$(bashio::config 'Inv_Number')"
-PLANTNAME3="$(bashio::config 'PlantNAME3' "${PLANTNAME}_Inverter2")"
-InvSerial3="$(bashio::config 'InvSerial3')"
-InvNAME3="$(bashio::config 'InvNAME3')" 
-InSwVer3="$(bashio::config 'InSwVer3')"
-InvType3="$(bashio::config 'InvType3')"
+PLANTNAME2="$(bashio::config 'Plantname2' "${PLANTNAME}_Inverter2")"
+InvSerial2="$(bashio::config 'InvSerial2')"
+InvName2="$(bashio::config 'InvName2')" 
+InSwVer2="$(bashio::config 'InSwVer2')"
+InvType2="$(bashio::config 'InvType2')"
 InvClass2="$(bashio::config 'InvClass2')"
 
 PLANTNAME3="$(bashio::config 'Plantname3' "${PLANTNAME}_Inverter3")"
 InvSerial3="$(bashio::config 'InvSerial3')"
+InvName3="$(bashio::config 'InvName3')" 
+InSwVer3="$(bashio::config 'InSwVer3')"
+InvType3="$(bashio::config 'InvType3')"
+InvClass3="$(bashio::config 'InvClass3')"
+
 
 
 
@@ -91,7 +96,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "${value}"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ 'V' + value_json.$value | default(None) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ 'V' + value_json.$value | default(None) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -109,7 +114,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "${value}"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -127,7 +132,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "${value}"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -145,7 +150,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "${value}"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_datetime | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"device_class\": \"$devClass\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_datetime | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"device_class\": \"$devClass\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -164,7 +169,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -183,7 +188,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -202,7 +207,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -220,7 +225,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -238,7 +243,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -256,7 +261,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -274,7 +279,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -292,7 +297,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -308,7 +313,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -326,7 +331,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -344,7 +349,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -362,7 +367,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -380,7 +385,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -398,7 +403,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -416,7 +421,7 @@ if bashio::config.true 'Make_Third'; then
           
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -434,7 +439,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -452,7 +457,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -470,7 +475,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -488,7 +493,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -506,7 +511,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -524,7 +529,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -542,7 +547,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -560,7 +565,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -578,7 +583,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -598,7 +603,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -616,7 +621,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -634,7 +639,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -652,7 +657,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -672,7 +677,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -690,7 +695,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -708,7 +713,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -728,7 +733,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -746,7 +751,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -764,7 +769,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -784,7 +789,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -802,7 +807,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | round(1) | default(0) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | round(1) | default(0) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"entity_category\": \"$ent_cat\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -820,7 +825,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -838,7 +843,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME3/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME3/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}" 
       fi
@@ -856,7 +861,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -875,7 +880,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else
           bashio::log.yellow Skipping "${value}"
       fi
@@ -894,7 +899,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -913,7 +918,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | as_timestamp | timestamp_custom( $ts ) | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -930,7 +935,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | default() }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -948,7 +953,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi
@@ -966,7 +971,7 @@ if bashio::config.true 'Make_Third'; then
         
         bashio::log.info Setting Up "$value"
         
-        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvNAME3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
+        /usr/bin/mosquitto_pub -h "$MQTT_Host" -u "$MQTT_User" -P "$MQTT_Pass" -t homeassistant/sensor/sbfspot_"$PLANTNAME3"/sbfspot_"$InvSerial3""$value"/config -m "{\"name\": \"$describe\", \"state_topic\": \"homeassistant/sbfspot_$PLANTNAME/sbfspot_$InvSerial3\", \"value_template\": \"{{ value_json.$value | float(default) }}\", \"unique_id\": \"$InvSerial3"'_'"$value\", \"device_class\": \"$devClass\", \"state_class\": \"$stClass\", \"unit_of_measurement\": \"$UoM\", \"enabled_by_default\": \"$EnabDef\", \"icon\": \"$mdi_icon\", \"device\": { \"identifiers\": [\"$(bashio::addon.name)""$PLANTNAME3\"], \"name\": \"HAOS-SBFspot"'_'"$InvName3\", \"model\": \"$InvType3\", \"manufacturer\": \"SMA\", \"sw_version\": \"$InSwVer3\" }}" "$debugMQTT" "$RoK"
         else 
           bashio::log.yellow Skipping "${value}"
       fi

@@ -30,14 +30,14 @@ options:
   InvSerial: "Primary_Inverter_Serial"
   Plantname: "Primary_Inverter_Plantname"
   InvName2: "Secondary_Inverter_details"
-  InvSerial2: "null"
+  InvSerial2: ""
   Plantname2: null
   InvSwVer2: "12.35.45"
   InvType2: "model-number"
   InvClass2: "Solar Inverter"
   InvName3: "Nom3"
   InvSerial3: ""
-  Plantname3: "null"
+  Plantname3: null
   InvSwVer3: ""
   InvType3: ""
   InvClass3: ""
