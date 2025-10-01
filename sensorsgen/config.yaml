@@ -1,6 +1,6 @@
 ---
 name: SensorsGen
-version: 2025.10.12
+version: 2025.10.13
 slug: sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/sensorsgen"
@@ -31,7 +31,7 @@ options:
   InvName2: "Secondary_Inverter_details"
   InvSerial2: "null"
   Plantname2: null
-  InvSwVer2: "Firmware12.35.45"
+  InvSwVer2: "12.35.45"
   InvType2: "model-number"
   InvClass2: "Solar Inverter"
   InvName3: "Nom3"
@@ -47,28 +47,28 @@ options:
 schema:
   Make_Sensors: bool
   Test_Msg: bool
-  MQTT_Data: str
-  Message1: str?
+  MQTT_Data: str?
+  Message1: str
   Send_Message1: bool
-  Message2: str?
+  Message2: str
   Send_Message2: bool
-  Message3: str?
+  Message3: str
   Send_Message3: bool
-  InvName: str?
+  InvName: str
   InvSerial: str?
-  Plantname: str
-  InvName2: str?
+  Plantname: str?
+  InvName2: str
   InvSerial2: str?
   Plantname2: str
   InvSwVer2: str
   InvType2: str
   InvClass2: str
-  InvName3: str?
+  InvName3: str
   InvSerial3: str?
-  Plantname3: str?
-  InvSwVer3: str?
-  InvType3: str?
-  InvClass3: str?
+  Plantname3: str
+  InvSwVer3: str
+  InvType3: str
+  InvClass3: str
   MQTT_User: str?
   MQTT_Pass: password?
   MQTT_Topic: str?
