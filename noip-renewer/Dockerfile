@@ -1,5 +1,7 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
-FROM $BUILD_FROM
+#ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
+#FROM $BUILD_FROM
+
+FROM simaofsilva/noip-renewer:latest
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -13,6 +15,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 RUN apk update && apk add --no-cache \
+        sudo\
         mosquitto-clients \
         nano
 
