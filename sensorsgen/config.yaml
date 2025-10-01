@@ -15,7 +15,7 @@ homeassistant_api: true
 panel_icon: mdi:solar-power-variant
 boot: manual_only
 options:
-  Make_Sensors: true
+  Make_Sensors: false
   Make_Third: false
   Test_Msg: false
   MQTT_Data: >-
