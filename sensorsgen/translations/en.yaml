@@ -47,7 +47,7 @@ configuration:
   Send_Message3:
     name: Message 3 Enable
     description: >-
-      If you don't set Plantname3, They require InvSerial3 being set to trigger.
+      If you don't set Plantname3, it should auto create. They require InvSerial3 being set to trigger.
   InvName:
     name: Inverter One name {InvName}
     description: >-
