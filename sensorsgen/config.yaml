@@ -31,17 +31,17 @@ options:
   Plantname: "First_Inverter_Plantname"
   InvName2: "Nom2"
   InvSerial2: "Second_Inverter_Serial"
-  Plantname2: 'null'
+  Plantname2: "null"
   InvSwVer2: "12.35.45"
   InvType2: "model-number"
   InvClass2: "Solar Inverter"
   InvName3: "Nom3"
   InvSerial3: "Third_Inverter_Serial"
-  Plantname3: 'null'
+  Plantname3: "null"
   InvSwVer3: ""
   InvType3: ""
   InvClass3: ""
-  DateTimeFormat: 'null'
+  DateTimeFormat: "null"
   MQTT_User: "!secret mqtt_user"
   MQTT_Pass: "!secret mqtt_pass"
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
