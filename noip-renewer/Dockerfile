@@ -1,17 +1,17 @@
-#ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
-#FROM $BUILD_FROM
-
-FROM simaofsilva/noip-renewer:latest
-
-# Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-COPY rootfs /
+ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
+FROM $BUILD_FROM
 
 #FROM simaofsilva/noip-renewer:latest
 
 # Set shell
 #SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+
+
+FROM simaofsilva/noip-renewer:latest
+
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 #RUN apk update && apk add --no-cache \
@@ -23,7 +23,7 @@ COPY rootfs /
 
 RUN chmod -Rv a+x /etc/services.d/noip-renewer/**
 
-# Build arguments  # --test  <<<< Need to remove this to build or add to build_arch to ignore builder
+# Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
