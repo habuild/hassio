@@ -16,6 +16,7 @@ panel_icon: mdi:solar-power-variant
 boot: manual_only
 options:
   Make_Sensors: true
+  Make_Third: false
   Test_Msg: false
   MQTT_Data: >-
     PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,PAC2,PAC3,UAC1,UAC2,UAC3,IAC1,IAC2,IAC3,OperTm,FeedTm,PDCTot,PDC1,PDC2,PDC,UDC1,UDC2,UDC,IDC1,IDC2,IDC,BTSignal,BatTmpVal,BatVol,BatAmp,BatChaStt,InvWakeupTm,InvSleepTm,MeteringWOut,MeteringWIn,MeteringWTot
@@ -46,6 +47,7 @@ options:
   LogLevel: info
 schema:
   Make_Sensors: bool
+  Make_Third: bool
   Test_Msg: bool
   MQTT_Data: str?
   Message1: str

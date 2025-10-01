@@ -1,9 +1,13 @@
 ---
 configuration:
   Make_Sensors:
-    name: Generate Sensors
+    name: Generate Second Inverter
     description: >-
-      Enable Sensor creation of MQTT discovery Topics and messages for HAOS-SBFspot
+      Enable Sensor creation - Second Inverter - MQTT discovery Topics and messages for HAOS-SBFspot
+  Make_Third:
+    name: Generate Third Inverter
+    description: >-
+      Enable Sensor creation - Third Inverter - MQTT discovery Topics and messages for HAOS-SBFspot
   Test_Msg:
     name: Test Message
     description: >-
