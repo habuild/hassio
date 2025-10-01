@@ -2,11 +2,8 @@
 # shellcheck shell=bash
 # ==============================================================================
 
-CONFIG_PATH=/data/options.json
 
-set -e
-declare -a options
-
+Test_Msg="$(bashio::config 'Test_Msg')"
 
 if bashio::config.true 'Test_Msg'; then
         /etc/s6-overlay/s6-rc.d/test/run

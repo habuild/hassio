@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 # ==============================================================================
 
-CONFIG_PATH=/data/options.json
+
 
 MESSAGE3="$(bashio::config 'Message3')"
 if bashio::config.true 'Send_Message3'; then
