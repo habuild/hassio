@@ -1,6 +1,7 @@
 #!/command/with-contenv bashio
 # shellcheck shell=bash
 # ==============================================================================
+sleep 8
 set -e
 declare -a options
 
@@ -34,10 +35,6 @@ bashio::log.cyan "$PLANTNAME"
 bashio::log.magenta "$PLANTNAME2"
 bashio::log.yellow "$PLANTNAME3"
 
-
-
-
-sleep 8
 
 #############################################
 
