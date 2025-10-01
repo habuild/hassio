@@ -41,3 +41,5 @@ Topic: homeassistant/sbfspot_Plantname_Inverter_One/sbfspot_InvSerial_Two
 ### MQTT Discovery requires Unique messages for Devices and entities.
 
 With this addon Sensor Generation should be simplified for Mulit inverter setups.
+
+Enjoy
