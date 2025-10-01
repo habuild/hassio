@@ -1,1 +1,10 @@
-/etc/s6-overlay/s6-rc.d/test/run
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+
+set -e
+declare -a options
+
+if bashio::config.true 'Test_Msg'; then
+        /etc/s6-overlay/s6-rc.d/test/run
+fi        
