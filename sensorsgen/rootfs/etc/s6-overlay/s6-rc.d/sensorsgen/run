@@ -44,18 +44,24 @@ InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
 
 #Extra Sensor Info 
 # Inv_Number:="$(bashio::config 'Inv_Number')"
-PLANTNAME2="$(bashio::config 'Plantname2')"
+PLANTNAME2="$(bashio::config 'Plantname2' '"$PLANTNAME"_Inverter2')"
 InvSerial2="$(bashio::config 'InvSerial2')"
 InvName2="$(bashio::config 'InvName2')" 
 InvSwVer2="$(bashio::config 'InvSwVer2')"
 InvType2="$(bashio::config 'InvType2')"
 InvClass2="$(bashio::config 'InvClass2')"
 
+PLANTNAME3="$(bashio::config 'Plantname3' '"$PLANTNAME"_Inverter3')"
+InvSerial3="$(bashio::config 'InvSerial3')"
+
+
+
 bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 
 
 bashio::log.cyan "${InvSerial}"
 bashio::log.green "${InvSerial2}"
+bashio::log.yellow "${InvSerial3}"
 
 
 if bashio::config.equals "LogLevel" "debug"; then

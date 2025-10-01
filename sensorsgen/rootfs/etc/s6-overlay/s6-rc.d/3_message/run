@@ -15,7 +15,7 @@ MQTT_Data="$(bashio::config 'MQTT_Data')"
 PLANTNAME="$(bashio::config 'Plantname')"
 InvSerial="$(bashio::config 'InvSerial')"
 
-PLANTNAME2="$(bashio::config 'Plantname2')"
+PLANTNAME2="$(bashio::config 'Plantname2' '"$PLANTNAME"_Inverter2')"
 InvSerial2="$(bashio::config 'InvSerial2')"
 
 PLANTNAME3="$(bashio::config 'Plantname3')"
