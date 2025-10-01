@@ -8,10 +8,10 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 COPY rootfs /
 
-FROM simaofsilva/noip-renewer:latest
+#FROM simaofsilva/noip-renewer:latest
 
 # Set shell
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+#SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3018
 #RUN apk update && apk add --no-cache \
@@ -21,7 +21,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Copy root filesystem
 COPY rootfs /
 
-RUN chmod -Rv a+x /etc/services.d/noip-renewer/**
+#RUN chmod -Rv a+x /etc/services.d/noip-renewer/**
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
