@@ -37,7 +37,7 @@ bashio::log.yellow "$PLANTNAME3"
 
 
 
-sleep 3
+sleep 8
 
 #############################################
 

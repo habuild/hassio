@@ -24,7 +24,7 @@ InvSerial3="$(bashio::config 'InvSerial3')"
 current_timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
 
-sleep 7
+sleep 12
 
 MESSAGE1="$(bashio::config 'Message1')"
 if bashio::config.true 'Send_Message1'; then
