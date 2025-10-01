@@ -22,7 +22,7 @@ MQTT_Topic="$(bashio::config 'MQTT_Topic')"
 MQTT_Data="$(bashio::config 'MQTT_Data')"
 #  arg="$(jq --raw-output '.MQTT_Data' /data/options.json | tr ',' '\n')"
 
-ts="$(bashio::config 'DateTimeFormat' '%H:%M:%S %d/%m/%Y')"
+ts="$(bashio::config 'DateTimeFormat' '%H:%M:%S %d-%m-%y')"
 
 
 #DEVICE_PATH=/data/device  #disable device file as not created here

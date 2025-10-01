@@ -71,7 +71,8 @@ schema:
   InvSwVer3: str
   InvType3: str
   InvClass3: str
-  MQTT_User: str?
-  MQTT_Pass: password?
-  MQTT_Topic: str?
+  DateTimeFormat: str
+  MQTT_User: str
+  MQTT_Pass: password
+  MQTT_Topic: str
   LogLevel: list(trace|debug|info|notice|warning|error|fatal)?
