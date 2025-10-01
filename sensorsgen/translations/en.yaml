@@ -89,7 +89,7 @@ configuration:
     description: >-
       Not overly important. Useful for setting MQTT device name in HA.
   InvSerial3:
-    name: Third Inverter Serial, {InvSerial3} 
+    name: Third Inverter Serial, {InvSerial3}
     description: >-
       Important. Links you MQTT messages to Inverter 3. Triggers Message 3 when enabled
   Plantname3:
