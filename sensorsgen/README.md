@@ -1,4 +1,4 @@
-## Bash script for creating Home Assistant MQTT Discovery sensors for SBFspot using multiple inverters and MIS.
+# Bash scripts for creating Home Assistant MQTT Discovery sensors for SBFspot.
 
 ### MQTT_Date Full List
 
