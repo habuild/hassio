@@ -1,10 +1,1 @@
-#!/command/with-contenv bashio
-# shellcheck shell=bash
-# ==============================================================================
-
-
-
-MESSAGE2="$(bashio::config 'Message2')"
-if bashio::config.true 'Send_Message2'; then
-        /etc/s6-overlay/s6-rc.d/2_message/run
-fi
+/etc/s6-overlay/s6-rc.d/2_message/run

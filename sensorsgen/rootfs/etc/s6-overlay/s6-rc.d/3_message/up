@@ -2,9 +2,12 @@
 # shellcheck shell=bash
 # ==============================================================================
 
+set -e
+declare -a options
+
+CONFIG_PATH=/data/options.json
 
 
-MESSAGE3="$(bashio::config 'Message3')"
 if bashio::config.true 'Send_Message3'; then
         etc/s6-overlay/s6-rc.d/3_message/run
 fi

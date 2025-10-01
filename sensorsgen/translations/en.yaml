@@ -57,55 +57,55 @@ configuration:
     description: >-
       Required to create and trigger Message One.
   Plantname:
-    name: Primary Inverter Plantname > Very Important
+    name: Plantname - Primary Inverter  > Very Important
     description: >-
       Plantname, required for setting Main MQTT topic.
   InvName2:
-    name: Secondary Inverter Name
+    name: Second Inverter Name {InvName2}
     description: >-
       Not overly important. Useful for setting MQTT device name in HA.
   InvSerial2:
-    name: Second Inverter Serial, Important.
+    name: Serial Two - Second Inverter {InvSerial2}
     description: >-
       Links you MQTT messages to Inverter 2. Triggers Message 2 when enabled
   Plantname2:
-    name: Plantname Two. Very Important
+    name: Plantname Two. {Plantname2}
     description: >-
       Very Important, Will AutoGen if Blank to First {Plantname}_Inverter2
   InvSwVer2:
-    name: Firmware version of Inverter 2
+    name: Firmware version - Inverter 2 {InvSwVer2}
     description: >-
       12.35.45 is the typical format. Aesthetic Only. SBFspot should populate it
   InvType2:
-    name: model-number for Inverter 2
+    name: model-number - Inverter 2 {InvType2}
     description: >-
       Set your Inverter 2 model number. Aesthetic Only. SBFspot should populate it
   InvClass2:
-    name: Defines "Solar Inverter" for Inverter 2
+    name: Defines "Solar Inverter" for Inverter 2 {InvClass2}
     description: >-
       Defines your Equipment. Aesthetic Only. SBFspot should populate it
   InvName3:
-    name: Secondary Inverter Name
+    name: Third Inverter Name {InvName3}
     description: >-
       Not overly important. Useful for setting MQTT device name in HA.
   InvSerial3:
-    name: Second Inverter Serial, Important.
+    name: Third Inverter Serial, {InvSerial3} 
     description: >-
-      Links you MQTT messages to Inverter 3. Triggers Message 3 when enabled
+      Important. Links you MQTT messages to Inverter 3. Triggers Message 3 when enabled
   Plantname3:
-    name: Plantname Three. Very Important
+    name: Plantname Three. {Plantname3}
     description: >-
       Very Important, Will AutoGen if Blank to First {Plantname}_Inverter3
   InvSwVer3:
-    name: Firmware version of Inverter 3
+    name: Firmware version - Inverter 3 {InSwVer3}
     description: >-
       12.35.45 is the typical format. Aesthetic Only. SBFspot should populate it
   InvType3:
-    name: model-number for Inverter 3
+    name: model-number - Inverter 3
     description: >-
       Set your Inverter 3 model number. Aesthetic Only. SBFspot should populate it
   InvClass3:
-    name: Defines "Solar Inverter" for Inverter 3
+    name: Defines "Solar Inverter" - Inverter 3
     description: >-
       Defines your Equipment. Aesthetic Only. SBFspot should populate it
   MQTT_Host:

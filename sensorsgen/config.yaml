@@ -1,6 +1,6 @@
 ---
 name: SensorsGen
-version: 2025.10.11
+version: 2025.10.12
 slug: sensorsgen
 description: Create your extra sensors for SBFspot multiple inverter setups
 url: "https://github.com/habuild/hassio/tree/main/sensorsgen"
@@ -59,7 +59,7 @@ schema:
   Plantname: str
   InvName2: str?
   InvSerial2: str?
-  Plantname2: str?
+  Plantname2: str
   InvSwVer2: str
   InvType2: str
   InvClass2: str

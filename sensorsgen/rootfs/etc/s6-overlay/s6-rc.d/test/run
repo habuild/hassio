@@ -32,7 +32,7 @@ bashio::log.yellow "${InvSerial3}"
 
 bashio::log.cyan "$PLANTNAME"
 bashio::log.magenta "$PLANTNAME2"
-bashio::log.blue "$PLANTNAME3"
+bashio::log.yellow "$PLANTNAME3"
 
 
 
