@@ -1,7 +1,7 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
 FROM $BUILD_FROM
 
-#FROM simaofsilva/noip-renewer:latest
+
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -17,6 +17,8 @@ WORKDIR /etc/services.d/
 COPY rootfs /
 
 RUN chmod -Rv a+x /etc/services.d/noip-renewer/**
+
+# FROM simaofsilva/noip-renewer:latest
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
