@@ -1,4 +1,5 @@
-#!/usr/bin/with-contenv bashio
+#!/command/with-contenv bashio
+# shellcheck shell=bash
 # ==============================================================================
 # Setup options
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
