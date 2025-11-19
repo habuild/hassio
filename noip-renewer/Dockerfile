@@ -1,8 +1,6 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base:18.1.1
 FROM $BUILD_FROM
 
-
-
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -10,22 +8,22 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
-ENV PATH=/data/options.json
-ENV NO_IP_USERNAME="$NOIP_Email:$PATH"
-ENV NO_IP_PASSWORD="$NOIP_Password:$PATH"
-ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
-ENV TRANSLATE_ENABLED="false"
+
+# ENV PATH=/data/options.json
+# ENV NO_IP_USERNAME="$NOIP_Email:$PATH"
+# ENV NO_IP_PASSWORD="$NOIP_Password:$PATH"
+# ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
+# ENV TRANSLATE_ENABLED="false"
       
 
 
 FROM simaofsilva/noip-renewer:latest
 
 # Copy root filesystem
-COPY rootfs /
-WORKDIR /etc/s6-overlay/s6-rc.d/noip/
+# COPY rootfs /
+# WORKDIR /etc/s6-overlay/s6-rc.d/noip/
 
-RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
-
+# RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
 
 # CMD docker exec -it --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
 # CMD [ "/etc/s6-overlay/s6-rc.d/noip/run" ]
@@ -58,6 +56,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
