@@ -12,7 +12,7 @@ RUN apk update && apk add --no-cache \
     nano
 
       
-WORKDIR /etc/services.d/noip-renewer/
+WORKDIR /etc/s6-overlay/s6-rc.d/noip/
 
 # Copy root filesystem
 COPY rootfs /
@@ -49,6 +49,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
