@@ -17,7 +17,7 @@ WORKDIR /etc/services.d/noip-renewer/
 # Copy root filesystem
 COPY rootfs /
 
-RUN chmod -Rv a+x /etc/services.d/noip-renewer/**
+RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
 
 # FROM simaofsilva/noip-renewer:latest
 
@@ -49,6 +49,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
