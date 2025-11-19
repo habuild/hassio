@@ -25,9 +25,9 @@ COPY rootfs /
 
 RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
 
-# CMD docker exec -it --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
+CMD docker exec -it --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
 
-CMD [ "/etc/s6-overlay/s6-rc.d/noip/run" ]
+# CMD [ "/etc/s6-overlay/s6-rc.d/noip/run" ]
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
@@ -57,6 +57,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
