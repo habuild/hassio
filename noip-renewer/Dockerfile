@@ -16,12 +16,13 @@ ENV NO_IP_PASSWORD="$NOIP_Password:$PATH"
 ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
 ENV TRANSLATE_ENABLED="false"
       
-WORKDIR /etc/s6-overlay/s6-rc.d/noip/
+
 
 FROM simaofsilva/noip-renewer:latest
 
 # Copy root filesystem
 COPY rootfs /
+WORKDIR /etc/s6-overlay/s6-rc.d/noip/
 
 RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
 
@@ -57,6 +58,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
