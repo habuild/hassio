@@ -5,6 +5,7 @@ build_from:
   # amd64: "ghcr.io/home-assistant/amd64-base:3.22"
   # armv7: "ghcr.io/home-assistant/armv7-base:3.22"
 
-codenotary:
+# codenotary:
   #  signer: ha.cas.secret@gmail.com
-  base_image: notary@home-assistant.io
+ # base_image: notary@home-assistant.io
+
