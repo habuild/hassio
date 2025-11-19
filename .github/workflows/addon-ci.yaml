@@ -5,8 +5,12 @@ name: CI
 on:
   push:
     branches:
-      - main
       - dev
+      - main
+  pull_request:
+    branches:
+      - dev
+      - main
   workflow_call:
     inputs:
       slug:
@@ -50,7 +54,7 @@ jobs:
       - name: ⤵️ Check out code from GitHub
         uses: actions/checkout@v5.0.0
       - name: 🚀 Run Add-on Lint
-        uses: frenck/action-addon-linter@v2.21.0
+        uses: frenck/action-addon-linter@v2.18.0
         with:
           community: false
           path: "./${{ needs.information.outputs.target }}"
@@ -96,9 +100,6 @@ jobs:
         uses: actions/checkout@v5.0.0
       - name: 🚀 Run Shellcheck
         uses: ludeeus/action-shellcheck@2.0.0
-        with:
-          ignore_paths: >-
-             ./argonOne/run.sh
         env:
           SHELLCHECK_OPTS: -s bash
 
