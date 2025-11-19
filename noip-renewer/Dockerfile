@@ -25,6 +25,8 @@ COPY rootfs /
 
 RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
 
+WORKDIR /app
+
 COPY renew.py .
 ENTRYPOINT ["python3", "renew.py"]
 # CMD docker exec -it --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
@@ -58,6 +60,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
