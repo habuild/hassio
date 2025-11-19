@@ -8,8 +8,6 @@ stage: experimental
 
 image: "ghcr.io/habuild/{arch}-addon-haos-sbfspot-test"
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
 init: false
@@ -106,3 +104,4 @@ schema:
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
   LogLevel: list(debug|info||warning||error)?
+
