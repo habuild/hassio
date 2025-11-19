@@ -4,7 +4,7 @@
 # Start noip-renewer with options
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
-
+declare -a options
 CONFIG_PATH=/data/options.json
 
 message=$(echo "PWD is current directory $(pwd)")
@@ -27,6 +27,7 @@ bashio::log "$message"
 # docker exec -it --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
 
 sleep 20
+
 
 
 
