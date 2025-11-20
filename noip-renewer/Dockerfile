@@ -9,12 +9,11 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-# ENV PATH=/data/options.json
-# ENV NO_IP_USERNAME="$NOIP_Email:$PATH"
-# ENV NO_IP_PASSWORD="$NOIP_Password:$PATH"
-# ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
-# ENV TRANSLATE_ENABLED="false"
-      
+ENV PATH=/data/options.json
+ENV Email="$NOIP_Email:$PATH"
+ENV Password="$NOIP_Password:$PATH"
+ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
+ENV Translate="false"
 
 
 FROM simaofsilva/noip-renewer:latest
@@ -25,7 +24,8 @@ FROM simaofsilva/noip-renewer:latest
 
 # RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
 
-# CMD docker exec -it --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
+CMD docker run --rm --env NO_IP_USERNAME="$Email" --env NO_IP_PASSWORD="$Password" --env NO_IP_TOTP_KEY="$NO_IP_TOTP_KEY" --env TRANSLATE_ENABLED="$Translate" simaofsilva/noip-renewer:latest /bin/bash
+
 # CMD [ "/etc/s6-overlay/s6-rc.d/noip/run" ]
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
@@ -56,6 +56,7 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
+
 
 
 
