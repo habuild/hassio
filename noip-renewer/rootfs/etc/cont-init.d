@@ -6,7 +6,9 @@
 # ==============================================================================
 
 declare -a options
-  
+
+CONFIG_PATH=/data/options.json
+
 export Email="$(jq --raw-output '.NOIP_Email' $CONFIG_PATH)"
 export Password="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
 export NOIP_TOTP_KEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
