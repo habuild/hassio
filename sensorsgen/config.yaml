@@ -73,6 +73,7 @@ schema:
   InvType3: str?
   InvClass3: str?
   DateTimeFormat: str?
+  MQTT_Host: str?
   MQTT_User: str?
   MQTT_Pass: password?
   MQTT_Topic: str
