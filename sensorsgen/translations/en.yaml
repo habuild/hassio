@@ -67,7 +67,7 @@ configuration:
   Plantname:
     name: Plantname - Primary Inverter  > Very Important
     description: >-
-     Plantname, required for setting Main MQTT topic.
+      Plantname, required for setting Main MQTT topic.
   InvSwVer:
     name: Firmware version - Inverter {InvSwVer}
     description: >-
