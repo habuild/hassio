@@ -2,6 +2,7 @@
 ignore: |
   /.github/
   /.images/
+  /.yamllint
 rules:
   braces:
     level: error
