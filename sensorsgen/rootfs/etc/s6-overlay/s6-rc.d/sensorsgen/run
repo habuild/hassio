@@ -31,8 +31,8 @@ DEVICE_PATH=/data/options.json
 InvSerial="$(jq --raw-output '.InvSerial' $DEVICE_PATH)"   #    <<< ---- change to Dummy serial if needed to get from mqtt 
 InvName="$(jq --raw-output '.InvName' $DEVICE_PATH)"     #    <<< ---- prints bad formant SN: SerialNo or perhaps not
 InvSwVer="$(jq --raw-output '.InvSwVer' $DEVICE_PATH)"
-# InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)"   # Might need to add this to config, although probably unsed.
-# InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)" # Might need to add this to config, although probably unsed.
+InvType="$(jq --raw-output '.InvType' $DEVICE_PATH)" 
+InvClass="$(jq --raw-output '.InvClass' $DEVICE_PATH)"
 
 
 #Extra Sensor Info 
