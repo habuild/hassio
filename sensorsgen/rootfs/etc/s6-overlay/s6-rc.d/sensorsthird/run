@@ -6,7 +6,7 @@
 # ==============================================================================
 declare -a options
 
-sleep 6
+sleep 12
 
 set -e
 CONFIG_PATH=/data/options.json 
