@@ -16,6 +16,7 @@ panel_icon: mdi:solar-power-variant
 boot: manual_only
 options:
   Make_Sensors: false
+  Make_Second: false
   Make_Third: false
   Test_Msg: false
   MQTT_Data: >-
@@ -49,6 +50,7 @@ options:
   LogLevel: info
 schema:
   Make_Sensors: bool
+  Make_Second: bool
   Make_Third: bool
   Test_Msg: bool
   MQTT_Data: str?
