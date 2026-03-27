@@ -99,7 +99,7 @@ IFS=',' read -r -a array <<< "$MQTT_Data"
 
 
 if bashio::config.true 'Make_Sensors'; then
-   bashio::log.green "Making Sensors from set MQTT_data array"
+   bashio::log.cyan "Making Sensors from set MQTT_data array"
       value='PrgVersion'
       if [[ " ${array[*]} " =~  $value  ]]; then
         
