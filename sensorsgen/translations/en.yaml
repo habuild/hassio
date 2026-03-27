@@ -79,7 +79,7 @@ configuration:
   InvClass:
     name: Defines "Solar Inverter" for Inverter {InvClass}
     description: >-
-      Defines your Equipment. Aesthetic Only. SBFspot should populate it      
+      Defines your Equipment. Aesthetic Only. SBFspot should populate it
   InvName2:
     name: Second Inverter Name {InvName2}
     description: >-
