@@ -54,14 +54,14 @@ bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 bashio::log "++++++++++++++++++ Serials +++++++++++++++++++++++++++"
 
 bashio::log.cyan "${InvSerial}"
-bashio::log.green "${InvSerial2}"
+bashio::log.magenta "${InvSerial2}"
 bashio::log.yellow "${InvSerial3}"
 
 bashio::log "================== Plantnames ========================"
 
 bashio::log.cyan "${PLANTNAME}"
 bashio::log.magenta "${PLANTNAME2}"
-bashio::log.red "${PLANTNAME3}"
+bashio::log.yellow "${PLANTNAME3}"
 
 bashio::log "------------------ MQTT Info -------------------------"
 
