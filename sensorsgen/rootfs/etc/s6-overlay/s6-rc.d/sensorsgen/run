@@ -51,6 +51,8 @@ bashio::log "___________________ Options __________________________"
 
 bashio::log "$(cat "$DEVICE_PATH" | jq -C )"
 
+sleep 1
+
 bashio::log "++++++++++++++++++ Serials +++++++++++++++++++++++++++"
 
 bashio::log.cyan "${InvSerial}"
@@ -67,7 +69,7 @@ bashio::log "------------------ MQTT cyan -------------------------"
 
 bashio::log.red "${MQTT_Host}"
 bashio::log.green "${MQTT_User}"
-bashio::log.blue "${MQTT_Topic}"
+bashio::log.magenta "${MQTT_Topic}"
 
 
 
