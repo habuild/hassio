@@ -1,6 +1,10 @@
 ---
 configuration:
   Make_Sensors:
+    name: Generate Primary Inverter (NOT RECOMMENDED IF EXISTING SENSORS EXIST)
+    description: >-
+      Not needed if previously Generated - Enable Sensor creation - Primary Inverter - MQTT discovery Topics and messages for HAOS-SBFspot
+  Make_Second:
     name: Generate Second Inverter
     description: >-
       Enable Sensor creation - Second Inverter - MQTT discovery Topics and messages for HAOS-SBFspot
