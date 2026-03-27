@@ -1,4 +1,6 @@
 ---
+ignore: |
+  /.github/
 rules:
   braces:
     level: error
