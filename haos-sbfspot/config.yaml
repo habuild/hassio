@@ -104,4 +104,3 @@ schema:
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
   LogLevel: list(debug|info||warning||error)?
-

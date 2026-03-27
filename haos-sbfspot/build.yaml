@@ -12,4 +12,3 @@ labels:
   org.opencontainers.image.description: "SBFspot for new add-ons."
   org.opencontainers.image.source: "https://github.com/habuild"
   org.opencontainers.image.licenses: "Apache License 2.0"
-

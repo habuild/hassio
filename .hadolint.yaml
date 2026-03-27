@@ -2,8 +2,7 @@
 ignored:
   - DL3006
   # Always tag the version of an image explicitly.
-  - DL3007 
+  - DL3007
   # Ignore tag 'Latest' version of an image explicitly.
   - DL3018
   # Ignore APK version tagging in dockerfile
-  
