@@ -67,7 +67,19 @@ configuration:
   Plantname:
     name: Plantname - Primary Inverter  > Very Important
     description: >-
-      Plantname, required for setting Main MQTT topic.
+     Plantname, required for setting Main MQTT topic.
+  InvSwVer:
+    name: Firmware version - Inverter {InvSwVer}
+    description: >-
+      12.35.45 is the typical format.
+  InvType:
+    name: model-number - Inverter {InvType}
+    description: >-
+      Set your Inverter model number. Aesthetic Only. SBFspot should populate it
+  InvClass:
+    name: Defines "Solar Inverter" for Inverter {InvClass}
+    description: >-
+      Defines your Equipment. Aesthetic Only. SBFspot should populate it      
   InvName2:
     name: Second Inverter Name {InvName2}
     description: >-
