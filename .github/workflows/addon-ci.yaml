@@ -103,7 +103,7 @@ jobs:
         with:
           ignore_paths: >-
             argonOne
-          ignore_names: taillog.sh genEthernetConfig.sh generateConfig.sh
+          ignore_names: taillog.sh genEthernetConfig.sh generateConfig.sh genBluetoothConfig.sh
         env:
           SHELLCHECK_OPTS: -s bash
 
