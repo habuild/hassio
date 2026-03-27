@@ -65,7 +65,7 @@ bashio::log.cyan "${PLANTNAME}"
 bashio::log.magenta "${PLANTNAME2}"
 bashio::log.yellow "${PLANTNAME3}"
 
-bashio::log "------------------ MQTT cyan -------------------------"
+bashio::log "------------------ MQTT Options ----------------------"
 
 bashio::log.red "${MQTT_Host}"
 bashio::log.green "${MQTT_User}"
