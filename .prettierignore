@@ -4,6 +4,9 @@
 .github/workflows/builder.yaml
 .github/workflows/app-ci.yaml
 **/builder.yaml
+# prettier-ignore
 **/*.png
-**/icon.png
-**/logo.png
+# prettier-ignore
+noip-renewer/icon.png
+# prettier-ignore
+noip-renewer/logo.png
