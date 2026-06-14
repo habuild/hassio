@@ -11,11 +11,11 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-# ENV PATH=/data/options.json
-# ENV Email="$NOIP_Email:$PATH"
-# ENV Password="$NOIP_Password:$PATH"
-# ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
-# ENV Translate="false"
+ENV PATH=/data/options.json
+ENV NO_IP_USERNAME="Email"
+ENV NO_IP_PASSWORD="Password"
+ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY"
+ENV TRANSLATE_ENABLED="false"
 
 # Copy root filesystem
 COPY rootfs /
