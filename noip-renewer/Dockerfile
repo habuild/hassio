@@ -24,7 +24,7 @@ WORKDIR /etc/noip-renewer/
 RUN chmod -Rv a+x /etc/noip-renewer/**
 
 #  use this alone to autoboot noip
-FROM simaofsilva/noip-renewer:latest as builder
+# FROM simaofsilva/noip-renewer:latest as builder
 
 # Copy root filesystem
 COPY rootfs /
