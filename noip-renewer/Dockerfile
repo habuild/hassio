@@ -11,11 +11,7 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-ENV PATH=/data/options.json
-ENV NO_IP_USERNAME="Email"
-ENV NO_IP_PASSWORD="Password"
-ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY"
-ENV TRANSLATE_ENABLED="false"
+
 
 # Copy root filesystem
 COPY rootfs /
@@ -26,6 +22,12 @@ RUN chmod -Rv a+x /etc/noip-renewer/**
 
 #  use this alone to autoboot noip
 FROM simaofsilva/noip-renewer:latest as builder
+
+ENV PATH=/data/options.json \
+    NO_IP_USERNAME="Email" \
+    NO_IP_PASSWORD="Password" \
+    NO_IP_TOTP_KEY="NOIP_TOTP_KEY" \
+    TRANSLATE_ENABLED="false"
 
 # CMD docker run --rm --env NO_IP_USERNAME="$Email" --env NO_IP_PASSWORD="$Password" --env NO_IP_TOTP_KEY="$NO_IP_TOTP_KEY" --env TRANSLATE_ENABLED="$Translate" simaofsilva/noip-renewer:latest /bin/bash
 
@@ -38,7 +40,7 @@ ARG BUILD_DESCRIPTION
 ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
-ARG BUILD_VERSION
+ARG BUILD_VERSION --123
 
 # Labels
 LABEL \
