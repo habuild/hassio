@@ -11,24 +11,24 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-ENV PATH=/data/options.json
-ENV Email="$NOIP_Email:$PATH"
-ENV Password="$NOIP_Password:$PATH"
-ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
-ENV Translate="false"
+# ENV PATH=/data/options.json
+# ENV Email="$NOIP_Email:$PATH"
+# ENV Password="$NOIP_Password:$PATH"
+# ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
+# ENV Translate="false"
 
 
 # FROM simaofsilva/noip-renewer:latest  #  use this alone to autoboot noip
 
 # Copy root filesystem
 COPY rootfs /
-WORKDIR /etc/s6-overlay/s6-rc.d/noip/
+WORKDIR /etc/noip-renewer/
 
-RUN chmod -Rv a+x /etc/s6-overlay/s6-rc.d/noip/**
+RUN chmod -Rv a+x /etc/noip-renewer/**
 
 # CMD docker run --rm --env NO_IP_USERNAME="$Email" --env NO_IP_PASSWORD="$Password" --env NO_IP_TOTP_KEY="$NO_IP_TOTP_KEY" --env TRANSLATE_ENABLED="$Translate" simaofsilva/noip-renewer:latest /bin/bash
 
-CMD [ "/etc/s6-overlay/s6-rc.d/noip/run" ]
+CMD [ "/etc/noip-renewer/run" ]
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
