@@ -2,5 +2,5 @@
 # Ignore files
 .images/Example_Config.yaml
 .github/workflows/builder.yaml
-workflows/builder.yaml
+**/builder.yaml
 *.png
