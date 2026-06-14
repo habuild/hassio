@@ -22,7 +22,8 @@ RUN apk update && apk add --no-cache \
 # Copy root filesystem
 COPY rootfs /
 
-FROM simaofsilva/noip-renewer:latest  #  use this alone to autoboot noip
+#  use this alone to autoboot noip
+FROM simaofsilva/noip-renewer:latest  
 
 WORKDIR /etc/noip-renewer/
 
