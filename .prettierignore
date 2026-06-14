@@ -1,7 +1,8 @@
 ---
-# Ignore files
+# prettier-ignore
 .images/Example_Config.yaml
 .github/workflows/builder.yaml
+.github/workflows/app-ci.yaml
 **/builder.yaml
 **/*.png
 **/icon.png
