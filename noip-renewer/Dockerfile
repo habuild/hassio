@@ -6,7 +6,7 @@ COPY rootfs /
 WORKDIR /app
 RUN chmod -Rv a+x /app/**
 
-FROM ghcr.io/home-assistant/base:latest as builder 
+FROM ghcr.io/home-assistant/base:latest AS builder 
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
