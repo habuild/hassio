@@ -17,7 +17,8 @@ RUN apk update && apk add --no-cache \
 # ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
 # ENV Translate="false"
 
-
+# Copy root filesystem
+COPY rootfs /
 
 WORKDIR /etc/noip-renewer/
 
@@ -26,8 +27,6 @@ RUN chmod -Rv a+x /etc/noip-renewer/**
 #  use this alone to autoboot noip
 # FROM simaofsilva/noip-renewer:latest as builder
 
-# Copy root filesystem
-COPY rootfs /
 # CMD docker run --rm --env NO_IP_USERNAME="$Email" --env NO_IP_PASSWORD="$Password" --env NO_IP_TOTP_KEY="$NO_IP_TOTP_KEY" --env TRANSLATE_ENABLED="$Translate" simaofsilva/noip-renewer:latest /bin/bash
 
 CMD [ "/etc/noip-renewer/run" ]
