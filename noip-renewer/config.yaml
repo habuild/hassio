@@ -5,7 +5,7 @@ slug: noip-renewer
 description: simao-silva/noip-renewer for homeassistant addon
 url: "https://github.com/habuild/hassio/tree/main/noip-renewer"
 init: false
-image: "ghcr.io/habuild/addon-noip-renewer:2026.6.1"
+image: "ghcr.io/habuild/addon-noip-renewer"
 hassio_api: true
 homeassistant_api: true
 boot: manual_only
