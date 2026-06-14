@@ -4,5 +4,5 @@
 .github/workflows/builder.yaml
 **/builder.yaml
 *.png
-icon.png
-logo.png
+**/icon.png
+**/logo.png
