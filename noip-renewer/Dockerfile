@@ -23,8 +23,7 @@ RUN chmod -Rv a+x /etc/noip-renewer/**
 #  use this alone to autoboot noip
 FROM simaofsilva/noip-renewer:latest as builder
 
-ENV PATH=/data/options.json \
-    NO_IP_USERNAME="Email" \
+ENV NO_IP_USERNAME="Email" \
     NO_IP_PASSWORD="Password" \
     NO_IP_TOTP_KEY="NOIP_TOTP_KEY" \
     TRANSLATE_ENABLED="false"
