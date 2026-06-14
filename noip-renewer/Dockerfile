@@ -18,10 +18,12 @@ RUN apk update && apk add --no-cache \
 # ENV Translate="false"
 
 
-# FROM simaofsilva/noip-renewer:latest  #  use this alone to autoboot noip
 
 # Copy root filesystem
 COPY rootfs /
+
+FROM simaofsilva/noip-renewer:latest  #  use this alone to autoboot noip
+
 WORKDIR /etc/noip-renewer/
 
 RUN chmod -Rv a+x /etc/noip-renewer/**
