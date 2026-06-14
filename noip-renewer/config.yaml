@@ -8,6 +8,7 @@ init: false
 image: "ghcr.io/habuild/addon-noip-renewer"
 hassio_api: true
 homeassistant_api: true
+boot: manual_only
 arch:
   - aarch64
 panel_icon: mdi:certificate
