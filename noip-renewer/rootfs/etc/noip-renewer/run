@@ -14,7 +14,7 @@ CONFIG_PATH=/data/options.json
 
 message=$(echo "PWD is current directory $(pwd)")
 
-set -x
+
 
 EMAIL="$(jq --raw-output '.NOIP_Email' $CONFIG_PATH)"
 
@@ -31,7 +31,7 @@ bashio::log.magenta "${PASSWORD}"
 bashio::log.yellow "${NOIP_TOTPKEY}"
 bashio::log.green "${TRANSLATE}"
 
-
+set -x
 # docker exec --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE simaofsilva/noip-renewer:latest /bin/bash
 
 ts="$(bashio::config 'DateTimeFormat' '%H:%M:%S %d-%m-%y')"
