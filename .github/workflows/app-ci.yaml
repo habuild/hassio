@@ -1,6 +1,8 @@
 ---
 name: CI
 
+env:
+    MONITORED_FILES: "config.*"
 # yamllint disable-line rule:truthy
 on:
   push:
