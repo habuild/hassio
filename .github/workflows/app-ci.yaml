@@ -3,6 +3,10 @@ name: CI
 
 # yamllint disable-line rule:truthy
 on:
+  push:
+    branches:
+      - dev
+      - main
   workflow_call:
     inputs:
       slug:
