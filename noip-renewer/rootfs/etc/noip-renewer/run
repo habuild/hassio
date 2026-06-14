@@ -32,7 +32,7 @@ bashio::log.yellow "${NOIP_TOTPKEY}"
 bashio::log.green "${TRANSLATE}"
 
 
-docker exec --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE simaofsilva/noip-renewer:latest /bin/bash
+# docker exec --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE simaofsilva/noip-renewer:latest /bin/bash
 
 ts="$(bashio::config 'DateTimeFormat' '%H:%M:%S %d-%m-%y')"
 
