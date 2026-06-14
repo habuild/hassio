@@ -16,6 +16,12 @@ on:
       - main
       - dev
 
+permissions:
+  actions: read
+  contents: write
+  packages: read
+  security-events: write      
+
 jobs:
   init:
     runs-on: ubuntu-latest
