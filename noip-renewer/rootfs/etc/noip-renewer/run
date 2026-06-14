@@ -5,11 +5,16 @@
 # s6-overlay docs: https://github.com/just-containers/s6-overlay
 # ==============================================================================
 
+set -x
+
+current_timestamp=$(date +'%Y-%m-%dT%H:%M:%S%z')
+bashio::log.blue "Log file created on: $current_timestamp"
+
 CONFIG_PATH=/data/options.json
 
 message=$(echo "PWD is current directory $(pwd)")
 
-# docker pull simaofsilva/noip-renewer:latest
+docker pull simaofsilva/noip-renewer:latest
 
 EMAIL="$(jq --raw-output '.NOIP_Email' $CONFIG_PATH)"
 
@@ -18,10 +23,17 @@ PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
 message=$(echo "The current time is $(date)")
 
 NOIP_TOTPKEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
-set -x
+
 TRANSLATE="$(jq --raw-output '.Translate_Enabled' $CONFIG_PATH)"
 
+bashio::log.cyan "${EMAIL}"
+bashio::log.magenta "${PASSWORD}"
+bashio::log.yellow "${NOIP_TOTPKEY}"
+bashio::log.green "${TRANSLATE}"
 
 #sudo docker run --rm --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE" simaofsilva/noip-renewer:latest /bin/bash
-docker exec -it --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE simaofsilva/noip-renewer:latest /bin/bash
+docker exec --env NO_IP_USERNAME="$EMAIL" --env NO_IP_PASSWORD="$PASSWORD" --env NO_IP_TOTP_KEY="$NOIP_TOTPKEY" --env TRANSLATE_ENABLED="$TRANSLATE simaofsilva/noip-renewer:latest /bin/bash
+
+ts="$(bashio::config 'DateTimeFormat' '%H:%M:%S %d-%m-%y')"
+
 sleep 200
