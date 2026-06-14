@@ -17,7 +17,7 @@ on:
       - dev
 
 permissions:
-  actions: read
+  actions: write
   contents: write
   packages: read
   security-events: write      
