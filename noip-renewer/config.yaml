@@ -15,12 +15,12 @@ panel_icon: mdi:certificate
 map:
   - share:rw
 options:
-  NOIP_Email: "!secret NOIP_Email"
-  NOIP_Password: "!secret NOIP_Password"
-  NOIP_TOTP_KEY: "!secret NOIP_TOTP_KEY"
-  Translate_Enabled: "false"
+  NO_IP_USERNAME: "!secret NOIP_Email"
+  NO_IP_PASSWORD: "!secret NOIP_Password"
+  NO_IP_TOTP_KEY: "!secret NOIP_TOTP_KEY"
+  TRANSLATE_ENABLED: "false"
 schema:
-  NOIP_Email: "str?"
-  NOIP_Password: "str?"
-  NOIP_TOTP_KEY: "str?"
-  Translate_Enabled: "str?"
+  NO_IP_USERNAME: "str?"
+  NO_IP_PASSWORD: "str?"
+  NO_IP_TOTP_KEY: "str?"
+  TRANSLATE_ENABLED: "str?"
