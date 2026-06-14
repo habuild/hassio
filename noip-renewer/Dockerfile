@@ -18,7 +18,7 @@ ENV NO_IP_TOTP_KEY="NOIP_TOTP_KEY:$PATH"
 ENV Translate="false"
 
 
-FROM simaofsilva/noip-renewer:latest
+# FROM simaofsilva/noip-renewer:latest
 
 # Copy root filesystem
 # COPY rootfs /
