@@ -15,9 +15,9 @@ on:
         type: string
 
 permissions:
-  actions: read
+  actions: write
   contents: write
-  packages: read
+  packages: write
   security-events: write
 
 concurrency:
