@@ -3,6 +3,4 @@
 .images/Example_Config.yaml
 .github/workflows/builder.yaml
 **/builder.yaml
-*.png
-**/icon.png
-**/logo.png
+**/*.png
