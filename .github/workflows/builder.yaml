@@ -4,7 +4,7 @@
 name: Builder
 
 env:
-  BUILD_ARGS: "--test"
+  BUILD_ARGS: 
   MONITORED_FILES: "config.*"
 
 on:
@@ -19,7 +19,7 @@ on:
 permissions:
   actions: write
   contents: write
-  packages: read
+  packages: write
   security-events: write      
 
 jobs:
