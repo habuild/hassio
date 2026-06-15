@@ -11,7 +11,8 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-
+#  use this alone to autoboot noip
+FROM simaofsilva/noip-renewer:latest AS builder
 
 # Copy root filesystem
 COPY rootfs /
@@ -20,17 +21,16 @@ WORKDIR /etc/noip-renewer/
 
 RUN chmod -Rv a+x /etc/noip-renewer/**
 
-#  use this alone to autoboot noip
-FROM simaofsilva/noip-renewer:latest AS builder
 
-ENV NO_IP_USERNAME="Email" \
-    NO_IP_PASSWORD="Password" \
-    NO_IP_TOTP_KEY="NOIP_TOTP_KEY" \
-    TRANSLATE_ENABLED="false"
+
+#ENV NO_IP_USERNAME="Email" \
+#    NO_IP_PASSWORD="Password" \
+#    NO_IP_TOTP_KEY="NOIP_TOTP_KEY" \
+#    TRANSLATE_ENABLED="false"
 
 # CMD docker run --rm --env NO_IP_USERNAME="$Email" --env NO_IP_PASSWORD="$Password" --env NO_IP_TOTP_KEY="$NO_IP_TOTP_KEY" --env TRANSLATE_ENABLED="$Translate" simaofsilva/noip-renewer:latest /bin/bash
 
-# CMD [ "/etc/noip-renewer/run" ]
+CMD [ "/etc/noip-renewer/run" ]
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
