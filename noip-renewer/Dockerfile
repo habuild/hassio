@@ -11,8 +11,7 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-#  use this alone to autoboot noip
-FROM simaofsilva/noip-renewer:latest AS builder
+
 
 # Copy root filesystem
 COPY rootfs /
@@ -21,7 +20,8 @@ WORKDIR /etc/noip-renewer/
 
 RUN chmod -Rv a+x /etc/noip-renewer/**
 
-
+#  use this alone to autoboot noip
+FROM simaofsilva/noip-renewer:latest AS builder
 
 #ENV NO_IP_USERNAME="Email" \
 #    NO_IP_PASSWORD="Password" \
