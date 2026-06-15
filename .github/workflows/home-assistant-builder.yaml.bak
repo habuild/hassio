@@ -9,7 +9,7 @@ env:
   BUILD_ARGS:
   MONITORED_FILES: "config.*"
   ARCHITECTURES: '["amd64", "aarch64"]'
-  IMAGE_NAME: noip-renewer
+  IMAGE_NAME: my-image
 
 permissions:
   contents: read
