@@ -14,25 +14,25 @@ CONFIG_PATH=/data/options.json
 
 message=$(echo "PWD is current directory $(pwd)")
 
-export NO_IP_USERNAME="$(jq --raw-output '.NOIP_Email' $CONFIG_PATH)"
+export NO_IP_USERNAME="$(jq --raw-output '.NO_IP_USERNAME' $CONFIG_PATH)"
 
-export NO_IP_PASSWORD="$(jq --raw-output '.NOIP_Password' $CONFIG_PATH)"
+export NO_IP_PASSWORD="$(jq --raw-output '.NO_IP_PASSWORD' $CONFIG_PATH)"
 
-export NO_IP_TOTP_KEY="$(jq --raw-output '.NOIP_TOTP_KEY' $CONFIG_PATH)"
+export NO_IP_TOTP_KEY="$(jq --raw-output '.NO_IP_TOTP_KEY' $CONFIG_PATH)"
 
-export TRANSLATE_ENABLED="$(jq --raw-output '.Translate_Enabled' $CONFIG_PATH)"
+export TRANSLATE_ENABLED="$(jq --raw-output '.TRANSLATE_ENABLED' $CONFIG_PATH)"
 
 bashio::log.cyan "${NO_IP_USERNAME}"
-bashio::log.magenta "${PASSWORD}"
-bashio::log.yellow "${NO_IP_PASSWORD}"
+bashio::log.magenta "${NO_IP_PASSWORD}"
+bashio::log.yellow "${NO_IP_TOTP_KEY}"
 bashio::log.green "${TRANSLATE_ENABLED}"
 message=$(echo "The current time is $(date)")
 
 ts="$(bashio::config 'DateTimeFormat' '%H:%M:%S %d-%m-%y')"
 
-sleep 20
+#sleep 20
 
-# Set the entrypoint py script
-WORKDIR /app
+## Set the entrypoint py script
+#WORKDIR /app
 
-ENTRYPOINT ["python3", "renew.py"]
+#ENTRYPOINT ["python3", "renew.py"]
