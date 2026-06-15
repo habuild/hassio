@@ -11,8 +11,6 @@ RUN apk update && apk add --no-cache \
     mosquitto-clients \
     nano
 
-
-
 # Copy root filesystem
 COPY rootfs /
 
@@ -40,8 +38,7 @@ ARG BUILD_DESCRIPTION
 ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
-ARG BUILD_VERSION --123
-
+ARG BUILD_VERSION
 # Labels
 LABEL \
     io.hass.name="${BUILD_NAME}" \
@@ -61,29 +58,3 @@ LABEL \
     org.opencontainers.image.created="${BUILD_DATE}" \
     org.opencontainers.image.revision="${BUILD_REF}" \
     org.opencontainers.image.version="${BUILD_VERSION}"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
