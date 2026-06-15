@@ -4,7 +4,7 @@ name: Build
 on:
   push:
     branches:
-      - deploy
+      - main
 env:
   MONITORED_FILES: "config.*"
   ARCHITECTURES: '["amd64", "aarch64"]'
