@@ -23,7 +23,6 @@ RUN chmod -Rv a+x /etc/noip-renewer/**
 #  use this alone to autoboot noip
 FROM ghcr.io/habuild/noip-renewer:sha256-55c96db74d8a05ba1808064c118580e818c9d1df945ef37ee54743a6cadafe25.sig AS builder
 
-COPY rootfs /
 
 #ENV NO_IP_USERNAME="Email" \
 #    NO_IP_PASSWORD="Password" \
@@ -32,7 +31,7 @@ COPY rootfs /
 
 # CMD docker run --rm --env NO_IP_USERNAME="$Email" --env NO_IP_PASSWORD="$Password" --env NO_IP_TOTP_KEY="$NO_IP_TOTP_KEY" --env TRANSLATE_ENABLED="$Translate" simaofsilva/noip-renewer:latest /bin/bash
 
-CMD [ "/etc/noip-renewer/run" ]
+# CMD [ "/etc/noip-renewer/run" ]
 
 # Build arguments    <<<< Need to remove this to build or add to build_arch to ignore builder
 ARG BUILD_ARCH  
