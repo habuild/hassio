@@ -8,7 +8,7 @@ on:
 env:
   MONITORED_FILES: "config.*"
   ARCHITECTURES: '["amd64", "aarch64"]'
-  IMAGE_NAME: my-image
+  IMAGE_NAME: ${{ matrix.addon }}
 
 permissions:
   contents: read
