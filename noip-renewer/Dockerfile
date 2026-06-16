@@ -19,7 +19,7 @@ WORKDIR /etc/noip-renewer/
 RUN chmod -Rv a+x /etc/noip-renewer/**
 
 #  use this alone to autoboot noip
-FROM ghcr.io/habuild/noip-renewer:latest@sha256:37f7671a1b70c8ca59dece7bafadf6e7fba158c843dfdb4c12a599e2f056519c AS builder
+FROM ghcr.io/habuild/noip-renewer:latest@sha256:1cf246d0198dc748ea75ade475407abb05029ab652509d060f71ec0029cb9a72 AS builder
 
 #ENV NO_IP_USERNAME="Email" \
 #    NO_IP_PASSWORD="Password" \
