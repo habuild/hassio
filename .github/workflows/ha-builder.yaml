@@ -67,7 +67,7 @@ jobs:
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.06.0
         with:
-          context: ./hassio   ### repo folder only needed if repo-folder/app-folder
+          context: ./haos-sbfspot   ### repo folder only needed if repo-folder/app-folder
           file: ./haos-sbfspot/Dockerfile  ### App/Addon folder git submodule add to fix
           arch: ${{ matrix.arch }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
             ${{ env.label }}
             latest
           push: "true"
-          version: $label   ### ${{ github.event.release.tag_name }}" for published events or github.ref_name?? for push
+          version: ${{ env.label }}   ### ${{ github.event.release.tag_name }}" for published events or github.ref_name?? for push
 
   manifest:
     name: Publish multi-arch manifest
