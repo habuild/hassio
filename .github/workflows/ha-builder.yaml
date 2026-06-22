@@ -14,7 +14,7 @@ on:
     types: [published]
 
 env:
-  IMAGE_NAME: haos-sbfspot
+  IMAGE_NAME: hassio/haos-sbfspot
   ARCHITECTURES: '["amd64", "aarch64"]'
   ARG: BUILD_VERSION
   ver_tag: "${BUILD_VERSION}"
@@ -67,8 +67,8 @@ jobs:
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.06.0
         with:
-          context: ./hassio   ### repo folder only needed if repo-folder/app-folder
-          file: ./haos-sbfspot/Dockerfile  ### App/Addon folder git submodule add to fix
+          #context: ./hassio/hassio   ### repo folder only needed if repo-folder/app-folder
+          #file: ./haos-sbfspot/Dockerfile  ### App/Addon folder git submodule add to fix
           arch: ${{ matrix.arch }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ matrix.image }}
