@@ -16,6 +16,8 @@ on:
 env:
   IMAGE_NAME: ${{ github.event.repository.name }}
   ARCHITECTURES: '["amd64", "aarch64"]'
+  ARG: BUILD_VERSION
+  ver_tag: ${BUILD_VERSION}
 
 permissions:
   contents: read
@@ -81,4 +83,5 @@ jobs:
           image-name: ${{ env.IMAGE_NAME }}
           image-tags: |
             ${{ github.event.release.tag_name }}
+            ${{ env.ver_tag }}
             latest
