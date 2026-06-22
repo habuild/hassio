@@ -36,7 +36,7 @@ jobs:
         id: get_yaml_label
         run: |
             # Uses yq (pre-installed on GitHub runners) to parse the yaml file
-            LABEL=$(yq -r '.version' /${{ env.IMAGE_NAME }}/config.yaml)
+            LABEL=$(yq -r '.version' ${{ env.IMAGE_NAME }}/config.yaml)
             echo "label=$LABEL" >> "$GITHUB_OUTPUT"
 
       - name: Use Extracted Label
