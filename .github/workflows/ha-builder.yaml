@@ -67,7 +67,7 @@ jobs:
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.06.0
         with:
-          context: ./haos-sbfspot   ### repo folder only needed if repo-folder/app-folder
+          context: ./hassio   ### repo folder only needed if repo-folder/app-folder
           file: ./haos-sbfspot/Dockerfile  ### App/Addon folder git submodule add to fix
           arch: ${{ matrix.arch }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
