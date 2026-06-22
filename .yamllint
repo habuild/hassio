@@ -1,6 +1,6 @@
 ---
 ignore: |
-  /.github/
+  /.github/**
   /.images/
   /.yamllint
 rules:
