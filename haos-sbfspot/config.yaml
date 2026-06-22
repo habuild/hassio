@@ -23,6 +23,9 @@ services:
 options:
   Connection_Type: "Bluetooth"
   Sensors_HA: "No"
+  Timer: "5min"
+  usertime:
+  duration:
   BTAddress: "!secret BTAddress"
   Password: "!secret SBFpassword"
   LocalBTAddress: "!secret LocalBTAddress"
@@ -45,12 +48,16 @@ options:
   MQTT_Topic: "homeassistant/sbfspot_{plantname}/sbfspot_{serial}"
   MQTT_Data: >-
     PrgVersion,Plantname,Timestamp,SunRise,SunSet,InvSerial,InvName,InvTime,InvStatus,InvSwVer,InvClass,InvType,InvTemperature,InvGridRelay,EToday,ETotal,GridFreq,PACTot,PAC1,UAC1,IAC1,OperTm,FeedTm,PDCTot,UDC1,UDC2,IDC1,IDC2,PDC1,PDC2,BTSignal,InvWakeupTm,InvSleepTm
+  Upload: true
   PVoutput_SID: "!secret pvoSID"
   PVoutput_Key: "!secret pvoAPIkey"
   LogLevel: info
 schema:
   Connection_Type: list(Bluetooth|Ethernet)?
   Sensors_HA: list(No||Create||Multi||Purge|)?
+  Timer: list(5min|1min|UT[])
+  usertime: str?
+  duration: str?
   BTAddress: "str?"
   Password: "str"
   LocalBTAddress: "str?"
@@ -101,6 +108,7 @@ schema:
   MQTT_ItemDelimiter: str?
   MQTT_PublisherArgs: str?
   MQTT_Data: "str"
+  Upload: bool
   PVoutput_SID: "password?"
   PVoutput_Key: "password?"
   LogLevel: list(debug|info||warning||error)?
