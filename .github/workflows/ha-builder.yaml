@@ -83,5 +83,5 @@ jobs:
           image-name: ${{ env.IMAGE_NAME }}
           image-tags: |
             ${{ github.event.release.tag_name }}
-            ${{ env.ver_tag }}
+            "$GITHUB_REF_NAME"
             latest
