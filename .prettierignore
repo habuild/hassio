@@ -1,7 +1,7 @@
 ---
 # prettier-ignore
 .images/Example_Config.yaml
-.github/workflows/builder.yaml
+.github/workflows/**
 .github/workflows/app-ci.yaml
 .github/workflows/home-assistant-builder.yaml
 **/builder.yaml
