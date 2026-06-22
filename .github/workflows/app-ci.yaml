@@ -45,8 +45,8 @@ jobs:
       - name: 🚀 Run app information action
         id: information
         uses: frenck/action-addon-information@ce1377e9851cf569c29329e65fb2c57e67ca0f69 # v1.4.2
-        with:
-          path: "./"
+        #with:   ### needed when alone in repo and using submodule
+          #path: "./"
       - name: 🚀 Process possible slug override
         id: override
         env:
