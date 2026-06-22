@@ -73,10 +73,10 @@ jobs:
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ matrix.image }}
           image-tags: |
-            '2026.06.1'
+            2026.06.1
             latest
           push: "true"
-          version: '2026.06.1'   ### ${{ github.event.release.tag_name }}" for published events or github.ref_name?? for push
+          version: 2026.06.1   ### ${{ github.event.release.tag_name }}" for published events or github.ref_name?? for push
 
   manifest:
     name: Publish multi-arch manifest
@@ -96,4 +96,4 @@ jobs:
           image-tags: |
             
             latest
-            '2026.06.1'
+            2026.06.1
