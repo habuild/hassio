@@ -32,16 +32,16 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Extract Label from YAML   ### version config.yaml  
-        id: get_yaml_label
-        run: |
-            # Uses yq (pre-installed on GitHub runners) to parse the yaml file
-            LABEL=$(yq -r '.version' /haos-sbfspot/config.yaml)
-            echo "label=$LABEL" >> "$GITHUB_OUTPUT"
+      #- name: Extract Label from YAML   ### version config.yaml  
+      #  id: get_yaml_label
+      #  run: |
+      #      # Uses yq (pre-installed on GitHub runners) to parse the yaml file
+      #      LABEL=$(yq -r '.version' /haos-sbfspot/config.yaml)
+      #      echo "label=$LABEL" >> "$GITHUB_OUTPUT"
 
-      - name: Use Extracted Label
-        run: |
-          echo "The extracted label is ${{ steps.get_yaml_label.outputs.label }}"
+      #- name: Use Extracted Label
+      #  run: |
+      #    echo "The extracted label is ${{ steps.get_yaml_label.outputs.label }}"
 
       - name: Get build matrix
         id: matrix
