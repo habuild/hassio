@@ -1,0 +1,3 @@
+[submodule "haos-sbfspot"]
+	path = haos-sbfspot
+	url = https://github.com/habuild/haos-sbfspot
