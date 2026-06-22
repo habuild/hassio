@@ -45,6 +45,8 @@ jobs:
       - name: 🚀 Run app information action
         id: information
         uses: frenck/action-addon-information@ce1377e9851cf569c29329e65fb2c57e67ca0f69 # v1.4.2
+        with:
+          path: "./"
       - name: 🚀 Process possible slug override
         id: override
         env:
@@ -70,7 +72,7 @@ jobs:
       - name: 🚀 Run App Lint
         uses: frenck/action-addon-linter@f995494fd84fae6310d23617e66d0e37de4f14eb # v2.21.0
         with:
-          community: true
+          community: false   ### true requires Dev value in config.yaml Version key
           path: "./${{ needs.information.outputs.target }}"
 
   lint-hadolint:
