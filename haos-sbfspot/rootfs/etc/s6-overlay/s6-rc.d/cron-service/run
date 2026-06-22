@@ -1,0 +1,3 @@
+#!/bin/execlineb -P
+# Run cron in foreground so S6 can supervise it
+cron -f
