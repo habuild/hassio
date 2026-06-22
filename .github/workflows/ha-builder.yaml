@@ -73,7 +73,7 @@ jobs:
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ matrix.image }}
           image-tags: |
-            $label
+            ${{ env.label }}
             latest
           push: "true"
           version: $label   ### ${{ github.event.release.tag_name }}" for published events or github.ref_name?? for push
@@ -95,5 +95,6 @@ jobs:
           image-name: ${{ env.IMAGE_NAME }}
           image-tags: |
             ${{ github.event.release.tag_name }}
-            $label
+            ${{ env.label }}
             latest
+            "$GITHUB_OUTPUT"
