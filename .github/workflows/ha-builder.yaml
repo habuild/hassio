@@ -30,7 +30,7 @@ jobs:
       matrix: ${{ steps.matrix.outputs.matrix }}
       label: ${{ steps.get_yaml_label.outputs.label }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       #- name: Extract Label from YAML   ### version config.yaml  
       #  id: get_yaml_label
@@ -62,7 +62,7 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.init.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.06.0
@@ -86,7 +86,7 @@ jobs:
       id-token: write   # Write needed for Cosign signing (issue OIDC token for signing)
       packages: write   # To push the manifest to GitHub Container Registry
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Publish multi-arch manifest
         uses: home-assistant/builder/actions/publish-multi-arch-manifest@2026.06.0
         with:
